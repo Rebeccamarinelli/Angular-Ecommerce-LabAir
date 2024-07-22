@@ -1,0 +1,166 @@
+
+svg{
+    margin-right: 0.65em;
+}
+
+a{
+    color: #111;
+    svg{
+        margin-right: 0;
+    }
+}
+
+ul{
+    display: none;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+header{
+    padding: 0 1%;
+}
+
+.nav-second{
+    display: flex;
+    justify-content: space-between;
+    ul{
+        align-items: center;
+        li{
+            margin: 0 1%;
+        }
+    }
+}
+
+.side-container{
+    display: flex;
+    align-items: center;
+}
+
+.love{
+    display: none;
+}
+
+.burger{
+    width: 20px;
+    height: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 0.65em;
+    span{
+        height: 1px;
+        display: block;
+        background-color: #111;
+
+    }
+}
+
+.banner, .jordan, .converse{
+    display: none;
+}
+
+.icon{
+    display: flex;
+}
+
+
+
+@media screen and (min-width: 1000px) {
+    ul{
+        display: flex;
+    }
+
+    .login{
+        display: none;
+    }
+
+    .love{
+        display: block;
+    }
+
+    .burger{
+        display: none;
+    }
+
+    .banner{
+        display: block;
+        width: 100%;
+        background-color: #f2f2f2;
+        text-align: center;
+        p{
+            padding-bottom: .5em;
+            &:first-child{
+                padding-top: .5em;
+            }
+            &:last-child{
+                font-size: 0.75em;
+            }
+            a{
+                display: inline-block;
+                text-decoration: underline;
+                font-family: "HelveticaNow-Medium", sans-serif;
+                color: #000;
+            }
+        }
+    }
+
+    .nav-first{
+        display: flex;
+        justify-content: space-between;
+        background-color: #f2f2f2;
+        padding: 0.6em 3%;
+        div{
+            width: 20%;
+            svg:first-child{
+                margin-right: 3%;
+            }
+            svg{
+                cursor: pointer;
+            }
+            svg:hover{
+                fill: #757575;
+            }
+        }
+        ul{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            text-align: center;
+            width: 56%;
+            li{
+                padding: 0 2%;
+                border-right: 2px solid #000;
+                &:last-child{
+                    padding-right:0;
+                    border: none;
+                }
+                a{
+                    color: #000;
+                    font-size: 0.75em;
+                    font-family:"HelveticaNow-Medium", sans-serif;
+                    &:hover{
+                    color: #757575; 
+                    }
+                }
+            }
+        }
+    }
+
+    .nav-second{
+        padding: 0 3%;
+        ul{
+            width: 45%;
+            justify-content: space-between;
+            li{
+                font-family: "HelveticaNow-Medium", sans-serif;
+            }
+        }
+    }
+
+
+    .jordan, .converse{
+        display: inline;
+    }
+
+}
