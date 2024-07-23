@@ -1,0 +1,29 @@
+.banner{
+    display: none;
+}
+
+
+@media screen and (min-width: 1000px) {
+
+    .banner{
+        display: block;
+        width: 100%;
+        background-color: #f2f2f2;
+        text-align: center;
+        p{
+            padding-bottom: .5em;
+            &:first-child{
+                padding-top: .5em;
+            }
+            &:last-child{
+                font-size: 0.75em;
+            }
+            a{
+                display: inline-block;
+                text-decoration: underline;
+                font-family: "HelveticaNow-Medium", sans-serif;
+                color: #000;
+            }
+        }
+    }
+}
