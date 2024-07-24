@@ -8,6 +8,7 @@ import { HeaderBannerFirstComponent } from './components/header-banner-first/hea
 import { HeaderBannerScdComponent } from './components/header-banner-scd/header-banner-scd.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HomeHeroComponent } from './components/home-hero/home-hero.component';
+import { SliderShoesComponent } from './components/slider-shoes/slider-shoes.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomeHeroComponent } from './components/home-hero/home-hero.component';
     HeaderBannerFirstComponent,
     HeaderBannerScdComponent,
     HomeComponent,
-    HomeHeroComponent
+    HomeHeroComponent,
+    SliderShoesComponent
   ],
   imports: [
     BrowserModule,

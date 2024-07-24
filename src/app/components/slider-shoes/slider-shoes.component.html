@@ -1,0 +1,207 @@
+<section>
+    <div class="container">
+        <div class="slider-wrapper">
+
+            <div class="buttons">
+                <button id="prev" class="prev btn invisibile"  (click)="consolMe($event)" [disabled]="isDisabledPrev">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none" ><path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967"></path></svg>
+                </button>
+                <button id="next" class="next btn" (click)="consolMe($event)" [disabled]="isDisabledNext">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none"><path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033"></path></svg>
+                </button>
+            </div>
+
+
+            <div class="card-list" (scroll)="handleSlideBtn()">
+
+                <div class="card">  
+                    <a href="product.html"><img src="./assets/imm/shoe-nike-1.png" alt="shoe 1"></a>
+                    <div class="text">
+                        <p>Nike Air Force 1 Flyknit 2.0</p>
+                        <p>Scarpa</p>
+                        <p>119,99 €</p>
+                    </div>
+                </div>
+                <div class="card">  
+                    <img src="./assets/imm/shoe-nike-2.png" alt="shoe 1">
+                    <div class="text">
+                        <p>Nike Air Force 1 '07</p>
+                        <p>Scarpa -Uomo</p>
+                        <p>119,99€</p>
+                    </div>
+                </div>
+                <div class="card">  
+                    <img src="./assets/imm/shoe-nike-3.png" alt="shoe 1">
+                    <div class="text">
+                        <p>Nike Dunk Low Retro</p>
+                        <p>Scarpa</p>
+                        <p>119,99€</p>
+                    </div>
+                </div>
+                <div class="card">  
+                    <img src="./assets/imm/shoe-nike-04.png" alt="shoe 1">
+                    <div class="text">
+                        <p>Nike Dunk Low Retro</p>
+                        <p>Scarpa -Uomo</p>
+                        <p>119,99€</p>
+                    </div>
+                </div>
+                <div class="card">  
+                    <img src="./assets/imm/shoe-nike-5.png" alt="shoe 1">
+                    <div class="text">
+                        <p>Nike Dunk Low Retro</p>
+                        <p>Scarpa</p>
+                        <p>119,99€</p>
+                    </div>
+                </div>
+                <div class="card">  
+                    <img src="./assets/imm/shoe-nike-6.png" alt="shoe 1">
+                    <div class="text">
+                        <p>nike</p>
+                        <p>Scarpa -Uomo</p>
+                        <p>119,99€</p>
+                    </div>
+                </div>
+                <div class="card">  
+                    <img src="./assets/imm/shoe-nike-7.png" alt="shoe 1">
+                    <div class="text">
+                        <p>Nike Court Vision Low</p>
+                        <p>Scarpa - Uomo</p>
+                        <p>79,99€</p>
+                    </div>
+                </div>
+                <div class="card">  
+                    <img src="./assets/imm/shoe-nike-8.png" alt="shoe 1">
+                    <div class="text">
+                        <p>Nike Dunk Low</p>
+                        <p>Scarpa - Donna</p>
+                        <p>119,99€</p>
+                    </div>
+                </div>
+                <div class="card">  
+                    <img src="./assets/imm/shoe-nike-9.png" alt="shoe 1">
+                    <div class="text">
+                        <p>Nike Air Force 1 '07</p>
+                        <p>Scarpa - Uomo</p>
+                        <p>119,99€</p>
+                    </div>
+                </div>
+                <div class="card">  
+                    <img src="./assets/imm/shoe-nike-10.png" alt="shoe 1">
+                    <div class="text">
+                        <p>Nike Air Force 1 '07</p>
+                        <p>Scarpa - Uomo</p>
+                        <p>119,99€</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-scrollbar">
+                <div class="scrollbar-track">
+                    <div class="scrollbar-thumb"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    <!-- <div class="controls">
+        <h2>Trend della settimana</h2>
+        <div class="buttons">
+            <button id="prev" class="prev" disabled>
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none" id="1-prev" ><path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967"></path></svg>
+            </button>
+            <button id="next" class="next">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none" id="1-next"><path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033"></path></svg>
+            </button>
+        </div>
+    </div> -->
+<!-- 
+    <div class="container-slider" id="container-slider">
+        <div class="card">  
+            <a href="product.html"><img src="./assets/imm/shoe-nike-1.png" alt="shoe 1"></a>
+            <div class="text">
+                <p>Nike Air Force 1 Flyknit 2.0</p>
+                <p>Scarpa</p>
+                <p>119,99 €</p>
+            </div>
+        </div>
+        <div class="card">  
+            <img src="./assets/imm/shoe-nike-2.png" alt="shoe 1">
+            <div class="text">
+                <p>Nike Air Force 1 '07</p>
+                <p>Scarpa -Uomo</p>
+                <p>119,99€</p>
+            </div>
+        </div>
+        <div class="card">  
+            <img src="./assets/imm/shoe-nike-3.png" alt="shoe 1">
+            <div class="text">
+                <p>Nike Dunk Low Retro</p>
+                <p>Scarpa</p>
+                <p>119,99€</p>
+            </div>
+        </div>
+        <div class="card">  
+            <img src="./assets/imm/shoe-nike-04.png" alt="shoe 1">
+            <div class="text">
+                <p>Nike Dunk Low Retro</p>
+                <p>Scarpa -Uomo</p>
+                <p>119,99€</p>
+            </div>
+        </div>
+        <div class="card">  
+            <img src="./assets/imm/shoe-nike-5.png" alt="shoe 1">
+            <div class="text">
+                <p>Nike Dunk Low Retro</p>
+                <p>Scarpa</p>
+                <p>119,99€</p>
+            </div>
+        </div>
+        <div class="card">  
+            <img src="./assets/imm/shoe-nike-6.png" alt="shoe 1">
+            <div class="text">
+                <p>nike</p>
+                <p>Scarpa -Uomo</p>
+                <p>119,99€</p>
+            </div>
+        </div>
+        <div class="card">  
+            <img src="./assets/imm/shoe-nike-7.png" alt="shoe 1">
+            <div class="text">
+                <p>Nike Court Vision Low</p>
+                <p>Scarpa - Uomo</p>
+                <p>79,99€</p>
+            </div>
+        </div>
+        <div class="card">  
+            <img src="./assets/imm/shoe-nike-8.png" alt="shoe 1">
+            <div class="text">
+                <p>Nike Dunk Low</p>
+                <p>Scarpa - Donna</p>
+                <p>119,99€</p>
+            </div>
+        </div>
+        <div class="card">  
+            <img src="./assets/imm/shoe-nike-9.png" alt="shoe 1">
+            <div class="text">
+                <p>Nike Air Force 1 '07</p>
+                <p>Scarpa - Uomo</p>
+                <p>119,99€</p>
+            </div>
+        </div>
+        <div class="card">  
+            <img src="./assets/imm/shoe-nike-10.png" alt="shoe 1">
+            <div class="text">
+                <p>Nike Air Force 1 '07</p>
+                <p>Scarpa - Uomo</p>
+                <p>119,99€</p>
+            </div>
+        </div>
+    </div> -->
+</section>
