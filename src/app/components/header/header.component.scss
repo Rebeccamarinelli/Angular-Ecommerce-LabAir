@@ -1,3 +1,4 @@
+@import "../../../partial/variabili";
 
 svg{
     margin-right: 0.75em;
@@ -94,7 +95,7 @@ header{
 
     
     .nav-second{
-        padding: 0 3%;
+        padding: $borderPadding;
         ul{
             width: 45%;
             justify-content: space-between;

@@ -1,0 +1,54 @@
+@font-face {
+    font-family: "HelveticaNow";
+    src:    url(/assets/font/HelveticaNowText-Regular.woff2),
+            url(/assets/font/HelveticaNowText-Regular.woff),
+            url(/assets/font/HelveticaNowText-Regular.ttf);
+}
+
+@font-face {
+    font-family: "HelveticaNow-Medium";
+    src:    url(/assets/font/HelveticaNowText-Medium.woff2),
+            url(/assets/font/HelveticaNowText-Medium.woff),
+            url(/assets/font/HelveticaNowText-Medium.ttf);
+}
+
+@font-face {
+    font-family: "HelveticaNow-EBold";
+    src:    url(/assets/font/HelveticaNowText-ExtraBold.woff2),
+            url(/assets/font/HelveticaNowText-ExtraBold.woff),
+            url(/assets/font/HelveticaNowText-ExtraBold.woff2);
+}
+
+*{ 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:"HelveticaNow", sans-serif ;
+    font-size: 1em;
+}
+
+ul{
+    list-style-type: none;
+}
+
+img{
+    max-width: 100%;
+    display: block;
+}
+
+a{
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+button{
+    cursor: pointer;
+}
+
+.hidden{
+    overflow: hidden;
+}

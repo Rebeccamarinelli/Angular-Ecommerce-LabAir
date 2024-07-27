@@ -1,0 +1,142 @@
+
+
+.option1{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2em;
+    p{
+        text-decoration:underline;
+    }
+}
+
+.option2{
+    width: 100%;
+    border-bottom: 1px solid #757575;
+    p{
+        font-size: 1.15em;
+        color: #757575;
+        &:first-child{
+            color: #111;
+        }
+        &:nth-child(2){
+            padding-bottom: 0.8em;
+        }
+        &:nth-child(4){
+            padding-bottom: 0.8em;
+        }
+        &:nth-child(5){
+            color: #111;
+        }
+        &:last-child{
+           padding-bottom: 3.5em;
+        }
+    }
+}
+
+.title{
+    padding: 2em 0;
+}
+
+.lit{
+    color: #757575;
+    a{
+        color: #111;
+        text-decoration: underline;
+        display: inline-block;
+    }
+}
+
+.check{
+    padding-bottom: 2em;
+}
+
+.check-pay{
+    padding-bottom: 2em;
+    div{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        svg{
+            margin: 0 2%;
+        }
+        
+        img{
+            margin-left: 2%;
+            width: 10%;
+        }
+        
+        
+    }
+    p{
+        font-size: 1.15em;
+    }
+}
+
+.bg{
+    font-size: 1.15em;
+}
+
+.insert-card{
+    width: 100%;
+    border: 1px solid #757575;
+    border-radius: 20px;
+    padding: 3em 2%;
+    margin-bottom: 3em;
+    h3{
+        padding-bottom: 1.15em;
+        font-size: 1.15em;
+    }
+}
+
+#cartadicredito{
+    width: 58%;
+}
+
+#scadenza{
+    width: 20%;
+}
+
+#cvv{
+    width: 20%;
+}
+
+.where-my-cv{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    p{
+        text-decoration: underline;
+        font-size: 0.8em;
+    }
+}
+
+.sped-datas{
+    span{
+        font-size: 1.15em;
+    }
+    p{
+        font-size: 1.15em;
+        color: #757575;
+        padding-bottom: 0.5em;
+        &:first-of-type{
+            color: #111;
+        }
+    }
+}
+
+
+.go-payment button.btn-pay{
+    background-color: #cbcbcb;
+    color: #757575;
+    width: 50%;
+}
+
+//----------------------------------------------------------------------------------------
+
+.labels-credit{
+    display: flex;
+    justify-content: space-around;
+
+}

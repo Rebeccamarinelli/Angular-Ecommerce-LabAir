@@ -1,0 +1,72 @@
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin spacer {
+    display: flex;
+    justify-content:space-between;
+}
+
+@mixin btn{
+    width: 140px;
+    border-radius: 50px;
+    border: none;
+    padding: 0.6em 0 0.8em 0;
+    background-color: $white;
+    font-size: 0.9em;
+    font-family: $fontMid;
+    color: #2e2e2e;
+    cursor: pointer;
+    @include center;
+}
+
+@mixin btn-carusel{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background:#f2f2f2;
+    color: #111;
+    &:hover{
+        background-color: #a7a7a7;
+    }
+}
+
+@mixin carusel{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 30%;
+    gap: 10px;    
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+
+}
+
+
+
+@mixin btn-pay{
+    width: 100%;
+    padding: 1.5em 0;
+    background-color: #111;
+    color: $white;
+    border: none;
+    border-radius: 50px;
+    margin-top: 2em;
+    font-size: 1.15em;
+    @include center;
+}
+
+@mixin btn-form-data{
+    width: 49%;
+    border: none;
+    padding: 1.5em;
+    font-size: 1.15em;
+    background-color: $white;
+    border-radius: 15px;
+    border: 2px solid #111;
+    @include center;
+}

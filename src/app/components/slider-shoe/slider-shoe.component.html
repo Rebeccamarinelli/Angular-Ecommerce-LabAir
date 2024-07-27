@@ -1,0 +1,28 @@
+
+        <div class="slider-wrapper">
+
+            <div class="buttons">
+                <button id="prev" #btnPrev class="prev btn invisibile"  (click)="controlsBtn($event)" [disabled]="isDisabledPrev">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none" ><path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967"></path></svg>
+                </button>
+                <button id="next" #btnNext class="next btn" (click)="controlsBtn($event)" [disabled]="isDisabledNext">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none"><path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033"></path></svg>
+                </button>
+            </div>
+            
+            <div #cardlist class="card-list" (scroll)="handleSlideBtn()">
+
+                <div #card class="card" *ngFor="let shoe of shoesCard">  
+                    <img [src]="shoe.immagine" [alt]="shoe.titolo">
+                    <div class="text">
+                        <p>{{shoe.titolo}}</p>
+                        <p>{{shoe.categoria}}</p>
+                        <p>{{shoe.prezzo}}</p>
+                    </div>
+                </div>
+                
+            </div>
+        
+
+        </div>
+

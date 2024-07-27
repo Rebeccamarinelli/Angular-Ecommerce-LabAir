@@ -1,0 +1,73 @@
+footer{
+    width: 100%;
+    div{
+        padding-top: 3em;
+        background-color: $colorFirst;
+        color: #111;
+        @include center;
+        align-items: flex-start;
+        &:last-child{
+            section{
+                background-color: #111;
+                display: flex;
+                justify-content: space-between;
+                padding-bottom: 2em;
+                div{
+                    &:first-child{
+                        width: 60%;
+                    }
+                    background-color: #111;
+                    padding-left: 3%;
+                    ul{
+                        &:first-child li{
+                            font-family: $fontMid;
+                            color: $white;
+                        }
+                        width: 40%;
+                        li{
+                            &:first-child{
+                                font-size: 0.8em;
+                                font-family: $fontMid;
+                                color: $white;
+                            }
+                            padding-bottom: 1em;
+                            font-size: 0.8em;
+                        }
+                    }
+                }
+            }
+        }
+        ul{
+            padding-right: 5%;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            &:last-child{
+                padding-left: 0;
+            }
+            li{
+                padding-bottom: $dimRegular;
+                color: #757575;
+                &:first-child{
+                    font-size: 1.3em;
+                    color: #111;
+                }
+            }
+        }
+    }
+}
+
+.footer-icon{
+    background-color: #111;
+    padding-right: 3%;
+    width: 15%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.footer-icon svg{
+    fill: #7e7e7e;
+}
+

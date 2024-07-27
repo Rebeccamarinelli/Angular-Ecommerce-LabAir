@@ -1,0 +1,29 @@
+.thanks-wrapper{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 101;
+    background-color: $white;
+    display: none;
+}
+
+.thanks-wrapper_text{
+    text-align: center;
+    button{
+        @include btn-pay;
+        background-color: $white;
+        border: 1px solid #757575;
+        a{
+            color: #111;
+        }
+    }
+}
+
+
+

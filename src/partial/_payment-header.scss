@@ -1,0 +1,28 @@
+.white-payment{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 102;
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 3% 0 3%;
+}
+
+.chat-live{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    p{
+        padding-right: 3%;
+    }
+}
+
+.icon{
+    a{
+        color: #111;
+    }
+}
+

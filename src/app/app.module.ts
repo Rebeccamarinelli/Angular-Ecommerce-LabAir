@@ -8,7 +8,10 @@ import { HeaderBannerFirstComponent } from './components/header-banner-first/hea
 import { HeaderBannerScdComponent } from './components/header-banner-scd/header-banner-scd.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HomeHeroComponent } from './components/home-hero/home-hero.component';
-import { SliderShoesComponent } from './components/slider-shoes/slider-shoes.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SliderShoeComponent } from './components/slider-shoe/slider-shoe.component';
+import { SliderSportComponent } from './components/slider-sport/slider-sport.component';
+import { SliderMemberComponent } from './components/slider-member/slider-member.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { SliderShoesComponent } from './components/slider-shoes/slider-shoes.com
     HeaderBannerScdComponent,
     HomeComponent,
     HomeHeroComponent,
-    SliderShoesComponent
+    FooterComponent,
+    SliderShoeComponent,
+    SliderSportComponent,
+    SliderMemberComponent
   ],
   imports: [
     BrowserModule,

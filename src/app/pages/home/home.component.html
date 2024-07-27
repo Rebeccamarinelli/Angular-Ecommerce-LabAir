@@ -1,5 +1,20 @@
 
 <main>
     <app-home-hero></app-home-hero>
-    <app-slider-shoes></app-slider-shoes>
+    <section>
+        <div class="container">
+            <app-slider-shoe [shoesCard]="shoes"></app-slider-shoe>
+        </div>
+    </section>
+        <section>
+            <div class="container">
+                <app-slider-sport [sportImages]="sport"></app-slider-sport>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <app-slider-member [memberImages]="member"></app-slider-member>
+            </div>
+        </section>
+    
 </main>
