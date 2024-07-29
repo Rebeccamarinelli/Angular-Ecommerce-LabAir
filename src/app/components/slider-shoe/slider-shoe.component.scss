@@ -1,5 +1,9 @@
 @import"../../../partial/variabili";
 
+img{
+    cursor: pointer;
+}
+
 .card-list{
     display: grid;
     grid-template-columns: repeat(10, 1fr);

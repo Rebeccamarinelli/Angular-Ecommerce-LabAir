@@ -13,6 +13,7 @@ import { SliderShoeComponent } from './components/slider-shoe/slider-shoe.compon
 import { SliderSportComponent } from './components/slider-sport/slider-sport.component';
 import { SliderMemberComponent } from './components/slider-member/slider-member.component';
 import { FooterBComponent } from './components/footer-b/footer-b.component';
+import { ProductsComponent } from './pages/products/products.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { FooterBComponent } from './components/footer-b/footer-b.component';
     SliderSportComponent,
     SliderMemberComponent,
     FooterBComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,

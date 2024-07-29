@@ -15,7 +15,7 @@
             <div #cardlist class="card-list" (scroll)="handleSlideBtn()">
 
                 <div #card class="card" *ngFor="let shoe of shoesCard">  
-                    <img [src]="shoe.immagine" [alt]="shoe.titolo">
+                    <img [src]="shoe.immagine" [alt]="shoe.titolo"  routerLink="/products">
                     <div class="text">
                         <p>{{shoe.titolo}}</p>
                         <p>{{shoe.categoria}}</p>
