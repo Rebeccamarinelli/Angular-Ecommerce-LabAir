@@ -9,7 +9,7 @@
 }
 
 .card-sport {
-    width: 600px;
+    width: 270px;
 }
 
 .buttons{
@@ -49,4 +49,41 @@ button{
 
 button svg{
     pointer-events: none;
+}
+
+.c-btn-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h2{
+        width: 100%;
+        font-size: 1.2em;
+        margin-bottom: 1.5em;
+    }
+}
+
+
+
+@media screen and (min-width:620px) {
+    .card-sport{
+        width: 350px;
+    }  
+    
+}
+
+@media screen and (min-width:1000px) {
+    .c-btn-title{
+        h2{
+            font-size: 2.2em;
+            margin-bottom: 0.5em;
+        }
+    }
+
+}
+
+@media screen and (min-width:1300px) {
+    .card-sport{
+        width: 460px;
+    }
+
 }

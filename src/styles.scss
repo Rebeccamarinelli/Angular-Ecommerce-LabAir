@@ -56,3 +56,13 @@ a{
 button{
     cursor: pointer;
 }
+
+body.scroll-up header {
+    filter: drop-shadow(0 -10px 20px rgb(170,170,170));
+    transition: transform 0.3s ease-in-out;
+   }
+   
+ body.scroll-down header {
+     transform: translate3d(0, -100%, 0);
+     transition: transform 0.3s ease-in-out;
+ }

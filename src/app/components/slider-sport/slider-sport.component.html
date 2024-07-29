@@ -1,12 +1,14 @@
 <div class="slider-wrapper">
-        
-    <div class="buttons">
-        <button id="prev" #btnPrevSport  class="prev btn2 invisibile"  (click)="controlsBtnSport($event)" [disabled]="isDisabledPrevSport">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none" ><path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967"></path></svg>
-        </button>
-        <button id="next"  #btnNextSport class="next btn2" (click)="controlsBtnSport($event)" [disabled]="isDisabledNextSport">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none"><path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033"></path></svg>
-        </button>
+    <div class="c-btn-title">
+        <h2 class="title">Acquista per sport</h2>   
+        <div class="buttons">
+            <button id="prev" #btnPrevSport  class="prev btn2 invisibile"  (click)="controlsBtnSport($event)" [disabled]="isDisabledPrevSport">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none" ><path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967"></path></svg>
+            </button>
+            <button id="next"  #btnNextSport class="next btn2" (click)="controlsBtnSport($event)" [disabled]="isDisabledNextSport">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none"><path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033"></path></svg>
+            </button>
+        </div>
     </div>
 
     
