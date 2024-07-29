@@ -1,0 +1,48 @@
+.footer_b_foot-box{
+    width: 100%;
+    background-color: #111;
+    color: #757575;
+    padding: 1em 2%;
+    font-size: 0.8em;
+}
+
+@media screen and (min-width:800px) {
+    
+    .footer_b_foot-box{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        svg{
+            padding-left: 2%;
+        }
+    }
+}
+
+@media screen and (min-width:1300px) {
+    .footer_b_foot{
+        width: 100%;
+        background-color: #111;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+    }
+
+    .footer_b_foot-box{
+        width: 35%;
+    }
+   
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+

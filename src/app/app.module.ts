@@ -12,7 +12,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SliderShoeComponent } from './components/slider-shoe/slider-shoe.component';
 import { SliderSportComponent } from './components/slider-sport/slider-sport.component';
 import { SliderMemberComponent } from './components/slider-member/slider-member.component';
-import { ButtonComponent } from './components/button/button.component';
+import { FooterBComponent } from './components/footer-b/footer-b.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { ButtonComponent } from './components/button/button.component';
     SliderShoeComponent,
     SliderSportComponent,
     SliderMemberComponent,
-    ButtonComponent
+    FooterBComponent,
   ],
   imports: [
     BrowserModule,
