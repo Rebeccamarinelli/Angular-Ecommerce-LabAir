@@ -44,7 +44,11 @@ export class SliderSportComponent {
           this.isDisabledNextSport = false;
      }
  }
-  
+
+
+ onButtonClicked(event: Event): void {
+  console.log('Button clicked!', event);
+}
 
 
 

@@ -1,3 +1,5 @@
+@import "../../../partial/variabili";
+
 .card-list-sport{
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -6,10 +8,14 @@
     scrollbar-width: none;
     margin-bottom: 2em;
     scroll-behavior: smooth;
+    margin-bottom: 1em;
 }
 
 .card-sport {
     width: 270px;
+    position: relative;
+    top: 0;
+    left: 0;
 }
 
 .buttons{
@@ -62,12 +68,35 @@ button svg{
     }
 }
 
-
+button.button{
+    position: absolute;
+    bottom: 10px;
+    left: 25px;
+    width: 100px;
+    border-radius: 50px;
+    border: none;
+    padding: 0.6em 0 0.8em 0;
+    background-color: $colorFirst;
+    font-size: 0.75em;
+    font-family: "HelveticaNow-Medium", sans serif;
+    color: #111;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 @media screen and (min-width:620px) {
     .card-sport{
         width: 350px;
     }  
+
+    button.button{
+        bottom: 20px;
+        left: 40px;
+        width: 140px;
+        font-size: 0.9em;
+    }
     
 }
 

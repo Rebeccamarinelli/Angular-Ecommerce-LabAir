@@ -1,18 +1,22 @@
 <div class="slider-wrapper">
 
-    <div class="buttons">
-        <button id="prev" #btnPrevMember class="prev btn3 invisibile"  (click)="controlsBtnMember($event)" [disabled]="isDisabledPrevMember">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none" ><path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967"></path></svg>
-        </button>
-        <button id="next" #btnNextMember class="next btn3" (click)="controlsBtnMember($event)" [disabled]="isDisabledNextMember">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none"><path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033"></path></svg>
-        </button>
-    </div>
+   <div class="c-btn-title">
+        <h2 class="title">Scopri di Più</h2>
+        <div class="buttons">
+            <button id="prev" #btnPrevMember class="prev btn3 invisibile"  (click)="controlsBtnMember($event)" [disabled]="isDisabledPrevMember">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none" ><path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967"></path></svg>
+            </button>
+            <button id="next" #btnNextMember class="next btn3" (click)="controlsBtnMember($event)" [disabled]="isDisabledNextMember">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none"><path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033"></path></svg>
+            </button>
+        </div>
+   </div>
     
     <div class="card-list-member" #cardListMember (scroll)="handleSlideBtnMember()">
 
         <div class="card-member" #cardMember *ngFor="let sportImage of memberImages">
             <img [src]="sportImage.immagine" alt="sport-fitness">
+            <button class="button">{{sportImage.titolo}}</button>
         </div>
         
     </div>

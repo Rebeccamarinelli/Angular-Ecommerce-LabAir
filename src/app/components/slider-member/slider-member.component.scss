@@ -1,3 +1,5 @@
+@import "../../../partial/variabili";
+
 .card-list-member{
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -9,7 +11,10 @@
 }
 
 .card-member{
-    width: 500px;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 270px;
 }
 
 
@@ -50,4 +55,65 @@ button{
 
 button svg{
     pointer-events: none;
+}
+
+.c-btn-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h2{
+        width: 100%;
+        font-size: 1.2em;
+        margin-bottom: 1.5em;
+    }
+}
+
+button.button{
+    position: absolute;
+    bottom: 10px;
+    left: 25px;
+    width: 100px;
+    border-radius: 50px;
+    border: none;
+    padding: 0.6em 0 0.8em 0;
+    background-color: $colorFirst;
+    font-size: 0.75em;
+    font-family: "HelveticaNow-Medium", sans serif;
+    color: #111;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media screen and (min-width:620px) {
+    .card-member{
+        width: 350px;
+    }  
+    
+    button.button{
+        bottom: 20px;
+        left: 40px;
+        width: 140px;
+        font-size: 0.9em;
+    }
+    
+}
+
+@media screen and (min-width:1000px) {
+    .c-btn-title{
+        h2{
+            font-size: 2.2em;
+            margin-bottom: 0.5em;
+        }
+    }
+
+}
+
+@media screen and (min-width:1300px) {
+    .card-member{
+        width: 480px;
+    }
+
 }

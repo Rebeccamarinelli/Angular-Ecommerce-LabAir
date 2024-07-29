@@ -63,33 +63,42 @@ export const shoes:any =[
 
 export const sport = [
     {
-        immagine:'./assets/imm/sport-1.webp'
+        immagine:'./assets/imm/sport-1.webp',
+        titolo:'Fitness',
     },
     {
-        immagine:'./assets/imm/sport-2.webp'
+        immagine:'./assets/imm/sport-2.webp',
+        titolo:'Tennis',
     },
     {
-        immagine:'./assets/imm/sport-3.webp'
+        immagine:'./assets/imm/sport-3.webp',
+        titolo:'Yoga',
     },
     {
-        immagine:'./assets/imm/sport-4.webp'
+        immagine:'./assets/imm/sport-4.webp',
+        titolo:'Skate',
     },
     {
-        immagine:'./assets/imm/sport-5.webp'
+        immagine:'./assets/imm/sport-5.webp',
+        titolo:'Danza',
     }
 ]
 
 export const membership = [
     {
-        immagine:'./assets/imm/wom.webp'
+        immagine:'./assets/imm/wom.webp',
+        titolo:'Donna',
     },
     {
-        immagine:'./assets/imm/man.webp'
+        immagine:'./assets/imm/man.webp',
+        titolo:'Uomo',
     },
     {
-        immagine:'./assets/imm/kids.webp'
+        immagine:'./assets/imm/kids.webp',
+        titolo:'Bambino',
     },
     {
-        immagine:'./assets/imm/teen.webp'
+        immagine:'./assets/imm/teen.webp',
+        titolo:'Teenager'
     }
 ]
