@@ -14,6 +14,9 @@ import { SliderSportComponent } from './components/slider-sport/slider-sport.com
 import { SliderMemberComponent } from './components/slider-member/slider-member.component';
 import { FooterBComponent } from './components/footer-b/footer-b.component';
 import { ProductsComponent } from './pages/products/products.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SidebarProductMenuComponent } from './components/sidebar-product-menu/sidebar-product-menu.component';
+import { CardProductComponent } from './components/card-product/card-product.component';
 
 
 @NgModule({
@@ -30,10 +33,13 @@ import { ProductsComponent } from './pages/products/products.component';
     SliderMemberComponent,
     FooterBComponent,
     ProductsComponent,
+    SidebarProductMenuComponent,
+    CardProductComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

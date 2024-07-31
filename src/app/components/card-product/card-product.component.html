@@ -1,0 +1,13 @@
+
+<div class="c-side">
+    <app-sidebar-product-menu></app-sidebar-product-menu>
+    <div class="c-card">
+        <div class="card" *ngFor="let prodotto of products, let i = index">
+            <img [src]="prodotto.immagine" [alt]="prodotto.nome">
+            <h2>{{prodotto.nome}}</h2>
+            <p class="category">{{prodotto.categoria}}</p>
+            <p class="color">colori disponibili {{getlenght(prodotto.colori_disponibili)}}</p>
+            <p class="price">{{prodotto.prezzo | currency:'EUR' }}</p>
+        </div>   
+    </div>
+</div>
