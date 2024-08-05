@@ -1,53 +1,57 @@
 <div class="sidebar-menu">
+   <div class="input-field">
+      <svg viewBox="0 0 24 24"  width="24px" height="24px" fill="none"><path stroke="currentColor" stroke-width="1.5" d="M13.962 16.296a6.716 6.716 0 01-3.462.954 6.728 6.728 0 01-4.773-1.977A6.728 6.728 0 013.75 10.5c0-1.864.755-3.551 1.977-4.773A6.728 6.728 0 0110.5 3.75c1.864 0 3.551.755 4.773 1.977A6.728 6.728 0 0117.25 10.5a6.726 6.726 0 01-.921 3.407c-.517.882-.434 1.988.289 2.711l3.853 3.853"></path></svg>
+      <input type="text" placeholder="Cerca" [formControl] =filtro (input)="passArray()">
+  </div>
    <ul>
-    <li>Giacche</li>
-    <li>Parkas</li>
-    <li>Piumini</li>
-    <li>Antivento</li>
-    <li>Smanicati</li>
-    <li>Impermeabili</li>
-    <li>Giacche di Atletica</li>
-    <li>Anoraks</li>
+      <li>Giacche</li>
+      <li>Parkas</li>
+      <li>Piumini</li>
+      <li>Antivento</li>
+      <li>Smanicati</li>
+      <li>Impermeabili</li>
+      <li>Giacche di Atletica</li>
+      <li>Anoraks</li>
    </ul>
-   <ul>
-    <li>Giacche</li>
-    <li>Parkas</li>
-    <li>Piumini</li>
-    <li>Antivento</li>
-    <li>Smanicati</li>
-    <li>Impermeabili</li>
-    <li>Giacche di Atletica</li>
-    <li>Anoraks</li>
-   </ul>
-   <ul>
-    <li>Giacche</li>
-    <li>Parkas</li>
-    <li>Piumini</li>
-    <li>Antivento</li>
-    <li>Smanicati</li>
-    <li>Impermeabili</li>
-    <li>Giacche di Atletica</li>
-    <li>Anoraks</li>
-   </ul>
-   <ul>
-    <li>Giacche</li>
-    <li>Parkas</li>
-    <li>Piumini</li>
-    <li>Antivento</li>
-    <li>Smanicati</li>
-    <li>Impermeabili</li>
-    <li>Giacche di Atletica</li>
-    <li>Anoraks</li>
-    <li>Antivento</li>
-    <li>Smanicati</li>
-    <li>Impermeabili</li>
-    <li>Giacche di Atletica</li>
-    <li>Anoraks</li>
-    <li>Antivento</li>
-    <li>Smanicati</li>
-    <li>Impermeabili</li>
-    <li>Giacche di Atletica</li>
-    <li>Anoraks</li>
-   </ul>
+
+   <div>
+      <h2>Categoria</h2>
+      <div class="c-categories">
+         <p>Uomo</p>
+         <p>Donna</p>
+         <p>Bambino</p>
+      </div>
+   </div>
+
+   <div>
+      <h2>Acquista Per Prezzo</h2>
+      <div class="c-categories">
+         <p (click)="getFilteredByPrice('50')" (click)="passArray()">Inferiore a 50€</p>
+         <p (click)="getFilteredByPrice('50-100')" (click)="passArray()">50€ - 100€</p>
+         <p (click)="getFilteredByPrice('100-150')" (click)="passArray()">100€ - 150€</p>
+         <p (click)="getFilteredByPrice('150')" (click)="passArray()">Superiore a 150€</p>
+      </div>
+   </div>
+
+   <div class="c-categories">
+      <h2>Colore</h2>
+      <div class="color">
+         <div class="c-black-a-p" *ngFor="let color of colors" (click)="getFilterByColor(color.name)" (click)="passArray()">
+            <div class="round" [ngStyle]="{'background-color': color.color}" [ngClass]="'borderCircle'"></div>
+            <p [textContent]="color.name"></p>
+         </div>
+      </div>
+   </div>
+
+   <div>
+      <h2>Sports</h2>
+      <div class="c-categories">
+         <p (click)="getFilteredByCat('Sneakers')" (click)="passArray()">Sneakers</p>
+         <p (click)="getFilteredByCat('Running')" (click)="passArray()">Running</p>
+         <p (click)="getFilteredByCat('Basket')" (click)="passArray()">Basket</p>
+         <p (click)="getFilteredByCat('Training')" (click)="passArray()">Training</p>
+         <p (click)="getFilteredByCat('Trail Running')" (click)="passArray()">Trail Running</p>
+      </div>
+   </div>
 
 </div>

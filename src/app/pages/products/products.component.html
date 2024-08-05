@@ -1,3 +1,4 @@
+
 <main class="container-prod">
-        <app-card-product  [products]="prodottiArray" ></app-card-product>
+        <app-card-product  [products]="prodottiArray" (goIntoDitails)="getId($event)"></app-card-product>
 </main>

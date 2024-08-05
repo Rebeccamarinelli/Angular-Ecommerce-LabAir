@@ -7,6 +7,7 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+
   
   constructor(private router: Router) {}
 
@@ -17,5 +18,7 @@ export class AppComponent {
       }
     });
   }
+
+
 
 }

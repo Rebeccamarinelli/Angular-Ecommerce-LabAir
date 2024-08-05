@@ -5,14 +5,57 @@
             <a href="index.html"><svg class="nike" width=" 145px" height="70px" viewBox="15 0 24 24"><path d="M21 8.719L7.836 14.303C6.74 14.768 5.818 15 5.075 15c-.836 0-1.445-.295-1.819-.884-.485-.76-.273-1.982.559-3.272.494-.754 1.122-1.446 1.734-2.108-.144.234-1.415 2.349-.025 3.345.275.2.666.298 1.147.298.386 0 .829-.063 1.316-.19L21 8.719z"></path></svg></a>
         </div>
 
-        <ul>
-            <li><a href="#">Novità e in evidenza</a></li>
-            <li><a href="#">Uomo</a></li>
-            <li><a href="#">Donna</a></li>
-            <li><a href="#">Kids</a></li>
-            <li><a href="product.html">Outlet</a></li>
-        </ul> 
+        <div class="ulPlus">
+            <ul>
+                <li><a>Novità e in evidenza</a></li>
+                <li><a>Uomo</a></li>
+                <li><a>Donna</a></li>
+                <li><a>Kids</a></li>
+                <li><a>Outlet</a></li>
+            </ul> 
+            <div class="menu hidden"  #menuLarge >
+                <nav>
+                    <ul>
+                        <li>In Evidenza</li>
+                        <li  (click)="filterNewArrivals()">Tutti i nuovi arrivi</li>
+                        <li  (click)="filterBestSellers()">Best Seller</li>
+                        <li>Member Shop</li>
+                        <li>Calendario</li>
+                        <li>Shop air</li>
+                        <li>Summer of sport</li>
+                        <li>Must-have</li>
+                    </ul>
+                    <ul>
+                        <li>Scopri Le Icone</li>
+                        <li>Air Force</li>
+                        <li>Air Jordan</li>
+                        <li>Pegasus</li>
+                        <li>Dunk</li>
+                        <li>Blazer</li>
+                        <li>Cortez</li>
+                        <li>Mercurial</li>
+                    </ul>
+                    <ul>
+                        <li>Scopri Lo Sport</li>
+                        <li *ngFor="let categoria of categories" (click)="filterByCategory(categoria)">
+                         {{ categoria }}
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>Di Tendenza</li>
+                        <li>AirMax</li>
+                        <li>Snekears Y2</li>
+                        <li>Teenager</li>
+                        <li>Sport in Time</li>
+                        <li>Air Jordan</li>
+                        <li>Pegasus Next</li>
+                        <li>Woman</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
         
+
         <div class="side-container">
             <div class="input-field">
                 <svg viewBox="0 0 24 24"  width="24px" height="24px" fill="none"><path stroke="currentColor" stroke-width="1.5" d="M13.962 16.296a6.716 6.716 0 01-3.462.954 6.728 6.728 0 01-4.773-1.977A6.728 6.728 0 013.75 10.5c0-1.864.755-3.551 1.977-4.773A6.728 6.728 0 0110.5 3.75c1.864 0 3.551.755 4.773 1.977A6.728 6.728 0 0117.25 10.5a6.726 6.726 0 01-.921 3.407c-.517.882-.434 1.988.289 2.711l3.853 3.853"></path></svg>
@@ -36,3 +79,4 @@
     <app-header-banner-scd (mandaBanner)="riceviBanner($event)"></app-header-banner-scd>
 </header>
 
+<div class="overlay hidden" ></div>

@@ -1,4 +1,9 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener} from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ProdottiService } from '../../services/prodotti.service';
+
+
 
 @Component({
   selector: 'app-header',
@@ -7,9 +12,15 @@ import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 })
 export class HeaderComponent {
 
+  // filter: FormControl = new FormControl()
+  
+
+ constructor(private router:Router, private prodottiServ: ProdottiService){}
+
   private lastScroll: number = 0;
   private body: HTMLElement;
   bannerElement!: ElementRef<HTMLDivElement>;
+
   
   riceviBanner(elementRef: ElementRef<HTMLDivElement>){
     this.bannerElement = elementRef;
@@ -17,7 +28,11 @@ export class HeaderComponent {
 
   ngOnInit(): void {
     this.body = document.body;
-  }
+    // this.filter.valueChanges.subscribe(value => {
+    //   this.prodottiServ.setSearchTerm(value);
+    // });
+   
+ }
 
   @HostListener('window:scroll', []) onWindowScroll(): void {
 
@@ -49,5 +64,29 @@ export class HeaderComponent {
 
     this.lastScroll = currentScroll;
   }
+
+ 
+
+  categories: string[] = ['Basket', 'Running', 'Training', 'Sneakers', 'Trail Running'];
+
+
+  filterNewArrivals() {
+    this.router.navigate(['/products'], { queryParams: { filter: 'nuovo_arrivi' } }); 
+                                            // ?filter = nuovo_arrivi
+  }
+
+  filterBestSellers() {
+    this.router.navigate(['/products'], { queryParams: { filter: 'best_sellers' } });
+  }
+
+  filterByCategory(category: string) {
+    this.router.navigate(['/products'], { queryParams: { category } });
+  }
+
+
+
+
+
+
 
 }

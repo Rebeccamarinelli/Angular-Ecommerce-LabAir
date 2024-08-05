@@ -66,3 +66,12 @@ body.scroll-up header {
      transform: translate3d(0, -100%, 0);
      transition: transform 0.3s ease-in-out;
  }
+
+ body.scroll-up header .menu{
+    transition: transform 0.3s ease-in-out;
+   }
+   
+ body.scroll-down header .menu{
+     transform: translate3d(0, -100%, 0);
+     transition: transform 0.3s ease-in-out;
+ }

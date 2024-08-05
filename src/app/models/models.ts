@@ -9,6 +9,7 @@ export interface IProdotti {
   prezzo: number
   taglie_disponibili: string[]
   colori_disponibili: string[]
+  colori_immagini: string[]
   descrizione: string
   immagine: string
   nuovo_arrivi: boolean

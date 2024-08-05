@@ -17,6 +17,9 @@ import { ProductsComponent } from './pages/products/products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SidebarProductMenuComponent } from './components/sidebar-product-menu/sidebar-product-menu.component';
 import { CardProductComponent } from './components/card-product/card-product.component';
+import { ProductDitailComponent } from './components/product-ditail/product-ditail.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -35,11 +38,13 @@ import { CardProductComponent } from './components/card-product/card-product.com
     ProductsComponent,
     SidebarProductMenuComponent,
     CardProductComponent,
+    ProductDitailComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,7 @@
+@import "../../../partial/variabili";
+
 .sidebar-menu{
+    padding-top: 2em;
     width: 20vw;
     height: 100vh;
     position: sticky;
@@ -9,7 +12,56 @@
     background-color: #fff;
     display: none;
     padding-bottom: 10em;
+    li{
+      font-family: $fontMid;
+      font-size: 1.1em;
+      margin-bottom: 0.6em;
+      &:last-child{
+        margin-bottom: 1.5em;
+      }
+    }
 }
+
+
+// input css------------------------------------------------------
+
+  .input-field{
+      width: 80%;
+  }
+  .input-field input{
+      width: 100%;
+      outline: none;
+      border: none;
+      background-color: #f2f2f2;
+      border-radius: 50px;
+      height: 45px;
+      padding-left: 23%;
+      margin-bottom: 2em;
+      &::placeholder{
+          font-size: 1.15em;
+          font-family: "HelveticaNow-Medium", sans-serif;
+          color: #979797;
+      }
+  }
+  .input-field svg{
+      position: absolute;
+      top: 40px;
+      left: 10px;               
+  }
+  .icon{
+      margin-left: 10%;
+      svg{
+          padding: 2px;
+          cursor: pointer;
+          color: #111;
+          &:hover{
+              background-color:#c5c5c5;
+              border-radius: 50%;
+          }
+      }
+  }
+
+
 
 @media screen and (min-width:1000px) {
   .sidebar-menu{
@@ -18,7 +70,55 @@
     scrollbar-width: thin;
   }
 
+  .sidebar-menu{
+    h2{
+      margin-right: 20%;
+      font-size: 1.1em;
+      padding-top: 1.5em;
+      border-top: 1px solid $colorDarker;
+      margin-bottom: 1.2em;
+    }
+    p{
+      cursor:pointer;
+    &:hover{
+      color: chocolate;
+    }  
+    }
+  }
 
+  .c-categories{
+    padding-bottom: 1.5em;
+    p{
+      margin-bottom: 0.6em;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+  }
 
-  
+  .color{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+  }
+
+  .round{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black;
+  }
+
+  .borderCircle{
+    border: 1px solid $colorDarker;
+  }
+
+  .c-black-a-p{
+    margin-bottom: 1em;
+  }
+
 }
+
+
+

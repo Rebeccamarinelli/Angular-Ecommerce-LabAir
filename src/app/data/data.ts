@@ -101,4 +101,52 @@ export const membership = [
         immagine:'./assets/imm/teen.webp',
         titolo:'Teenager'
     }
-]
+];
+
+
+export const colors = [
+    {
+      name:"Nero",
+      color:"#000"
+    },
+    {
+      name:"Bianco",
+      color:"#fff"
+    },
+    {
+      name:"Grigio",
+      color:"grey"
+    },
+    {
+      name:"Blu",
+      color:"blue"
+    },
+    {
+      name:"Rosso",
+      color:"red"
+    },
+    {
+      name:"Giallo",
+      color:"yellow"
+    },
+    {
+      name:"Verde",
+      color:"green"
+    },
+    {
+      name:"Viola",
+      color:"purple"
+    },
+    {
+      name:"Oro",
+      color:"#3f3f3f"
+    },
+    {
+      name:"Argento",
+      color:"pink"
+    },
+    {
+      name:"Arancione",
+      color:"Orange"
+    }
+  ]
