@@ -1,7 +1,6 @@
 import { Component, ElementRef, HostListener} from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProdottiService } from '../../services/prodotti.service';
+import { CartService } from '../../services/cart.service';
 
 
 
@@ -12,15 +11,13 @@ import { ProdottiService } from '../../services/prodotti.service';
 })
 export class HeaderComponent {
 
-  // filter: FormControl = new FormControl()
-  
-
- constructor(private router:Router, private prodottiServ: ProdottiService){}
+ constructor(private router:Router, private cartService: CartService){}
 
   private lastScroll: number = 0;
   private body: HTMLElement;
   bannerElement!: ElementRef<HTMLDivElement>;
-
+  totalItem:number = 0;
+  listItem = []
   
   riceviBanner(elementRef: ElementRef<HTMLDivElement>){
     this.bannerElement = elementRef;
@@ -28,9 +25,10 @@ export class HeaderComponent {
 
   ngOnInit(): void {
     this.body = document.body;
-    // this.filter.valueChanges.subscribe(value => {
-    //   this.prodottiServ.setSearchTerm(value);
-    // });
+    this.cartService.getProducts().subscribe((res) => {
+      this.listItem = res
+        this.totalItem = this.listItem.reduce((sum, item) => sum + item.quantity, 0); 
+    })
    
  }
 

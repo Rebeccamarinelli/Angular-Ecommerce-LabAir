@@ -17,6 +17,8 @@ ul{
     text-decoration: none;
 }
 
+
+
 input{
     display:none;
 }
@@ -160,6 +162,11 @@ header{
         }
     }
 
+    .side-container {
+        width: 20%;
+        justify-content: flex-end;
+    }
+
     // .overlay{
     //     width: 100%;
     //     height: 100vh;
@@ -174,11 +181,10 @@ header{
     .ulPlus:hover .menu{
         display: block;
     }
-    // .overlay.hidden{
-    //     display: none;
-    //     overflow: hidden;
-    // }
+    
 }
+
+
 
 @media screen and (min-width:1400px) {
 
@@ -194,7 +200,7 @@ header{
 
     .side-container{
         position: relative;
-        justify-content: space-between;
+        justify-content: flex-end;
         width: 20%;
         .input-field{
             width: 80%;

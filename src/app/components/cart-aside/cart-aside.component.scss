@@ -1,0 +1,79 @@
+@import "../../../partial/variabili";
+@import "../../../partial/mixin";
+
+aside{
+    width: 90%;
+    h2{
+        padding-bottom: 1.5em;
+    }
+}
+
+.inbetween{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;padding-bottom: 1.5em;
+}
+
+.last{
+    border-top: 1px solid #c0c0c0;;
+    border-bottom: 1px solid #c0c0c0;;
+    padding-top: 1.5em;
+}
+
+.payments_btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    button{
+       @include btn-pay;
+        &:last-child{
+            background-color: #f2f2f2;
+            border: 1px solid #636363;
+            margin-top: 1em;
+            img{
+                width: 15%;
+            }
+        }
+        a{
+            color: $white;
+            font-family: $fontMid;
+            font-size: 0.8em;
+        }
+    }
+   
+}
+
+.payments_btn button {
+    padding: 1.2em 0;
+}
+
+.payments_btn button:last-child img {
+    width: 30%;
+}
+
+@media screen and (min-width:500px) {
+
+    .payments_btn button:last-child img {
+        width: 15%;
+    }
+
+    .payments_btn button {
+        width: 60%;
+        padding: 1.5em 0;
+        a{
+            font-size: 1em;
+        }
+    }
+}
+
+
+@media screen and (min-width:1200px) {
+
+
+    .payments_btn button {
+        width: 100%;
+    }
+  
+}
+
+

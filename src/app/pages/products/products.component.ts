@@ -28,7 +28,7 @@ export class ProductsComponent {
   }
 
   getId(id:number){
-    console.log(id)
+    // console.log(id)
     this.route.navigate(['products', id])
   }
 

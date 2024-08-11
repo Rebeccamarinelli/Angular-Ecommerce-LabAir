@@ -1,0 +1,28 @@
+<div class="cart_container-card" id="cart_container-card-first" *ngFor="let item of productList, let i = index">
+    <div class="cart_container-card-image_text">
+        <img [src]="item.immagineSelezionata" [alt]="">
+        <div class="cart_container-card-text-icon">
+            <p>{{item.nome}}</p>
+            <p>colore: {{item.coloreSelezionato}}</p>
+            <p>{{item.categoria}}</p>
+            <p>{{item.nome}}</p>
+            <div class="select-cart">
+                <p>Taglia/misura</p>
+                <select name="" id="">
+                    <option value="1">{{item.tagliaSelezionata}}</option>
+                </select>
+                <p class="quantity">Quantità</p>
+                <select name="" id="">
+                    <option value="1">{{item.quantity}}</option>
+                    <option value="2" *ngFor="let itemSize of listOfSize">{{itemSize}}</option>
+                </select>
+            </div>
+            <div class="cart_icons" (click)="removeItem(item)">
+                <svg class="trash1" aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none"><path stroke="currentColor" stroke-miterlimit="10" stroke-width="1.5" d="M14.25 7.5v12m-4.5-12v12M5.25 6v13.5c0 1.24 1.01 2.25 2.25 2.25h9c1.24 0 2.25-1.01 2.25-2.25V5.25h2.75m-2.75 0H21m-12-3h5.25c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5H3"></path></svg>
+            </div>
+        </div>
+    </div>
+    <div class="cart_price">
+        <p>{{item.prezzo}}</p>
+    </div>
+</div> 

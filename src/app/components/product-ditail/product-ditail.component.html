@@ -1,16 +1,9 @@
 <main class="wrapper">
     <section class="container">
-        <section class="hidden">
-            <!-- <div class="itis-selected"><img src="./assets/imm/details/4.jpg" alt="ditails"></div>
-            <div><img  src="./assets/imm/details/2.jpg" alt="ditails"></div>
-            <div><img  src="./assets/imm/details/3.jpg" alt="ditails"></div>
-            <div><img  src="./assets/imm/details/1.jpg" alt="ditails"></div>
-            <div><img  src="./assets/imm/details/5.jpg" alt="ditails"></div>
-            <div><img  src="./assets/imm/details/6.jpg" alt="ditails"></div>
-            <div><img  src="./assets/imm/details/7.jpg" alt="ditails"></div>
-            <div><img  src="./assets/imm/details/8.jpg" alt="ditails"></div>
-            <div><img  src="./assets/imm/details/9.jpg" alt="ditails"></div>
-            <div><img  src="./assets/imm/details/dit-4.jpg" alt="ditails"></div> -->
+        <section *ngIf="singleProduct">
+            <div  class="hidden" *ngFor="let dettaglio of singleProduct.immagini_dettaglio, let i = index" >
+                <img  [src]="dettaglio" [alt]="singleProduct.nome" (mouseenter)="displayedImg = i" >
+            </div>
         </section>
         <section>
             <div>
@@ -18,16 +11,8 @@
                     <span><svg height="20px" width="20px" fill="#111" viewBox="0 0 25 32"><path d="M12.48 4l-3.04 8.96-9.44.32 7.6 5.6L4.96 28l7.68-5.44 7.84 5.28-2.8-9.04 7.52-5.76-9.52-.08z"></path></svg></span>Valutazione alta
                 </div>
                 <div id="productImage" *ngIf="singleProduct">
-                    <img [src]="singleProduct.immagine" alt="prodotto esposto">
+                    <img [src]="singleProduct.immagini_dettaglio[displayedImg]" alt="prodotto esposto">
                 </div>
-                <!-- <div class="buttons">
-                    <button id="prevCarusel" class="prev color-first" disabled>
-                        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none"><path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967"></path></svg>
-                    </button>
-                    <button id="nextCarusel" class="next color-scd">
-                        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none"><path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033"></path></svg>
-                    </button>
-                </div> -->
             </div>
         </section>
         <section class="b">
@@ -35,21 +20,32 @@
                 <h1>{{singleProduct.nome}}</h1>
                 <h2>Scarpa - Uomo</h2>
                 <p class="descrizione">{{singleProduct.descrizione}}</p>
-                <p>{{singleProduct.prezzo | currency : 'EUR'}}</p>
+                <p class="prezzo">{{singleProduct.prezzo | currency : 'EUR'}}</p>
             </div>
-            <div *ngIf="singleProduct" >
-                <img *ngFor="let coloreImg of singleProduct.colori_immagini" [src]="coloreImg" [alt]="singleProduct.nome">
+            <div *ngIf="singleProduct"  >
+                <img *ngFor="let coloreImg of singleProduct.colori_immagini, let i = index" 
+                [src]="coloreImg.imm" 
+                [alt]="coloreImg.colore"
+                (click)="innerColor(coloreImg.colore)"
+                (click)="innerImg(coloreImg.imm)"
+                class="color-option"
+               >
+               <!-- [ngClass]="{'selected': isSelectedColor(coloreImg.colore)}" -->
+               <!-- [ngClass]="{'selected': isSelectedSize(taglia)}"  -->
             </div>
             <div>
                 <p id="error">Seleziona la taglia/misura</p>
                 <p>Guida alle taglie e alle misure</p>
             </div>
             <div id="boxSize" *ngIf="singleProduct">
-                <button class="taglie" *ngFor="let taglia of singleProduct.taglie_disponibili">EU {{taglia}}</button>
+                <button class="taglie" *ngFor="let taglia of singleProduct.taglie_disponibili"  
+                (click)="innerT(taglia)" 
+                >EU {{taglia}}</button>
             </div>         
             <div>
-                <p id="error-message" class="error-message hidden">Devi selezionare una taglia</p>
-                <button class="shop">Aggiungi al carrello</button>
+                <p #errorMessage class="error-message">Devi selezionare una taglia</p>
+                <p #errorMessageC class="error-message">Devi selezionare un colore</p>
+                <button class="shop" (click)="addToCart(singleProduct)">Aggiungi al carrello</button>
                 <button class="prefer">Aggiungi ai preferiti</button>
                 <p>
                     Questo articolo è escluso dalle promozioni e dagli sconti sul sito.

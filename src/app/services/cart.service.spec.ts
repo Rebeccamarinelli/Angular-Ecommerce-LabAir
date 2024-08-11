@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FilterHeaderService } from './filter-header.service';
+import { CartService } from './cart.service';
 
-describe('FilterHeaderService', () => {
-  let service: FilterHeaderService;
+describe('CartService', () => {
+  let service: CartService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(FilterHeaderService);
+    service = TestBed.inject(CartService);
   });
 
   it('should be created', () => {

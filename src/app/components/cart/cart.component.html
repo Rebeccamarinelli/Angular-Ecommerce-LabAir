@@ -1,0 +1,38 @@
+<main class="cart_container">
+
+    <!-- section region start --------------------------------------------->
+    <section>
+        <div class="cart_container-member">
+            <h2>Spedizione gratuita per i Member.</h2>
+            <p>Diventa Member Nike e approfitta della spedizione rapida e gratuita. <a href="#">Unisciti a noi</a> o <a href="#"> Accedi</a></p>
+        </div>
+
+        <!-- 1 Card Container region start --------------------------------------------->
+        <div class="cart_container-wrapper">
+            <h1>Carrello</h1>
+
+            <div class="container-empty" *ngIf="products.length == 0">
+                <p>Il carrello è momentaneamente vuoto <a routerLink="/products">torna agli acquisti</a></p>
+            </div>
+            
+            <div *ngIf="products.length != 0">
+                <app-cart-item></app-cart-item>
+            </div>
+            
+        </div>
+
+        <!-- CARD FOOT region start --------------------------------------------->
+        <div class="cart-foot">
+            <h2>Preferiti</h2>
+            <p>Vuoi visualizzare i preferiti? <a href="#">Unisciti a noi</a> o <a href="#">Accedi</a></p>
+        </div>
+        <!-- CARD FOOT region end --------------------------------------------->
+        
+    </section>
+    <!-- section region end --------------------------------------------->
+
+    <!-- side Container region start --------------------------------------------->
+    <app-cart-aside></app-cart-aside>
+    <!-- side Container region end --------------------------------------------->
+
+</main>

@@ -19,6 +19,9 @@ import { SidebarProductMenuComponent } from './components/sidebar-product-menu/s
 import { CardProductComponent } from './components/card-product/card-product.component';
 import { ProductDitailComponent } from './components/product-ditail/product-ditail.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CartComponent } from './components/cart/cart.component';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { CartAsideComponent } from './components/cart-aside/cart-aside.component';
 
 
 
@@ -39,6 +42,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     SidebarProductMenuComponent,
     CardProductComponent,
     ProductDitailComponent,
+    CartComponent,
+    CartItemComponent,
+    CartAsideComponent,
   ],
   imports: [
     BrowserModule,

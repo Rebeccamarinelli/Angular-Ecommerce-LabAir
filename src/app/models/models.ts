@@ -10,6 +10,11 @@ export interface IProdotti {
   taglie_disponibili: string[]
   colori_disponibili: string[]
   colori_immagini: string[]
+  coloreSelezionato?: string,
+  tagliaSelezionata?: string,
+  immagineSelezionata?: string,
+  quantity?: number
+  immagini_dettaglio: string[]
   descrizione: string
   immagine: string
   nuovo_arrivi: boolean
