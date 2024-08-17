@@ -3,12 +3,12 @@
         <div id="pop-up" class="pop-up">
             <div class="pop-up_head">
                 <h2><span></span>Aggiunto al carrello</h2>
-                <button id="close">
+                <button id="close" (click)="closePopUp()">
                     <span></span>
                     <span></span>
                 </button>
             </div>
-            <div class="pop-up_body">
+            <div class="pop-up_body" *ngIf="singleProduct">
                 <img [src]="singleProduct.immagineSelezionata" [alt]="singleProduct.nome">
                 <div>
                     <p>{{singleProduct.nome}}</p>
@@ -78,7 +78,7 @@
             <div>
                 <p #errorMessage class="error-message">Devi selezionare una taglia</p>
                 <p #errorMessageC class="error-message">Devi selezionare un colore</p>
-                <button class="shop" (click)="addToCart(singleProduct)">Aggiungi al carrello</button>
+                <button class="shop" (click)="mustSelect(isSelectedColor, isSelectedTaglia, singleProduct)">Aggiungi al carrello</button>
                 <button class="prefer">Aggiungi ai preferiti</button>
                 <p>
                     Questo articolo è escluso dalle promozioni e dagli sconti sul sito.

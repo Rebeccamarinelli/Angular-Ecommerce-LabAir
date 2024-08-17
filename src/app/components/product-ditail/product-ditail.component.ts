@@ -14,6 +14,7 @@ export class ProductDitailComponent {
   singleProduct: IProdotti;
   productList = [];
   @ViewChild('errorMessage') errorMessage:ElementRef<HTMLParagraphElement>
+  @ViewChild('errorMessageC') errorMessageC:ElementRef<HTMLParagraphElement>
   @ViewChild('popUp') popUp:ElementRef<HTMLDivElement>
   displayedImg = 0
   selectedIndex?:number;
@@ -66,25 +67,35 @@ export class ProductDitailComponent {
 
 
 
+  isSelectedTaglia:boolean = false;
+  isSelectedColor:boolean = false;
 
 
 
-  mustSelect(isSelected:boolean){
-   if(isSelected){
-     this.errorMessage.nativeElement.style.display = 'none'
-     //this.errorMessageC.nativeElement.style.display = 'none'
+  mustSelect(isSelectedTaglia:boolean, isSelectedColor:boolean, product:IProdotti){
+   if(isSelectedColor && isSelectedTaglia){
+    console.log('none')
+     this.errorMessage.nativeElement.classList.remove('error')
+     this.errorMessageC.nativeElement.classList.remove('error')
+     this.addToCart(product)
+     this.isSelectedColor = !this.isSelectedColor
+     this.isSelectedTaglia = !this.isSelectedTaglia
+     console.log(this.isSelectedColor, this.isSelectedTaglia)
    }else{
+    console.log('eppa')
      this.errorMessage.nativeElement.classList.add('error')
-    // this.errorMessageC.nativeElement.classList.add('error')
+     this.errorMessageC.nativeElement.classList.add('error')
    }
   }
 
 
 
  addToCart(product:IProdotti): void{
+  console.log('go')
   this.cartService.addToCart(product)
   this.popUp.nativeElement.style.display='block'
   this.disableBodyScroll()
+  console.log(this.isSelectedColor, this.isSelectedTaglia)
   setTimeout(()=>{
     this.popUp.nativeElement.style.display='none'
     this.enableBodyScroll()
@@ -110,6 +121,8 @@ enableBodyScroll() {
   innerColor(colore:string){
   this.color = colore
   this.singleProduct.coloreSelezionato = colore
+  this.errorMessageC.nativeElement.classList.remove('error')
+  this.isSelectedColor = true;
   }
 
   innerImg(img:string){
@@ -118,9 +131,14 @@ enableBodyScroll() {
  }
 
  innerT(taglia:string){
- this.taglia = taglia
- this.singleProduct.tagliaSelezionata = taglia
- console.log(this.singleProduct)
+  this.taglia = taglia
+  this.singleProduct.tagliaSelezionata = taglia
+  this.errorMessage.nativeElement.classList.remove('error')
+  this.isSelectedTaglia = true;
+ }
+
+ closePopUp(){
+   this.popUp.nativeElement.style.display='none'
  }
 
  

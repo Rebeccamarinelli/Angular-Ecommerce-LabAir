@@ -230,7 +230,119 @@
     border: 1px solid #111;
 }
 
+.container section:nth-child(3) h1 {
+    padding-top: 0;
+}
 
+.pop-up_container{
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    background-color: #010101a3;
+}
+
+.pop-up{
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 0.8em;
+}
+
+.pop-up_head{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.pop-up_head h2{
+    font-size: 0.8em;
+}
+
+.pop-up_head button{
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+}
+
+.pop-up_head button span{
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #111;
+    transform: rotate(45deg);
+}
+
+.pop-up_head button span:last-child{
+    transform: rotate(-45deg);
+}
+
+.pop-up_body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 1em;
+}
+
+.pop-up_body img{
+    padding-right: 1em;
+    max-width: 144px;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.pop-up_body p{
+   color: #757575;
+   padding-bottom: .6em;
+}
+
+.pop-up_body p:first-child, .pop-up_body p:last-child{
+    color: #111;
+ }
+
+.pop-up_foot{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pop-up_foot button{
+    width: 75%;
+    padding: 1em;
+    background-color: #111;
+    color: $white;
+    border-radius: 50px;
+    margin-left: 2%;
+    border: none;
+    font-size: 1em;
+    margin-top: 1.2em;
+}
+
+.pop-up_foot button a{
+    color: #111;
+}
+
+.pop-up_foot button:first-child{
+    background-color: $white;
+    color:  #111;
+    margin-right: 2%;
+    border: 1px solid #757575;
+}
+
+@media screen and (min-width:420px) {
+  
+    .pop-up_body{
+        flex-direction: row;
+    }
+    
+}
 
 
 
@@ -239,6 +351,10 @@
     .container section:nth-child(3) div:nth-child(2) img {
         width: 80px;
         height: 80px;
+    }
+
+    .pop-up_foot{
+        flex-direction: row;
     }
 }
 
@@ -266,6 +382,21 @@
         left: 20%;
         width: 35%;
     }
+
+    .pop-up{
+        bottom: 20px;
+        right: 20px;
+        width: 75%;
+    }
+}
+
+
+@media screen and (min-width:1000px) {
+    
+    .pop-up{
+        max-width: 500px;
+    }
+
 }
 
 
@@ -329,107 +460,8 @@
         padding-top: 0;
     }
 
-    .pop-up_container{
-        width: 100%;
-        height: 100vh;
-        z-index: 100;
-        position: fixed;
-        top: 0;
-        left: 0;
-        display: none;
-        background-color: #010101a3;
-    }
-    
-    .pop-up{
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 100;
-        width: 30%;
-        background-color: #ffffff;
-        padding: 0.8em;
-    }
-    
-    .pop-up_head{
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-    }
-    
-    .pop-up_head h2{
-        font-size: 0.8em;
-    }
-    
-    .pop-up_head button{
-        display: block;
-        width: 20px;
-        height: 20px;
-        border: none;
-        background-color: transparent;
-    }
-    
-    .pop-up_head button span{
-        display: block;
-        width: 100%;
-        height: 1px;
-        background-color: #111;
-        transform: rotate(45deg);
-    }
-    
-    .pop-up_head button span:last-child{
-        transform: rotate(-45deg);
-    }
-    
-    .pop-up_body{
-        display: flex;
-        justify-content: flex-start;
-        padding-top: 1em;
-    }
-    
-    .pop-up_body img{
-        padding-right: 1em;
-        max-width: 144px;
-    }
-    
-    .pop-up_body p{
-       color: #757575;
-       padding-bottom: .6em;
-    }
-    
-    .pop-up_body p:first-child, .pop-up_body p:last-child{
-        color: #111;
-     }
-    
-    .pop-up_foot{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .pop-up_foot button{
-        width: 46%;
-        padding: 1em;
-        background-color: #111;
-        color: $white;
-        border-radius: 50px;
-        margin-left: 2%;
-        border: none;
-        font-size: 1em;
-        margin-top: 1.2em;
-    }
-    
-    .pop-up_foot button a{
-        color: #111;
-    }
-    
-    .pop-up_foot button:first-child{
-        background-color: $white;
-        color:  #111;
-        margin-right: 2%;
-        border: 1px solid #757575;
-    }
-    
-
+   
+   
 
 }
 
