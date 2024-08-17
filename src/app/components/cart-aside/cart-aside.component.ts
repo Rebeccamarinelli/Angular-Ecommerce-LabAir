@@ -17,7 +17,7 @@ export class CartAsideComponent {
     
       // Iscriviti al total$ per ottenere aggiornamenti del totale
       this.cartService.total$.subscribe((total) => {
-        this.total = total;
+        this.total = parseFloat(total.toFixed(2));
         console.log(total)    
       });
     

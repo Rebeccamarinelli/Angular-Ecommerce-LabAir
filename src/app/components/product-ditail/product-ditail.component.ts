@@ -10,13 +10,24 @@ import { CartService } from '../../services/cart.service';
   styleUrl: './product-ditail.component.scss'
 })
 export class ProductDitailComponent {
+
   singleProduct: IProdotti;
   productList = [];
-  newList = []
-
+  @ViewChild('errorMessage') errorMessage:ElementRef<HTMLParagraphElement>
+  @ViewChild('popUp') popUp:ElementRef<HTMLDivElement>
+  displayedImg = 0
+  selectedIndex?:number;
+  selectedIndexTaglia?:number;
+  totalItemNumber:number;
 
   
   constructor(private activateRoute: ActivatedRoute, private serviceProduct: ProdottiService, private cartService: CartService){
+
+    this.cartService.getProducts().subscribe((res)=>{
+      this.productList = res;
+      this.totalItemNumber = this.productList.reduce((sum, item) => sum + item.quantity, 0); 
+    })
+
 
     this.activateRoute.params.subscribe((params)=>{
       this.serviceProduct.getProdById(params.id).subscribe((res)=>{
@@ -28,7 +39,6 @@ export class ProductDitailComponent {
           immagineSelezionata: this.image,
           quantity: 1
         };
-        // console.log(this.singleProduct)
       })
 
     })
@@ -37,65 +47,24 @@ export class ProductDitailComponent {
   ngOnInit(){
     this.serviceProduct.getAllProducts().subscribe((res:any[]) =>{ 
      this.productList = res;
-
+     
     })
   }
- // isSelectedCol:boolean;
-  isSelectedTaglia:boolean;
-  @ViewChild('errorMessage') errorMessage:ElementRef<HTMLParagraphElement>
-//  @ViewChild('errorMessageC') errorMessageC:ElementRef<HTMLParagraphElement>
-  selectedSize: string = '';
-  selectedColor: string = '';
-  displayedImg = 0
-  
-  // Funzione per selezionare una taglia
-  selectSize(size: string) {
-    this.selectedSize = size;
-    this.isSelectedTaglia = true
-    this.errorMessage.nativeElement.classList.remove('error')
+ 
+  selectItem(index: number): void {
+    this.selectedIndex = index; // Aggiorna l'indice dell'elemento selezionato
   }
-
-  // Funzione per verificare se una taglia è selezionata
-  isSelectedSize(size: string): boolean {
-    return this.selectedSize === size;
-  }
-
-
 
   
-
-  updateProductListImg(img: string) {
-    this.productList.forEach(el => {
-      el.immUrl = img;
-    });
+  selectItemTaglia(index: number): void {
+    this.selectedIndexTaglia = index; // Aggiorna l'indice dell'elemento selezionato
   }
 
- updateProductListTaglia(taglia: string) {
-    this.productList.forEach(el => {
-      el.taglia_selezionata = taglia;
-    });
+  selectItemImage(index: number): void {
+    this.displayedImg = index; // Aggiorna l'indice dell'elemento selezionato
   }
 
 
-  updateProductListColore(colore: string) {
-    this.productList.forEach(el => {
-      el.colore_selezionato = colore;
-    });
-  }
-
-  // Funzione per selezionare un colore
-  // selectColor(color: string) {
-  //   this.selectedColor = color;
-  //   this.isSelectedCol = true
-  //   this.errorMessageC.nativeElement.classList.remove('error')
-  // }
-
-
-
-  // Funzione per verificare se un colore è selezionato
-  isSelectedColor(color: string): boolean {
-    return this.selectedColor === color;
-  }
 
 
 
@@ -112,10 +81,26 @@ export class ProductDitailComponent {
 
 
 
-
  addToCart(product:IProdotti): void{
   this.cartService.addToCart(product)
+  this.popUp.nativeElement.style.display='block'
+  this.disableBodyScroll()
+  setTimeout(()=>{
+    this.popUp.nativeElement.style.display='none'
+    this.enableBodyScroll()
+    this.selectedIndex = null;
+    this.selectedIndexTaglia = null;
+  }, 3000)
  }
+
+ disableBodyScroll() {
+  document.body.style.overflow = 'hidden';
+}
+
+enableBodyScroll() {
+  document.body.style.overflow = 'auto'; 
+}
+
 
   image:string;
   color:string;
@@ -137,18 +122,6 @@ export class ProductDitailComponent {
  this.singleProduct.tagliaSelezionata = taglia
  console.log(this.singleProduct)
  }
-
-  // arrayList(colore:string, img:string, taglia:string){
-  //  if(colore && img && taglia != undefined){
-  //    this.productList.forEach((element)=>{
-  //     element.immUrl= img,
-  //     element.taglia_selezionata = taglia,
-  //     element.colore_selezionato = colore,
-  //     element.prezzo = this.singleProduct.prezzo
-  //    })
-  //   }
-  //  }
-
 
  
   

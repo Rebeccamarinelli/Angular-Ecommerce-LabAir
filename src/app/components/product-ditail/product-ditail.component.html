@@ -1,8 +1,38 @@
 <main class="wrapper">
+    <div #popUp id="pop-up_container" class="pop-up_container">
+        <div id="pop-up" class="pop-up">
+            <div class="pop-up_head">
+                <h2><span></span>Aggiunto al carrello</h2>
+                <button id="close">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="pop-up_body">
+                <img [src]="singleProduct.immagineSelezionata" [alt]="singleProduct.nome">
+                <div>
+                    <p>{{singleProduct.nome}}</p>
+                    <p>{{singleProduct.categoria}}</p>
+                    <p>taglia misura <span>{{singleProduct.tagliaSelezionata}}</span></p>
+                    <p>{{singleProduct.coloreSelezionato}}</p>
+                    <p>{{singleProduct.prezzo}}</p>
+                </div>
+            </div>
+            <div  class="pop-up_foot">
+                <button><a routerLink="/cart">Visualizza carrello (<span id="product">{{totalItemNumber}}</span>)</a></button>
+                <button>Pagamento</button>
+            </div>
+        </div>
+    </div>
+    
     <section class="container">
         <section *ngIf="singleProduct">
-            <div  class="hidden" *ngFor="let dettaglio of singleProduct.immagini_dettaglio, let i = index" >
-                <img  [src]="dettaglio" [alt]="singleProduct.nome" (mouseenter)="displayedImg = i" >
+            <div  class="hidden" *ngFor="let dettaglio of singleProduct.immagini_dettaglio, let i = index" 
+            [ngClass]="{'selected': displayedImg === i}">
+                <img  [src]="dettaglio" [alt]="singleProduct.nome" 
+                (mouseenter)="displayedImg = i" 
+                (mouseenter)="selectItemImage(i)"
+                 >
             </div>
         </section>
         <section>
@@ -23,12 +53,13 @@
                 <p class="prezzo">{{singleProduct.prezzo | currency : 'EUR'}}</p>
             </div>
             <div *ngIf="singleProduct"  >
-                <img *ngFor="let coloreImg of singleProduct.colori_immagini, let i = index" 
+                <img *ngFor="let coloreImg of singleProduct.colori_immagini, let i = index" #firstImg
                 [src]="coloreImg.imm" 
                 [alt]="coloreImg.colore"
                 (click)="innerColor(coloreImg.colore)"
                 (click)="innerImg(coloreImg.imm)"
-                class="color-option"
+                [ngClass]="{'selected': selectedIndex === i}" 
+                (click)="selectItem(i)"
                >
                <!-- [ngClass]="{'selected': isSelectedColor(coloreImg.colore)}" -->
                <!-- [ngClass]="{'selected': isSelectedSize(taglia)}"  -->
@@ -38,8 +69,10 @@
                 <p>Guida alle taglie e alle misure</p>
             </div>
             <div id="boxSize" *ngIf="singleProduct">
-                <button class="taglie" *ngFor="let taglia of singleProduct.taglie_disponibili"  
+                <button class="taglie" *ngFor="let taglia of singleProduct.taglie_disponibili, let i = index"  
                 (click)="innerT(taglia)" 
+                [ngClass]="{'selected': selectedIndexTaglia === i}" 
+                (click)="selectItemTaglia(i)"
                 >EU {{taglia}}</button>
             </div>         
             <div>
