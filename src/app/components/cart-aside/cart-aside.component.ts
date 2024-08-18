@@ -8,7 +8,8 @@ import { CartService } from '../../services/cart.service';
 })
 export class CartAsideComponent {
 
-
+  certo:string = 'certo';
+  no:string = 'no'
   total:number = 0
 
   constructor(private cartService: CartService){}
@@ -20,8 +21,11 @@ export class CartAsideComponent {
         this.total = parseFloat(total.toFixed(2));
         console.log(total)    
       });
-    
+     
      }
+
+  
+  
 
      
 }

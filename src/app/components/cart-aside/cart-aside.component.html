@@ -17,7 +17,7 @@
         <p>{{total}}</p>
     </div>
     <div class="payments_btn">
-        <button id="pay"><a>Vai al Pagamento</a></button>
-        <button id="paypal"><img src="/assets/imm/paypal.png" alt=""></button>
+        <button id="pay" *ngIf="total != 0" routerLink="/login"><a>Vai al Pagamento</a></button>
+        <button id="paypal" *ngIf="total != 0"><img src="/assets/imm/paypal.png" alt=""></button>
     </div>
 </aside>

@@ -74,17 +74,26 @@ export class ProductDitailComponent {
 
   mustSelect(isSelectedTaglia:boolean, isSelectedColor:boolean, product:IProdotti){
    if(isSelectedColor && isSelectedTaglia){
-    console.log('none')
-     this.errorMessage.nativeElement.classList.remove('error')
-     this.errorMessageC.nativeElement.classList.remove('error')
-     this.addToCart(product)
-     this.isSelectedColor = !this.isSelectedColor
-     this.isSelectedTaglia = !this.isSelectedTaglia
-     console.log(this.isSelectedColor, this.isSelectedTaglia)
-   }else{
-    console.log('eppa')
-     this.errorMessage.nativeElement.classList.add('error')
-     this.errorMessageC.nativeElement.classList.add('error')
+    
+      this.errorMessage.nativeElement.classList.remove('error')
+      this.errorMessageC.nativeElement.classList.remove('error')
+      this.addToCart(product)
+      this.isSelectedColor = !this.isSelectedColor
+      this.isSelectedTaglia = !this.isSelectedTaglia
+ 
+   }else if(isSelectedColor === true && isSelectedTaglia === false){
+   
+      this.errorMessage.nativeElement.classList.remove('error')
+      this.errorMessageC.nativeElement.classList.add('error')
+
+   }else if(isSelectedTaglia === true && isSelectedColor === false){
+  
+      this.errorMessage.nativeElement.classList.add('error')
+      this.errorMessageC.nativeElement.classList.remove('error')
+   }
+   else{
+      this.errorMessage.nativeElement.classList.add('error')
+      this.errorMessageC.nativeElement.classList.add('error')
    }
   }
 
@@ -123,11 +132,13 @@ enableBodyScroll() {
   this.singleProduct.coloreSelezionato = colore
   this.errorMessageC.nativeElement.classList.remove('error')
   this.isSelectedColor = true;
+  console.log(this.isSelectedColor)
   }
 
   innerImg(img:string){
   this.image = img
   this.singleProduct.immagineSelezionata = img
+  console.log(this.isSelectedColor)
  }
 
  innerT(taglia:string){
@@ -135,10 +146,13 @@ enableBodyScroll() {
   this.singleProduct.tagliaSelezionata = taglia
   this.errorMessage.nativeElement.classList.remove('error')
   this.isSelectedTaglia = true;
+  console.log(this.isSelectedTaglia)
  }
 
  closePopUp(){
-   this.popUp.nativeElement.style.display='none'
+   this.popUp.nativeElement.style.display='none';
+   this.selectedIndex = null;
+   this.selectedIndexTaglia = null;
  }
 
  

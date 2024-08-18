@@ -22,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './components/cart/cart.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { CartAsideComponent } from './components/cart-aside/cart-aside.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 
@@ -46,6 +47,7 @@ import { CartAsideComponent } from './components/cart-aside/cart-aside.component
     CartComponent,
     CartItemComponent,
     CartAsideComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
