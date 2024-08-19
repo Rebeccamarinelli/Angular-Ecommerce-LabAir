@@ -12,8 +12,10 @@ export class CartService {
   
   total: number = 0
 
-  private totalSubject = new BehaviorSubject<number>(this.total);
-  total$ = this.totalSubject.asObservable(); // Observable a cui il componente si può iscrivere
+  
+  
+  private totalPrice = new BehaviorSubject<number>(0);
+  totalPrice$ = this.totalPrice.asObservable();  // Osservabile per il prezzo totale
  
   constructor() { }
 
@@ -45,22 +47,39 @@ export class CartService {
       this.cartItemList.push(productCopy);
     }
     
-    this.productList.next(this.cartItemList);
+    //this.productList.next(this.cartItemList);
+    this.updateCart()
     
   }
 
+ 
 
-  getTotalPlus():number{
-    let total = 0;
-    this.cartItemList.map((price)=>{
-      total += price.prezzo * price.quantity;
-      this.total = total;
-      this.totalSubject.next(this.total);
-    })
-    return this.total
+  updateItemQuantity(id: number, quantity: number): void {
+    const item = this.cartItemList.find(i => i.id === id);
+    if (item) {
+      item.quantity = quantity;
+      if (item.quantity <= 0) {
+       item.quantity = 1
+      }
+    }
+    this.updateCart();
   }
 
 
+
+  // Aggiorna lo stato del carrello e il prezzo totale
+  updateCart(): void {
+    this.productList.next([...this.cartItemList]);  // Emesso nuovo stato della lista dei prodotti
+    this.totalPrice.next(this.calculateTotalPrice());  // Emesso nuovo stato del prezzo totale
+  }
+
+  // Calcola il prezzo totale del carrello
+  calculateTotalPrice(): number {
+    return this.cartItemList.reduce((sum, item) => {
+      //console.log(`Somma corrente: ${sum}, Prezzo: ${item.prezzo}, Quantità: ${item.quantity}`);
+      return sum + item.prezzo * item.quantity;
+  }, 0);
+  }
 
   removeCartItem(product:IProdotti){
     this.cartItemList.filter((prod, index)=>{
@@ -73,15 +92,13 @@ export class CartService {
         console.log(this.cartItemList[index].prezzo * this.cartItemList[index].quantity)
         this.cartItemList.splice(index, 1)
         this.total -= itemTotalPrice;
-        this.totalSubject.next(this.total);
         console.log('Nuovo totale:', this.total);
     
       
     }
-    this.productList.next(this.cartItemList);
+    this.updateCart();
   })
 }
-
 
 
 

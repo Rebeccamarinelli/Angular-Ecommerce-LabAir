@@ -10,8 +10,7 @@ import { CartService } from '../../services/cart.service';
 export class CartItemComponent {
 
   productList:IProdotti[] = []
-  grandTotal:number = 0;
-  listOfSize = [ 1, 2, 3, 4, 5]
+  listOfSize = [1, 2, 3, 4, 5]
 
  
   
@@ -20,18 +19,30 @@ export class CartItemComponent {
   ngOnInit(): void{
     this.cartService.getProducts().subscribe((res) =>{
       this.productList = res;
-      this.grandTotal = this.cartService.getTotalPlus()
     })
 
+    this.cartService.updateCart();
+
   }
 
-  removeItem(item:IProdotti){
-    this.cartService.removeCartItem(item)
-    console.log(this.productList)
+   removeItem(item:IProdotti){
+     this.cartService.removeCartItem(item)
+     console.log(this.productList)
+   }
+
+  
+
+  quantityMultiply(event:any, i:number){
+    const qty = +event.target.value;
+    if(qty < 1){
+      event.target.value = this.productList[i].quantity;
+      return;
+    }else{
+      this.productList[i].quantity = qty
+      this.cartService.updateItemQuantity(this.productList[i].id, qty);
+    }
   }
-
-
-
-
+ 
+  
 
 }

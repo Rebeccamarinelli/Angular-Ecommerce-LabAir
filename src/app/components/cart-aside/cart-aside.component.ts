@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 import { CartService } from '../../services/cart.service';
+import { IProdotti } from '../../models/models';
 
 @Component({
   selector: 'app-cart-aside',
@@ -8,21 +9,27 @@ import { CartService } from '../../services/cart.service';
 })
 export class CartAsideComponent {
 
-  certo:string = 'certo';
-  no:string = 'no'
   total:number = 0
+  productList:IProdotti[];
 
   constructor(private cartService: CartService){}
 
    ngOnInit(){
-    
-      // Iscriviti al total$ per ottenere aggiornamenti del totale
-      this.cartService.total$.subscribe((total) => {
-        this.total = parseFloat(total.toFixed(2));
-        console.log(total)    
-      });
+  
+      this.cartService.getProducts().subscribe((res) =>{
+        this.productList = res;
+      })
+
+
+      this.cartService.totalPrice$.subscribe((total)=>{
+        this.total = +total.toFixed(2);
+      })
      
+
      }
+
+ 
+
 
   
   

@@ -23,6 +23,8 @@ import { CartComponent } from './components/cart/cart.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { CartAsideComponent } from './components/cart-aside/cart-aside.component';
 import { LoginComponent } from './pages/login/login.component';
+import { CheckoutFormComponent } from './pages/checkout-form/checkout-form.component';
+import { CheckAsideComponent } from './components/check-aside/check-aside.component';
 
 
 
@@ -48,6 +50,8 @@ import { LoginComponent } from './pages/login/login.component';
     CartItemComponent,
     CartAsideComponent,
     LoginComponent,
+    CheckoutFormComponent,
+    CheckAsideComponent,
   ],
   imports: [
     BrowserModule,

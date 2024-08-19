@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,7 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class AppComponent {
 
+  hideComponents:boolean = false
   
   constructor(private router: Router) {}
 
@@ -17,6 +19,17 @@ export class AppComponent {
         window.scrollTo(0, 0);
       }
     });
+
+    this.router.events
+    .pipe(filter(event => event instanceof NavigationEnd))
+    .subscribe((event: NavigationEnd) => {
+      // Aggiungi qui le route per cui vuoi nascondere i componenti
+      const routesToHide = ['/checkout-form', '/login'];
+
+      // Se la route corrente è inclusa in routesToHide, nascondi i componenti
+      this.hideComponents = routesToHide.includes(event.urlAfterRedirects);
+    });
+
   }
 
 

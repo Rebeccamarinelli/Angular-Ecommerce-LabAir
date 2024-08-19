@@ -1,0 +1,67 @@
+@import "../../../partial/variabili";
+
+.cont-login{
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    padding: 0 10%;
+    button{
+        width: 100%;
+        color: #fff;
+        border: none;
+        background-color: #111;
+        padding: 15px;
+        border-radius: 30px;
+        margin-bottom: 1em;
+        font-family: $fontMid;
+    }
+    .title{
+        display: flex;
+        justify-content: center;
+        margin: 5em 0;
+    }
+}
+
+.login{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1500px;
+    div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 3%;
+        p{
+            margin-bottom: 2em;
+            text-align: center;
+        }
+    }
+    .registration{
+        border-bottom: 0.5px solid #c2c2c2;
+        &:last-child{
+            margin-bottom: 1em;
+        }
+    }
+}
+
+@media screen and (min-width:600px) {
+    .cont-login{
+        button{
+            width: 60%;
+
+        }
+    }
+}
+
+@media screen and (min-width:850px) {
+    .login{
+        flex-direction: row;
+        align-items: flex-start;
+        .registration{
+            border-bottom: none;
+            border-right: 0.5px solid #c2c2c2;;
+        }
+    }
+}

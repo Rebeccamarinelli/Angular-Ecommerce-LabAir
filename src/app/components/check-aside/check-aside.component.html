@@ -1,0 +1,34 @@
+<!-- SIDEBAR region start --------------------------------------------->
+<div class="recap">
+    <aside>
+        <div class="inbetween space">
+            <h2>Nel carrello</h2>
+        </div>
+        <div class="inbetween space">
+            <p>Totale</p>
+            <p>{{total}}</p>
+        </div>
+        <div class="inbetween space">
+            <p>Costi di spedizione previsti</p>
+            <p>0,00€</p>
+        </div>
+        <div class="inbetween">
+            <p>Totale</p>
+            <p class="space">{{total}}</p>
+        </div>
+    </aside>
+
+    <p>Arriva entro il giorno gio 9 mag</p>
+
+    <div class="wrp-container-image-text" *ngFor="let product of cartProducts">
+        <img [src]="product.immagineSelezionata" [alt]="product.nome">
+        <div>
+            <p>{{product.nome}}</p>
+            <p>Misura: {{product.tagliaSelezionata}}</p>
+            <p>Colore: {{product.coloreSelezionato}}</p>
+            <p>Quantità: {{product.quantity}}</p>
+            <p>{{product.prezzo | currency: 'EUR'}}</p>
+        </div>
+    </div>
+</div>
+<!-- SIDEBAR region end --------------------------------------------->

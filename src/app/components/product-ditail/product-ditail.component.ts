@@ -100,11 +100,11 @@ export class ProductDitailComponent {
 
 
  addToCart(product:IProdotti): void{
-  console.log('go')
+ // console.log('go')
   this.cartService.addToCart(product)
   this.popUp.nativeElement.style.display='block'
   this.disableBodyScroll()
-  console.log(this.isSelectedColor, this.isSelectedTaglia)
+  //console.log(this.isSelectedColor, this.isSelectedTaglia)
   setTimeout(()=>{
     this.popUp.nativeElement.style.display='none'
     this.enableBodyScroll()
@@ -132,13 +132,13 @@ enableBodyScroll() {
   this.singleProduct.coloreSelezionato = colore
   this.errorMessageC.nativeElement.classList.remove('error')
   this.isSelectedColor = true;
-  console.log(this.isSelectedColor)
+ // console.log(this.isSelectedColor)
   }
 
   innerImg(img:string){
   this.image = img
   this.singleProduct.immagineSelezionata = img
-  console.log(this.isSelectedColor)
+ // console.log(this.isSelectedColor)
  }
 
  innerT(taglia:string){
@@ -146,7 +146,7 @@ enableBodyScroll() {
   this.singleProduct.tagliaSelezionata = taglia
   this.errorMessage.nativeElement.classList.remove('error')
   this.isSelectedTaglia = true;
-  console.log(this.isSelectedTaglia)
+ // console.log(this.isSelectedTaglia)
  }
 
  closePopUp(){
