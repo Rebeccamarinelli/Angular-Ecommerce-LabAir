@@ -32,17 +32,21 @@ export class CartItemComponent {
 
   
 
-  quantityMultiply(event:any, i:number){
+  quantityMultiply(event:any, i:number, selectedImage:string){
     const qty = +event.target.value;
     if(qty < 1){
       event.target.value = this.productList[i].quantity;
       return;
     }else{
-      this.productList[i].quantity = qty
-      this.cartService.updateItemQuantity(this.productList[i].id, qty);
+      if (this.productList[i].immagineSelezionata === selectedImage) {
+        // Aggiorna la quantità solo se l'immagine selezionata è uguale a quella desiderata
+        this.productList[i].quantity = qty;
+        this.cartService.updateItemQuantity(this.productList[i].id, qty, this.productList[i].immagineSelezionata);
+      // this.productList[i].quantity = qty
+      // this.cartService.updateItemQuantity(this.productList[i].id, qty);
     }
   }
  
-  
-
 }
+
+  }

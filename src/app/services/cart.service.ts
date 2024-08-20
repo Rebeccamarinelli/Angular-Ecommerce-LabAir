@@ -54,8 +54,8 @@ export class CartService {
 
  
 
-  updateItemQuantity(id: number, quantity: number): void {
-    const item = this.cartItemList.find(i => i.id === id);
+  updateItemQuantity(id: number, quantity: number, imm:string): void {
+    const item = this.cartItemList.find(i => i.id === id && i.immagineSelezionata === imm);
     if (item) {
       item.quantity = quantity;
       if (item.quantity <= 0) {
@@ -76,7 +76,6 @@ export class CartService {
   // Calcola il prezzo totale del carrello
   calculateTotalPrice(): number {
     return this.cartItemList.reduce((sum, item) => {
-      //console.log(`Somma corrente: ${sum}, Prezzo: ${item.prezzo}, Quantità: ${item.quantity}`);
       return sum + item.prezzo * item.quantity;
   }, 0);
   }
