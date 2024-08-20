@@ -1,6 +1,9 @@
 @import "../../../partial/variabili";
 @import "../../../partial/mixin";
 
+
+
+
 .nav-second{
     display: flex;
     width: 100%;
@@ -31,6 +34,7 @@
 .form{
     width: 100%;
     padding: 0 3%;
+    
 }
 
 
@@ -54,9 +58,8 @@
     justify-content: space-between;
     flex-direction: column;
     width: 100%;
-    p{
-        width: 50%;
-        padding-left: 1%;
+    div{
+        width: 100%;
     }
     
     .cap{
@@ -87,8 +90,11 @@
 .wrp-email{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+   // align-items: center;
     flex-direction: column;
+    div{
+        width: 100%;
+    }
     .email{
         width: 100%;
     }
@@ -175,7 +181,7 @@
 .btn-sped{
     @include btn-form-data;
     padding: 1em;
-    margin-bottom: .8em;
+    margin-bottom: 1.2em;
     font-size: 1em;
 }
 
@@ -184,7 +190,7 @@
     @include btn-form-data;
     border: 1px solid #c5c5c5;
     padding: 1em;
-    margin-bottom: .8em;
+    margin-bottom: 1.2em;
     font-size: 1em;
 }
 
@@ -207,18 +213,53 @@
     flex-direction: column-reverse;
 }
 
+.color-label{
+    color: red;
+    padding-bottom: 0.5em;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+ }
+
 @media screen and (min-width:1000px) {
     .wrp-name .nome {
-        width: 49%;
+        width: 99%;
+        margin-right: 1%;
     }
 
     .wrp-name .cognome {
-        width: 49%;
+        width: 99%;
         margin-left: 1%;
     }
 
     .inp-div {
        flex-direction: row;
+       div{
+        position: relative;
+       }
+       p{
+        background-color: #fff;
+        padding: 4px;
+        position: absolute;
+        z-index: 2;
+        top: -13px;
+        left: 5px;
+        font-size: 0.8em;
+       }
+    }
+
+    .ad-in{
+        position: relative;
+        p{
+            background-color: #fff;
+            padding: 4px;
+            position: absolute;
+            z-index: 2;
+            top: -13px;
+            left: 5px;
+            font-size: 0.8em;  
+        }
     }
 
     .cap{
@@ -228,6 +269,7 @@
         
     .citta{
     width: 32%;
+    margin-left: 1%;
     }
 
     .regione{
@@ -237,13 +279,26 @@
 
     .wrp-email {
         flex-direction: row;
+        div{
+            position: relative;
+           }
+           p{
+            background-color: #fff;
+            position: absolute;
+            padding: 4px;
+            z-index: 2;
+            top: -13px;
+            left: 5px;
+            font-size: 0.8em;
+           }
         .email{
-            width: 49%;
+            width: 99%;
+            margin-right: 1%;
         }
         
         .numero{
-            width: 49%;
-
+            width: 99%;
+            margin-left: 1%;
         }
     }
 
@@ -251,6 +306,18 @@
         width: 30%;
     }
 
+    .inp-div .cap {
+        width: 100%;
+    }
+
+    .inp-div .citta {
+        width: 99%;
+    }
+
+    
+ input.ng-invalid.ng-touched {
+    border: 1px solid red;
+ }
 }
 
 @media screen and (min-width:1200px) {
