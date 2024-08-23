@@ -14,11 +14,11 @@
 </nav>
     
 
-<div class="main-title btm"><h1>Pagamento</h1></div>
-<main class="payment-wrapper btm" id="btm">
+<div class="main-title btm" *ngIf="thanks"><h1>Pagamento</h1></div>
+<main class="payment-wrapper btm" id="btm" *ngIf="thanks">
     
     <!-- Form region start --------------------------------------------->   
-    <form class="form" #form="ngForm" (ngSubmit)="dataSend(form)">
+    <form class="form" #form="ngForm" (ngSubmit)="dataSend(form)" *ngIf="isVisibile">
         <h2 class="title">Opzioni di consegna</h2>
         <div class="form-data">
             <button class="btn-sped"><span><svg aria-hidden="true" class="css-19093ix" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none" style="right: 0px;"><path stroke="currentColor" stroke-width="1.5" d="M15.75 16.565H8.5M.75 11.5V14A2.25 2.25 0 003 16.25h.25m16.25-6.5H3A2.25 2.25 0 01.75 7.5V5.25h17.189c.2 0 .39.079.531.22l4.56 4.56a.75.75 0 01.22.531v3.689A2.25 2.25 0 0121 16.5h-.75m-12 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm12 .033a2.25 2.25 0 11-4.502-.001 2.25 2.25 0 014.502.001z"></path></svg></span>Spedizione</button>
@@ -28,12 +28,14 @@
                 <div class="inp-div">
                    <div>
                         <p id="name-label" class="color-label" *ngIf="nomeModel?.touched && nomeModel?.errors?.required">il campo nome è obbligatorio</p>
-                        <input type="text" placeholder="Nome*" class="nome" id="nome" ngModel name="nome" required #nomeModel="ngModel" minlength="2"  maxlength="20">
+                        <p  class="color-label" *ngIf="nomeModel.errors?.pattern">non può contenere numeri</p>
+                        <input type="text" placeholder="Nome*" class="nome" id="nome" ngModel name="nome" required #nomeModel="ngModel" minlength="2"  maxlength="20" [pattern]="nameAndSurnamePattern">
                    </div>
                     <div>
                         <p id="surname-label" class="color-label"  *ngIf="cognomeModel?.touched && cognomeModel?.errors?.required">il campo cognome è obbligatorio</p>
+                        <p  class="color-label" *ngIf="cognomeModel.errors?.pattern">non può contenere numeri</p>
                         <input type="text" placeholder="Cognome*" class="cognome" id="cognome" ngModel name="cognome" required #cognomeModel="ngModel" minlength="2"
-                        maxlength="20"> 
+                        maxlength="20" [pattern]="nameAndSurnamePattern"> 
                     </div>
                 </div>     
         </div>
@@ -46,7 +48,7 @@
            <div>
                 <p class="color-label" *ngIf="capModel.errors?.pattern">il CAP deve contenere 5 numeri</p>
                 <p id="cap-label" class="color-label" *ngIf="capModel.touched && capModel.errors?.required">il campo CAP è obbligatorio</p>
-                <input type="number" placeholder="CAP*" class="cap" id="cap" required ngModel name="cap" #capModel="ngModel" [pattern]="capPattern">
+                <input type="text" placeholder="CAP*" class="cap" id="cap" required ngModel name="cap" #capModel="ngModel" [pattern]="capPattern">
            </div>
            <div>
                 <p class="color-label" *ngIf="cittaModel.errors?.minlength">città inesistente</p>
@@ -75,7 +77,7 @@
                 per avere diritto a spedizione e resi gratuiti (si aprirà una nuova finestra). Dopo aver effettuato l'accesso, tornerai al pagamento.</p>
         </div>
         <div class="go-payment">
-            <button id="btn-pay" type="submit" [disabled]="form.invalid">Salva e continua
+            <button id="btn-pay" type="submit" [disabled]="form.invalid " [ngClass]="{'valid-btn': form.valid}">Salva e continua
             </button>
         </div>
         <div class="wrp-pay">
@@ -86,6 +88,7 @@
         </div>            
     </form>
     <!-- Form region end --------------------------------------------->
+     <app-check-pay-mode *ngIf="isHidden" [dataDitails]="data"></app-check-pay-mode>
     <app-check-aside></app-check-aside>
   
 </main>

@@ -2,13 +2,11 @@
 @import "../../../partial/mixin";
 
 
-
-
 .nav-second{
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding: 2em 10%;
+    padding: 2em 5%;
     align-items: center;
     a{
         color: #111;
@@ -33,7 +31,7 @@
 
 .form{
     width: 100%;
-    padding: 0 3%;
+    padding: 0 5%;
     
 }
 
@@ -222,6 +220,16 @@ input.ng-invalid.ng-touched {
     border: 1px solid red;
  }
 
+#btn-pay.valid-btn{
+    background-color: #111;
+    color: #fff;
+}
+
+.form input:focus{
+    outline: none;
+}
+
+
 @media screen and (min-width:1000px) {
     .wrp-name .nome {
         width: 99%;
@@ -307,11 +315,11 @@ input.ng-invalid.ng-touched {
     }
 
     .inp-div .cap {
-        width: 100%;
+        width: 99%;
     }
 
     .inp-div .citta {
-        width: 99%;
+        width: 98%;
     }
 
     
@@ -328,31 +336,4 @@ input.ng-invalid.ng-touched {
     }
 
 }
-
-// .payment-wrapper.btm{
-
-//     width: 100%;
-//     padding: 0 15%;
-//     display: grid;
-//     grid-template-columns: 2fr 1fr;
-//     gap: 10px;
-// }
-
-// .form input.not-right{
-//     border: 1px solid red;
-// }
-
-// .form input:focus{
-//     outline: none;
-// }
-
-// .color-label{
-//     padding-top: 1.15em;
-//     color: red;
-// }
-
-
-// .inp-div{
-//     width: 100%;
-// }
 

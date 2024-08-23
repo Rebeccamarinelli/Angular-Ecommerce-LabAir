@@ -24,7 +24,7 @@ export class AppComponent {
     .pipe(filter(event => event instanceof NavigationEnd))
     .subscribe((event: NavigationEnd) => {
       // Aggiungi qui le route per cui vuoi nascondere i componenti
-      const routesToHide = ['/checkout-form', '/login'];
+      const routesToHide = ['/checkout-form', '/login', '/thanks'];
 
       // Se la route corrente è inclusa in routesToHide, nascondi i componenti
       this.hideComponents = routesToHide.includes(event.urlAfterRedirects);

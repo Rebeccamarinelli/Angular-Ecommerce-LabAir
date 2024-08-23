@@ -73,6 +73,11 @@ export class CartService {
     this.totalPrice.next(this.calculateTotalPrice());  // Emesso nuovo stato del prezzo totale
   }
 
+  clearCart():void{
+    this.cartItemList = [];
+    this.updateCart()
+  }
+
   // Calcola il prezzo totale del carrello
   calculateTotalPrice(): number {
     return this.cartItemList.reduce((sum, item) => {

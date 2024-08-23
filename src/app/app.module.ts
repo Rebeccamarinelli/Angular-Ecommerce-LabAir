@@ -27,6 +27,8 @@ import { CartAsideComponent } from './components/cart-aside/cart-aside.component
 import { LoginComponent } from './pages/login/login.component';
 import { CheckoutFormComponent } from './pages/checkout-form/checkout-form.component';
 import { CheckAsideComponent } from './components/check-aside/check-aside.component';
+import { CheckPayModeComponent } from './components/check-pay-mode/check-pay-mode.component';
+import { CheckThanksComponent } from './components/check-thanks/check-thanks.component';
 
 
 
@@ -54,6 +56,8 @@ import { CheckAsideComponent } from './components/check-aside/check-aside.compon
     LoginComponent,
     CheckoutFormComponent,
     CheckAsideComponent,
+    CheckPayModeComponent,
+    CheckThanksComponent,
   ],
   imports: [
     BrowserModule,

@@ -24,9 +24,21 @@ export class CheckoutFormComponent {
   capPattern = /^[0-9]{5}$/;
   phonePattern = /^(?:(?:\+|00)39)?\s?(?:3[1-9]\d{2}|0\d{2,4})\s?\d{6,8}$/;
   addressPattern = /^[a-zA-Z0-9\s,.'-]{10,}$/;
+  nameAndSurnamePattern = /^[a-zA-ZàèéìòùÀÈÉÌÒÙ' -]+$/;
+
+  isVisibile: boolean = true
+  isHidden: boolean = false
+  data:Object;
+  thanks:boolean = true
 
   dataSend(form:NgForm){
-    console.log(form)
+    console.log(form.value)
+    this.isVisibile = false;
+    this.isHidden = true;
+    this.data = form.value;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    console.log(this.data)
   }
+
 
 }
