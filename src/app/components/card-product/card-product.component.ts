@@ -15,6 +15,7 @@ export class CardProductComponent {
 
 
   constructor(private activetedRouter: ActivatedRoute, private prodottiServ: ProdottiService){
+    
 
   }
 

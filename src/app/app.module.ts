@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import {FormsModule } from '@angular/forms';
+import { NgxSpinnerModule} from 'ngx-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,6 +32,8 @@ import { CheckoutFormComponent } from './pages/checkout-form/checkout-form.compo
 import { CheckAsideComponent } from './components/check-aside/check-aside.component';
 import { CheckPayModeComponent } from './components/check-pay-mode/check-pay-mode.component';
 import { CheckThanksComponent } from './components/check-thanks/check-thanks.component';
+import { RegistrationComponent } from './pages/registration/registration.component';
+import { LogOnComponent } from './pages/log-on/log-on.component';
 
 
 
@@ -58,13 +63,18 @@ import { CheckThanksComponent } from './components/check-thanks/check-thanks.com
     CheckAsideComponent,
     CheckPayModeComponent,
     CheckThanksComponent,
+    RegistrationComponent,
+    LogOnComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,6 +7,8 @@ import { CartComponent } from './components/cart/cart.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CheckoutFormComponent } from './pages/checkout-form/checkout-form.component';
 import { CheckThanksComponent } from './components/check-thanks/check-thanks.component';
+import { RegistrationComponent } from './pages/registration/registration.component';
+import { LogOnComponent } from './pages/log-on/log-on.component';
 
 const routes: Routes = [
 
@@ -15,7 +17,14 @@ const routes: Routes = [
   {path:'products', component: ProductsComponent},
   {path:'products/:id', component: ProductDitailComponent},
   {path:'cart', component: CartComponent},
-  {path:'login', component: LoginComponent},
+  {
+    path:'auth',
+    component: LoginComponent,
+    children: [
+      {path:'register', component: RegistrationComponent},
+      {path:'login', component: LogOnComponent}
+    ]
+  },
   {path:'checkout-form', component: CheckoutFormComponent},
   {path:'thanks', component: CheckThanksComponent}
 ];

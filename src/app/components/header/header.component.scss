@@ -135,6 +135,7 @@ header{
         z-index: 98;
         display: none;
         background-color: #fff;
+        transition: all 0.5s ease-in-out;
         nav{
             width: 100%;
             display: flex;
@@ -144,6 +145,7 @@ header{
             ul{
                 flex-direction: column;
                 li{
+                    opacity: 1;
                     margin-bottom: 0.5em;
                     color: #757575;
                     font-size: 0.7em;
@@ -180,7 +182,13 @@ header{
 
     .ulPlus:hover .menu{
         display: block;
+         //height: 40vh;
     }
+
+    // .ulPlus:hover .menu li{
+    //     //display: block;
+    //     opacity: 1;
+    // }
     
 }
 

@@ -18,7 +18,8 @@ thanks:boolean = false;
  cvvPattern = /^\d{3,4}$/;
 
 
- dataPaySend(form:NgForm){
+ dataPaySend(e:Event,form:NgForm){
+  e.preventDefault()
    console.log(form);
    this.thanks = true
  }

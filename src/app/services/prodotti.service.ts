@@ -15,6 +15,7 @@ products:any;
 filteredList:any;
 baseUrl = 'http://localhost:3000/prodotti'
 
+
   constructor(private http: HttpClient) {}
     
   getAllProducts():Observable<any>{

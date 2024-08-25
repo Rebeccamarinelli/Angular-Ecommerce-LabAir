@@ -1,0 +1,61 @@
+@import "../../../partial/mixin";
+@import "../../../partial/variabili";
+
+main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 3em 5%;
+}
+
+h2{
+    margin-bottom: 1.5em;
+}
+
+form input{
+    width: 100%;
+    padding: 1.15em;
+    border-radius: 10px;
+    border: 1px solid #757575;
+    font-size: 1.2em;
+    margin-bottom: 0.8em;
+}
+
+.para{
+    width: 70%;
+    color: #757575;
+    span{
+        text-decoration: underline;
+    }
+}
+
+button{
+    @include btn;
+    background-color: #c5c5c5;
+    color: #757575;
+    margin-top: 1.5em;
+    padding: 1em;
+}
+
+.color-label{
+    color: red;
+    padding-bottom: 0.5em;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+ }
+
+ .valid{
+    background-color: #111;
+    color: $white;
+ }
+
+ @media screen and (min-width:600px) {
+    main{
+        padding: 3em 20%;
+    }
+}

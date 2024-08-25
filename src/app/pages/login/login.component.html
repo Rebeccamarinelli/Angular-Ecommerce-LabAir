@@ -1,12 +1,12 @@
 
-<main class="cont-login">
+<main class="cont-login" *ngIf="isVisibile">
     <p class="title">Scegli come desideri pagare</p>
     <div class="login">
         <div class="registration">
             <p>Pagamento come member con spedizione gratuita</p>
             <p>Usa le credenziali di accesso Member Nike per Nike.com, NRC, NTC, SNKRS o Nike App.</p>
-            <button>Accedi</button>
-            <button>Registrati</button>
+            <button routerLink="/auth/login">Accedi</button>
+            <button routerLink="/auth/register">Registrati</button>
         </div>
         <div class="payment">
             <p>Pagamento come utente non registrato</p>
@@ -15,3 +15,4 @@
         </div>
     </div>
 </main>
+<router-outlet></router-outlet>

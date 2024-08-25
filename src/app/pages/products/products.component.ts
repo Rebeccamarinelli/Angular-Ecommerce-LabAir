@@ -2,7 +2,7 @@ import { Component, Input} from '@angular/core';
 import { ProdottiService } from '../../services/prodotti.service';
 import { IProdottiRes } from '../../models/models';
 import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -15,13 +15,16 @@ export class ProductsComponent {
  
   prodottiArray:any;
 
+  loading = false; // Variabile per controllare lo stato dello spinner
 
-  
 
-  constructor(private prodottiServ: ProdottiService, private route:Router, private activetedRouter: ActivatedRoute){
-
+  constructor(private prodottiServ: ProdottiService, private route:Router, private spinner: NgxSpinnerService){
+    this.loading = true; // Mostra lo spinner
+    this.spinner.show(); // Per ngx-spinner
     this.prodottiServ.getAllProducts().subscribe((res:IProdottiRes) => {
       this.prodottiArray = res
+      this.loading = false; // Nasconde lo spinner
+      this.spinner.hide(); // Per ngx-spinner
     })
 
 

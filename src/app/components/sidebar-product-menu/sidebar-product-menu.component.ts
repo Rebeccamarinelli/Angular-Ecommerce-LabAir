@@ -4,6 +4,7 @@ import { ProdottiService } from '../../services/prodotti.service';
 import { FormControl } from '@angular/forms';
 import { IProdotti } from '../../models/models';
 import { map } from 'rxjs';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 
@@ -16,10 +17,11 @@ export class SidebarProductMenuComponent {
 @Input() products:IProdotti[];
 colors:any = colors
 filteredList:IProdotti[]
+loading = false;
 
 @Output() passFilter: EventEmitter<any> = new EventEmitter
 
-constructor( private prodottiService: ProdottiService){
+constructor( private prodottiService: ProdottiService, private spinner: NgxSpinnerService){
 
   this.filtro.valueChanges.pipe(
     map((valore:string)=> valore.toLocaleLowerCase())

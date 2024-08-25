@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProdottiService } from '../../services/prodotti.service';
 import { IProdotti } from '../../models/models';
 import { CartService } from '../../services/cart.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-product-ditail',
@@ -20,10 +21,10 @@ export class ProductDitailComponent {
   selectedIndex?:number;
   selectedIndexTaglia?:number;
   totalItemNumber:number;
-
+  loading = false; // Variabile per controllare lo stato dello spinner
   
-  constructor(private activateRoute: ActivatedRoute, private serviceProduct: ProdottiService, private cartService: CartService){
-
+  constructor(private activateRoute: ActivatedRoute, private serviceProduct: ProdottiService, private cartService: CartService, private spinner:NgxSpinnerService){
+    
     this.cartService.getProducts().subscribe((res)=>{
       this.productList = res;
       this.totalItemNumber = this.productList.reduce((sum, item) => sum + item.quantity, 0); 
@@ -31,8 +32,12 @@ export class ProductDitailComponent {
 
 
     this.activateRoute.params.subscribe((params)=>{
+      this.loading = true; // Mostra lo spinner
+      this.spinner.show(); // Per ngx-spinner
       this.serviceProduct.getProdById(params.id).subscribe((res)=>{
         this.singleProduct = res;
+        this.loading = true; // Mostra lo spinner
+        this.spinner.hide(); // Per ngx-spinner
         this.singleProduct = {
           ...this.singleProduct,
           coloreSelezionato: this.color,

@@ -20,7 +20,7 @@
             </div>
             <div  class="pop-up_foot">
                 <button><a routerLink="/cart">Visualizza carrello (<span id="product">{{totalItemNumber}}</span>)</a></button>
-                <button routerLink="/login">Pagamento</button>
+                <button routerLink="/auth">Pagamento</button>
             </div>
         </div>
     </div>
@@ -86,4 +86,11 @@
             </div>
         </section>
     </section>
+    <ngx-spinner
+        bdColor="rgba(255, 255, 255, 0.9)"
+        size="medium"
+        color="#000"
+        type="ball-clip-rotate-multiple">
+        <p style="color: #111;">loading...</p>
+</ngx-spinner>
 </main>

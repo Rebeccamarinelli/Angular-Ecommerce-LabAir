@@ -1,7 +1,7 @@
 <main class="payment-wrapper top" id="top">
     
     <!-- Form region start --------------------------------------------->
-    <form class="form" #formPay="ngForm" (ngSubmit)="dataPaySend(formPay)">
+    <form class="form" #formPay="ngForm">
         <div class="option1">
             <h1>Opzioni di consegna</h1>
             <p>Modifica</p>
@@ -70,7 +70,7 @@
             <p>{{dataDitails.citta}}, {{dataDitails.cap}}, IT</p>
         </div>
         <div class="go-payment">
-            <button type="submit" id="btn-credit" class="btn-pay" [disabled]="formPay.invalid" [ngClass]="{'valid-btn': formPay.valid}" routerLink="/thanks">Passa alla verifica dell'ordine</button>
+            <button (click)="dataPaySend($event,formPay)" id="btn-credit" class="btn-pay" [disabled]="formPay.invalid" [ngClass]="{'valid-btn': formPay.valid}" routerLink="/thanks">Passa alla verifica dell'ordine</button>
         </div>
         <div class="wrp-pay wrp-pay2">
             <h2>Verifica dell'ordine</h2>
