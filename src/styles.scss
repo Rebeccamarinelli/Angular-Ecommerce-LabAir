@@ -69,7 +69,13 @@ body.scroll-up header {
  }
 
  body.scroll-up header .menu{
-    transition: transform 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    transition-delay: 0.2s;
+   }
+
+   body.scroll-up header .menu li{
+    transition: opacity 0.2s ease-in;
+    transition-delay: 0.3s;
    }
    
  body.scroll-down header .menu{

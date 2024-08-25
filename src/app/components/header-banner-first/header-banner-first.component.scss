@@ -28,6 +28,8 @@ ul{
         justify-content: space-between;
         background-color: #f2f2f2;
         padding: 0.6em 3%;
+        position: relative;
+        z-index: 100;
         div{
             width: 20%;
             svg:first-child{
