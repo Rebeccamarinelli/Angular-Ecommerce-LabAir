@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ripetiPassword } from '../../services/validators/validator.password';
+import { ripetiPassword } from '../../shared/validators/validator.password';
 import { NavigationEnd, Router } from '@angular/router';
 
 @Component({

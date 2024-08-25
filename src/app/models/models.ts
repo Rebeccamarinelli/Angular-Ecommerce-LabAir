@@ -28,3 +28,8 @@ export interface singleShoe {
     categoria: string
     prezzo: number
   }
+
+export interface ILoginInfo{
+  email:string,
+  password:string
+}

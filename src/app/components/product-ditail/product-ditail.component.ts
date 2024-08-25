@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { ProdottiService } from '../../services/prodotti.service';
 import { IProdotti } from '../../models/models';
 import { CartService } from '../../services/cart.service';
@@ -23,7 +23,7 @@ export class ProductDitailComponent {
   totalItemNumber:number;
   loading = false; // Variabile per controllare lo stato dello spinner
   
-  constructor(private activateRoute: ActivatedRoute, private serviceProduct: ProdottiService, private cartService: CartService, private spinner:NgxSpinnerService){
+  constructor(private activateRoute: ActivatedRoute, private serviceProduct: ProdottiService, private cartService: CartService, private spinner:NgxSpinnerService, private route:Router){
     
     this.cartService.getProducts().subscribe((res)=>{
       this.productList = res;
@@ -108,6 +108,14 @@ export class ProductDitailComponent {
  // console.log('go')
   this.cartService.addToCart(product)
   this.popUp.nativeElement.style.display='block'
+  this.route.events.subscribe((event)=>{
+    if(event instanceof NavigationEnd && (event.url === '/cart' || event.url === '/auth')){
+      this.popUp.nativeElement.style.display='none'
+      this.enableBodyScroll()
+      this.selectedIndex = null;
+      this.selectedIndexTaglia = null;
+    }
+  })
   this.disableBodyScroll()
   //console.log(this.isSelectedColor, this.isSelectedTaglia)
   setTimeout(()=>{
@@ -158,6 +166,7 @@ enableBodyScroll() {
    this.popUp.nativeElement.style.display='none';
    this.selectedIndex = null;
    this.selectedIndexTaglia = null;
+   this.enableBodyScroll()
  }
 
  

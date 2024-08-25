@@ -11,13 +11,13 @@ export class LoginComponent {
   isVisibile:boolean;
 
   constructor(private route:Router){
-    console.log(this.route.events.subscribe(event => {
+    this.route.events.subscribe(event => {
       if(event instanceof NavigationEnd && event.url === '/auth/register' || event instanceof NavigationEnd && event.url === '/auth/login'){
         this.isVisibile = false
       }else if(event instanceof NavigationEnd && event.url === '/auth'){
         this.isVisibile = true
       }
-    }))
+    })
   }
 
 }

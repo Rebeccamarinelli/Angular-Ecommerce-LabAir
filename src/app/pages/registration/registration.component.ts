@@ -1,7 +1,9 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ripetiPassword } from '../../services/validators/validator.password';
-import { NavigationEnd, Router } from '@angular/router';
+import { ripetiPassword } from '../../shared/validators/validator.password';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { ILoginInfo } from '../../models/models';
 
 @Component({
   selector: 'app-registration',
@@ -9,21 +11,8 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrl: './registration.component.scss'
 })
 export class RegistrationComponent {
-  // passVisibile:boolean;
-  // inputVisibile:boolean;
-  // @ViewChild('par') error:ElementRef<HTMLParagraphElement>
-
-  // constructor(private route:Router){
-  //   this.route.events.subscribe((event) => {
-  //     if(event instanceof NavigationEnd && event.url === '/auth/register'){
-  //       this.inputVisibile = true
-  //       this.passVisibile = false
-  //     }else if(event instanceof NavigationEnd && event instanceof NavigationEnd && event.url === '/auth/login'){
-  //       this.inputVisibile = false
-  //       this.passVisibile = true
-  //     }
-  //   })
-  // }
+  
+   constructor(private auth:AuthService, private route:Router){ }
 
   emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$/;
@@ -41,7 +30,16 @@ export class RegistrationComponent {
 
   onRegister(){
       console.log(this.registerForm)
-      console.log('ciao')
+    
+      const newUser: ILoginInfo = {
+        email: this.registerForm.get('email').value,
+        password: this.registerForm.get('password').value
+      }
+
+      this.auth.registration(newUser).subscribe((res)=>{
+        console.log(res)
+        this.route.navigate(['auth', 'login'])
+      })
   }
 
 
