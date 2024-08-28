@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header-banner-first',
@@ -7,4 +9,16 @@ import { Component } from '@angular/core';
 })
 export class HeaderBannerFirstComponent {
 
+  isLoggedIn:boolean = false
+
+  constructor(private authService: AuthService){
+  }
+
+  ngOnInit(){
+     this.authService.isLoggedIn().subscribe(isLoggedIn => {
+      this.isLoggedIn = isLoggedIn;
+    });
+  }
+
+  
 }

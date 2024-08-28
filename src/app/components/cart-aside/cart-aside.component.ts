@@ -12,7 +12,9 @@ export class CartAsideComponent {
   total:number = 0
   productList:IProdotti[];
 
-  constructor(private cartService: CartService){}
+  constructor(private cartService: CartService){
+
+  }
 
    ngOnInit(){
   
@@ -28,6 +30,15 @@ export class CartAsideComponent {
 
      }
 
+
+     getDynamicRouterLink(): string {
+      const accessToken = localStorage.getItem('token');
+      if (accessToken) {
+        return '/checkout-form';  // Se il token è presente, va al form
+      } else {
+        return '/auth'; // Se il token non è presente, va alla pagina di login
+      }
+    }
  
 
 

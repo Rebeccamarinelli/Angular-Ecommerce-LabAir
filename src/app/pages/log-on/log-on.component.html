@@ -8,19 +8,19 @@
         </div>
         <form [formGroup]="registerForm">
             <div>
-                <p class="color-label" *ngIf="registerForm.controls.emailLogin.touched && registerForm.controls.emailLogin.errors?.required">email obbligatoria</p>
-                <p class="color-label" *ngIf="registerForm.controls.emailLogin.errors?.pattern">formato non  valido</p>
+                <p class="color-label" *ngIf="registerForm.controls.email.touched && registerForm.controls.email.errors?.required">email obbligatoria</p>
+                <p class="color-label" *ngIf="registerForm.controls.email.errors?.pattern">formato non  valido</p>
                 <input type="email" 
                         id="email" 
-                        formControlName="emailLogin" 
+                        formControlName="email" 
                         placeholder="E-mail*" >
         
             </div>
             <div>
-                <p class="color-label" *ngIf="registerForm.controls.passwordLogin.touched && registerForm.controls.passwordLogin.errors?.required">email obbligatoria</p>
+                <p class="color-label" *ngIf="registerForm.controls.password.touched && registerForm.controls.password.errors?.required">email obbligatoria</p>
                 <input type="password" 
                         id="psw-login"
-                        formControlName="passwordLogin"    
+                        formControlName="password"    
                         placeholder="Password*"
                         autocomplete="new-password" >
             </div>
@@ -48,7 +48,7 @@
         <div>
             <p class="para">Continuando, accetti le <span>condizioni d'uso</span> di Nike e confermi di aver letto l'<span>informativa sulla privacy</span> di Nike.</p>
         </div>
-        <button (click)="onRegister()" [disabled]="registerForm.invalid"[ngClass]="{'valid': registerForm.valid}">Continua</button>
+        <button (click)="onLogin()" [disabled]="registerForm.invalid"[ngClass]="{'valid': registerForm.valid}">Continua</button>
     </div>
     
 </main>

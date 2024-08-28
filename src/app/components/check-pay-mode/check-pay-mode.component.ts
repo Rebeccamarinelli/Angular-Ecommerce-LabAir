@@ -22,6 +22,7 @@ thanks:boolean = false;
   e.preventDefault()
    console.log(form);
    this.thanks = true
+   // al click in questa funzione devo inviare i dati con Post al database di orders
  }
 
 

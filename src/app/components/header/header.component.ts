@@ -11,7 +11,12 @@ import { CartService } from '../../services/cart.service';
 })
 export class HeaderComponent {
 
- constructor(private router:Router, private cartService: CartService){}
+ constructor(private router:Router, private cartService: CartService){
+
+
+  
+
+ }
 
   private lastScroll: number = 0;
   private body: HTMLElement;
@@ -29,6 +34,8 @@ export class HeaderComponent {
       this.listItem = res
         this.totalItem = this.listItem.reduce((sum, item) => sum + item.quantity, 0); 
     })
+
+
    
  }
 

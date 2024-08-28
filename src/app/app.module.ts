@@ -34,6 +34,7 @@ import { CheckPayModeComponent } from './components/check-pay-mode/check-pay-mod
 import { CheckThanksComponent } from './components/check-thanks/check-thanks.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { LogOnComponent } from './pages/log-on/log-on.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 
@@ -65,6 +66,7 @@ import { LogOnComponent } from './pages/log-on/log-on.component';
     CheckThanksComponent,
     RegistrationComponent,
     LogOnComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,8 @@ import { CheckoutFormComponent } from './pages/checkout-form/checkout-form.compo
 import { CheckThanksComponent } from './components/check-thanks/check-thanks.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { LogOnComponent } from './pages/log-on/log-on.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
 
@@ -26,7 +28,8 @@ const routes: Routes = [
     ]
   },
   {path:'checkout-form', component: CheckoutFormComponent},
-  {path:'thanks', component: CheckThanksComponent}
+  {path:'thanks', component: CheckThanksComponent},
+  {path:'dashboard', component: DashboardComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

@@ -17,7 +17,7 @@
         <p>{{total}}</p>
     </div>
     <div class="payments_btn">
-        <button id="pay" *ngIf="total != 0" routerLink="/auth"><a>Vai al Pagamento</a></button>
+        <button id="pay" *ngIf="total != 0" [routerLink]="getDynamicRouterLink()"><a>Vai al Pagamento</a></button>
         <button id="paypal" *ngIf="total != 0"><img src="/assets/imm/paypal.png" alt=""></button>
     </div>
 </aside>
