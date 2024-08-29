@@ -1,7 +1,8 @@
 <main>
+    <div>
+        <h2>I Miei Ordini</h2>
+    </div>
     <div class="dashboard">
-        <div>
-            <h2>Ordini</h2>
-        </div>
+            <app-order-item [orderList]="pastOrdersList" class="wrap"></app-order-item>
     </div>
 </main>

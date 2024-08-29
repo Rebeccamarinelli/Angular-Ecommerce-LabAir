@@ -14,7 +14,7 @@ export class CheckThanksComponent {
 
   constructor(private cartService: CartService){
     
-    this.cartService.clearCart()
+   this.cartService.clearCart()
      
    
   }

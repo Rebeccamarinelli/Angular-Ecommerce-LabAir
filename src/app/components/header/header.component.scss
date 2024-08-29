@@ -195,6 +195,8 @@ header{
     .ulPlus:hover .menu{
        // height: 40vh;
        transform: translateY(0);
+       //filter: drop-shadow(0 -10px 20px rgb(170,170,170));
+       box-shadow: 0px 8px 9px 0px rgba(170, 170, 170, 0.3);
     }
 
      .ulPlus:hover .menu li{

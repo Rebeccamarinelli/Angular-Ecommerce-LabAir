@@ -32,12 +32,13 @@ export class CheckoutFormComponent {
   thanks:boolean = true
 
   dataSend(form:NgForm){
-    console.log(form.value)
+    //console.log(this.cartProduct)
+   // console.log(form.value)
     this.isVisibile = false;
     this.isHidden = true;
     this.data = form.value;
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    console.log(this.data)
+   // console.log(this.data)
   }
 
 

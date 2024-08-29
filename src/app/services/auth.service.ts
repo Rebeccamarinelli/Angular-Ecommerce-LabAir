@@ -35,4 +35,24 @@ export class AuthService {
   }
 
 
+   // Funzione per ottenere l'ID dell'utente dal token memorizzato nel localStorage
+   getUserId(): string | null {
+    const token = localStorage.getItem('token');
+    if (token) {
+      // Decodificare il token JWT e ottenere l'ID utente
+      // Nota: Questa è una semplice simulazione, normalmente dovresti usare una libreria per decodificare JWT
+      try {
+        const tokenPayload = JSON.parse(atob(token.split('.')[1]));
+        return tokenPayload.sub; // Supponendo che il token contenga un campo "userId"
+      } catch (error) {
+        console.error('Errore nella decodifica del token:', error);
+        return null;
+      }
+    }
+    return null;
+  }
+
 }
+
+
+

@@ -35,6 +35,7 @@ import { CheckThanksComponent } from './components/check-thanks/check-thanks.com
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { LogOnComponent } from './pages/log-on/log-on.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { OrderItemComponent } from './components/order-item/order-item.component';
 
 
 
@@ -67,6 +68,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     RegistrationComponent,
     LogOnComponent,
     DashboardComponent,
+    OrderItemComponent,
   ],
   imports: [
     BrowserModule,

@@ -17,12 +17,12 @@ export class CheckAsideComponent {
   ngOnInit(){
     this.cartService.getProducts().subscribe((res)=>{
       this.cartProducts = res;
-      console.log(this.cartProducts)
+     // console.log(this.cartProducts)
     })
 
     this.cartService.totalPrice$.subscribe((total) => {
       this.total = parseFloat(total.toFixed(2));
-      console.log(total)    
+      //console.log(total)    
     });
 
   }
