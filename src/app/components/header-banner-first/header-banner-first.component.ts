@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class HeaderBannerFirstComponent {
 
   ngOnInit(){
      this.authService.isLoggedIn().subscribe(isLoggedIn => {
-      this.isLoggedIn = isLoggedIn;
+      this.isLoggedIn = isLoggedIn; 
     });
   }
 

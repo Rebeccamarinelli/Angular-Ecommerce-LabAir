@@ -1,13 +1,13 @@
 
 <div class="c-side">
     <app-sidebar-product-menu [products]="products" (passFilter)="riceviFilteredList($event)"></app-sidebar-product-menu>
-    <div class="c-card">
+    <div class="c-card" (scroll)="onScroll()"  id="scroll-container">
         <div class="card" *ngFor="let prodotto of products, let i = index">
             <img [src]="prodotto.immagine" [alt]="prodotto.nome" (click)="onImageClick(prodotto.id)">
             <h2>{{prodotto.nome}}</h2>
             <p class="category">{{prodotto.categoria}}</p>
             <p class="color">colori disponibili {{getlenght(prodotto.colori_disponibili)}}</p>
             <p class="price">{{prodotto.prezzo | currency:'EUR' }}</p>
-        </div>   
+        </div>  
     </div>
 </div>

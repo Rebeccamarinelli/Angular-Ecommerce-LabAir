@@ -25,15 +25,15 @@ date:any;
 
 constructor(private cartService:CartService, private orderService:OrdersService, private authService:AuthService){
 
-  const today = new Date();
+  this.date = new Date();
 
-  // Ottieni il giorno, mese e anno
-  const year = today.getFullYear();
-  const month = String(today.getMonth() + 1).padStart(2, '0'); // `getMonth()` ritorna valori da 0 a 11, quindi aggiungi 1
-  const day = String(today.getDate()).padStart(2, '0'); // `getDate()` ritorna il giorno del mese
+  // // Ottieni il giorno, mese e anno
+  // const year = today.getFullYear();
+  // const month = String(today.getMonth() + 1).padStart(2, '0'); // `getMonth()` ritorna valori da 0 a 11, quindi aggiungi 1
+  // const day = String(today.getDate()).padStart(2, '0'); // `getDate()` ritorna il giorno del mese
   
-  // Formatta la data
-  this.date = `${day}-${month}-${year}`;
+  // // Formatta la data
+  // this.date = `${day}-${month}-${year}`;
   
 
 

@@ -1,5 +1,5 @@
 
-<main class="container-prod">
+<main class="container-prod" >
         <ngx-spinner
                 bdColor="rgba(255, 255, 255, 0.9)"
                 size="medium"
@@ -7,5 +7,8 @@
                 type="ball-clip-rotate-multiple">
                 <p style="color: #111;">loading...</p>
         </ngx-spinner>
-        <app-card-product  [products]="prodottiArray" (goIntoDitails)="getId($event)"></app-card-product>
+        <app-card-product (goIntoDitails)="getId($event)"></app-card-product>
+
 </main>
+
+<!-- [products]="products"  -->

@@ -36,6 +36,8 @@ import { RegistrationComponent } from './pages/registration/registration.compone
 import { LogOnComponent } from './pages/log-on/log-on.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { OrderItemComponent } from './components/order-item/order-item.component';
+import { DatePipePipe } from './pipes/date-pipe.pipe';
+
 
 
 
@@ -69,6 +71,7 @@ import { OrderItemComponent } from './components/order-item/order-item.component
     LogOnComponent,
     DashboardComponent,
     OrderItemComponent,
+    DatePipePipe,
   ],
   imports: [
     BrowserModule,

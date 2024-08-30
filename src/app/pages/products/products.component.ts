@@ -12,28 +12,51 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class ProductsComponent {
 
- 
-  prodottiArray:any;
+  products: any[] = [];
+ //prodottiArray:any;
+  currentIndex: number = 0;
+  pageSize: number = 3;
+  loadInfinite: boolean = true;
+  totalProducts:number=0;
+  loadProd:boolean=false
 
-  loading = false; // Variabile per controllare lo stato dello spinner
-
-
-  constructor(private prodottiServ: ProdottiService, private route:Router, private spinner: NgxSpinnerService){
-    this.loading = true; // Mostra lo spinner
-    this.spinner.show(); // Per ngx-spinner
-    this.prodottiServ.getAllProducts().subscribe((res:IProdottiRes) => {
-      this.prodottiArray = res
-      this.loading = false; // Nasconde lo spinner
-      this.spinner.hide(); // Per ngx-spinner
-    })
+  
 
 
+  constructor(private prodottiServ: ProdottiService, private route:Router){
+    
+    // this.prodottiServ.getAllProducts().subscribe((res:IProdottiRes) => {
+    //   this.prodottiArray = res
+    // 
+    // })
   }
+
+  ngOnInit(){
+ 
+  }
+
+  
+
+
+  // onScroll(): void {
+  //   if (this.loadInfinite && !this.loading) {
+  //     this.loadMoreProducts();
+  //   }
+  // }
 
   getId(id:number){
     // console.log(id)
     this.route.navigate(['products', id])
   }
+
+
+
+
+  // onScroll(): void {
+  //   if (!this.loadInfinite) {
+  //     this.loadMoreProducts();
+  //   }
+  // }
 
 
   // riceviFilterBest(filter:any){

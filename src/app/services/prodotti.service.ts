@@ -17,6 +17,12 @@ baseUrl = 'http://localhost:3000/prodotti'
 
 
   constructor(private http: HttpClient) {}
+
+  // Metodo per ottenere prodotti con paginazione
+  getProducts(startIndex: number, limit: number): Observable<any> {
+    const url = `${this.baseUrl}?_start=${startIndex}&_limit=${limit}`;
+    return this.http.get<any[]>(url);
+  }
     
   getAllProducts():Observable<any>{
     return  this.http.get<IProdottiRes>(this.baseUrl)

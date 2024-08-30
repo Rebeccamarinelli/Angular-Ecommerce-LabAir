@@ -6,6 +6,6 @@
         <p>{{order.prezzo | currency : 'EUR'}} - qty: {{order.quantity}}</p>
         <p>{{order.tagliaSelezionata}}</p>
         <p>{{order.coloreSelezionato}}</p>
-        <p>Data d'acquisto: {{order.data}}</p>
+        <p>Data d'acquisto: {{order.data | datePipe}}</p>
    </div>
 </div>

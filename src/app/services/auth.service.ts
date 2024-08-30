@@ -30,6 +30,11 @@ export class AuthService {
     return  this.http.post(`${this.baseUrl}/login`, userInfo)
   }
 
+  logout():void{
+    localStorage.removeItem('token')
+    this.loggedIn.next(false);
+  }
+
   registration(newUser:ILoginInfo): Observable<any>{
     return this.http.post(`${this.baseUrl}/register`, newUser)
   }

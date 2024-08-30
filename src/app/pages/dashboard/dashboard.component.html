@@ -1,6 +1,7 @@
 <main>
     <div>
         <h2>I Miei Ordini</h2>
+        <p (click)="logout()">Logout</p>
     </div>
     <div class="dashboard">
             <app-order-item [orderList]="pastOrdersList" class="wrap"></app-order-item>
