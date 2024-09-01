@@ -5,6 +5,7 @@ import { FormControl } from '@angular/forms';
 import { IProdotti } from '../../models/models';
 import { map } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Router } from '@angular/router';
 
 
 
@@ -17,11 +18,14 @@ export class SidebarProductMenuComponent {
 @Input() products:IProdotti[];
 colors:any = colors
 filteredList:IProdotti[]
-loading = false;
+
 
 @Output() passFilter: EventEmitter<any> = new EventEmitter
 
-constructor( private prodottiService: ProdottiService, private spinner: NgxSpinnerService){
+
+filtro:FormControl = new FormControl
+
+constructor( private prodottiService: ProdottiService, private spinner: NgxSpinnerService, private router:Router){
 
   this.filtro.valueChanges.pipe(
     map((valore:string)=> valore.toLocaleLowerCase())
@@ -30,60 +34,42 @@ constructor( private prodottiService: ProdottiService, private spinner: NgxSpinn
     this.prodottiService.getAllProducts().subscribe((res)=>{
       this.products = res;
       this.filteredList = this.products.filter(product => product.nome.toLowerCase().includes(value) || product.descrizione.toLowerCase().includes(value))
-      console.log(this.filteredList)
+      if (value.trim() === '' ) {
+        // Se l'input è vuoto, carica tutti i prodotti
+        this.filteredList = this.products;
+        this.router.navigate(['products'])
+      } else {
+        // Altrimenti applica il filtro
+        this.filteredList = this.products.filter(product => 
+          product.nome.toLowerCase().includes(value) || 
+          product.descrizione.toLowerCase().includes(value)
+        );
+      }
+  
     })
      
-    
    
   })
 }
 
 
-getFilteredByCat(categoria:string){
-  this.prodottiService.getAllProducts().subscribe(res =>{
-    this.products = res
-    window.scrollTo(0, 0);
-  })
-  this.filteredList = this.products.filter(scarpa => scarpa.categoria === categoria);
+filterColor(color:string) {
+  this.router.navigate(['/products'], { queryParams: { color: color } });
 }
 
-getFilteredByPrice(filterType:string){
-  this.prodottiService.getAllProducts().subscribe(res =>{
-    this.products = res
-    window.scrollTo(0, 0);
-  })
-
-  switch (filterType) {
-    case '50':
-      return this.filteredList = this.products.filter(product => product.prezzo < 50);
-    case '50-100':
-      return this.filteredList = this.products.filter(product => product.prezzo >= 50 && product.prezzo < 100);
-    case '100-150':
-      return this.filteredList = this.products.filter(product => product.prezzo >= 100 && product.prezzo <= 150);
-    case '150':
-      return this.filteredList = this.products.filter(product => product.prezzo > 150);
-    default:
-      return this.filteredList;
-  }
-
+filterCat(categoria:string) {
+  this.router.navigate(['/products'], { queryParams: { categoria: categoria } });
 }
 
-getFilterByColor(color:string){
-  this.prodottiService.getAllProducts().subscribe(res =>{
-    this.products = res
-    window.scrollTo(0, 0);
-  })
-  this.filteredList = this.products.filter((product)=>{
-   return product.colori_disponibili.includes(color)
-  });
+filterPrice(price:string) {
+  this.router.navigate(['/products'], { queryParams: { price: price } });
 }
 
-passArray(){
-  this.passFilter.emit(this.filteredList)
-}
+ passArray(){
+   this.passFilter.emit(this.filteredList)
+ }
 
 
-filtro:FormControl = new FormControl
 
 
 }

@@ -5,6 +5,7 @@ import {FormsModule } from '@angular/forms';
 import { NgxSpinnerModule} from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,6 +43,7 @@ import { DatePipePipe } from './pipes/date-pipe.pipe';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +74,7 @@ import { DatePipePipe } from './pipes/date-pipe.pipe';
     DashboardComponent,
     OrderItemComponent,
     DatePipePipe,
+
   ],
   imports: [
     BrowserModule,
@@ -81,7 +84,8 @@ import { DatePipePipe } from './pipes/date-pipe.pipe';
     FormsModule,
     NgxSpinnerModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

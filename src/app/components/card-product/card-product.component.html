@@ -1,9 +1,16 @@
 
 <div class="c-side">
+    <ngx-spinner
+                bdColor="rgba(255, 255, 255, 0.9)"
+                size="medium"
+                color="#000"
+                type="ball-clip-rotate-multiple">
+                <p style="color: #111;">loading...</p>
+        </ngx-spinner>
     <app-sidebar-product-menu [products]="products" (passFilter)="riceviFilteredList($event)"></app-sidebar-product-menu>
-    <div class="c-card" (scroll)="onScroll()"  id="scroll-container">
+    <div class="c-card" id="scroll-container" (scroll)="onScroll()">
         <div class="card" *ngFor="let prodotto of products, let i = index">
-            <img [src]="prodotto.immagine" [alt]="prodotto.nome" (click)="onImageClick(prodotto.id)">
+            <img [src]="prodotto.immagine" [alt]="prodotto.nome" loading="lazy" (click)="onImageClick(prodotto.id)">
             <h2>{{prodotto.nome}}</h2>
             <p class="category">{{prodotto.categoria}}</p>
             <p class="color">colori disponibili {{getlenght(prodotto.colori_disponibili)}}</p>

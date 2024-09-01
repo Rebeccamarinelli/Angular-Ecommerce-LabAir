@@ -1,7 +1,6 @@
-import { Component, EventEmitter, Input, Output} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, EventEmitter, Output} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProdottiService } from '../../services/prodotti.service';
-import { map } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
@@ -10,98 +9,26 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrl: './card-product.component.scss'
 })
 export class CardProductComponent {
- //@Input() products:any;
+//  @Input() products:any;
   @Output() goIntoDitails: EventEmitter<number> = new EventEmitter
   filteredList:any
 
  products: any[] = [];
  // prodottiArray:any;
- currentIndex: number = 0;
-  pageSize: number = 10;
+  currentIndex: number = 0;
+  pageSize: number = 20;
   loadInfinite: boolean = true;
   totalProducts:number=0;
   loadProd:boolean=false
 
   loading = false; // Variabile per controllare lo stato dello spinner
 
-  constructor(private activetedRouter: ActivatedRoute, private prodottiServ: ProdottiService, private spinner: NgxSpinnerService){
-    
-
+  constructor(
+    private activetedRouter: ActivatedRoute, 
+    private prodottiServ: ProdottiService, 
+    private spinner: NgxSpinnerService, 
+    private router:Router){
   }
-       // if (this.products.length <= this.totalProducts) {
-      //   this.loadInfinite = false;  
-      //   return;
-      
-      // }
-
-
-
-      
-
-  // loadMoreProducts(): void {
-   
-  //   this.loadProd = true;
-  //   this.prodottiServ.getProducts(this.currentIndex, this.pageSize).subscribe(newProducts => {
-  //     this.products = [...this.products, ...newProducts];
-  //     this.currentIndex += this.pageSize;
-  //     console.log(this.products, newProducts)
-  //     this.loadProd = false;
-
-  //     console.log(this.products, this.pageSize, this.currentIndex)
-  //     if (this.totalProducts === 0 && newProducts.length > 0) {
-  //       this.totalProducts = 50; // Supponiamo di conoscere il numero totale, qui è un esempio statico
-  //       console.log(this.totalProducts)
-  //     }
-  //   });
-  // }
-
-
-  loadMoreProducts(): void {
-    if (this.products.length >= this.totalProducts) {
-      this.loadInfinite = false; // Ferma il caricamento se tutti i prodotti sono stati caricati
-      return;
-    }
-
-    this.loadProd = true;
-    this.prodottiServ.getProducts(this.currentIndex, this.pageSize).subscribe(newProducts => {
-      this.products = [...this.products, ...newProducts];
-      this.currentIndex += this.pageSize;
-      this.loadProd = false;
-
-      if (newProducts.length === 0 || this.products.length >= this.totalProducts) {
-        this.loadInfinite = false; // Disattiva il caricamento se non ci sono più prodotti
-      }
-
-      console.log(this.products, newProducts, this.totalProducts);
-    });
-  }
-
-
-  onScroll(): void {
-    const container = document.getElementById('scroll-container');
-    if (container) {
-      const { scrollTop, scrollHeight, clientHeight } = container;
-      if (scrollTop + clientHeight >= scrollHeight - 10 && !this.loadProd && this.loadInfinite) {
-        this.loadMoreProducts();
-        console.log('Scorri per caricare più prodotti');
-      }
-    }
-  }
-
-
-  //  onScroll(): void {
-  //    const container = document.getElementById('scroll-container');
-  //    if (container) {
-  //      const { scrollTop, scrollHeight, clientHeight } = container;
-  //      if (scrollTop + clientHeight >= scrollHeight - 10 && !this.loadProd) {
-  //        this.loadMoreProducts();
-  //        console.log(scrollTop + clientHeight >= scrollHeight - 10)
-  //      }
-  //    }
-  //  }
-
-
-
 
   getlenght(array:[]){
     return array.length
@@ -118,42 +45,107 @@ export class CardProductComponent {
   ngOnInit() {
    
     this.activetedRouter.queryParams.subscribe(params => {
-       if (params['filter'] === 'new_arrivals') {
-         this.prodottiServ.getNewArrivals().subscribe((res) => {
-           this.products = res;    
+      
+       if (params['filter'] === 'nuovo_arrivi') {
+          this.loading = true;
+          this.spinner.show(); // Mostra lo spinner
+          this.prodottiServ.getNewArrivals().subscribe((res) => {
+          this.products = res; 
+          this.spinner.hide(); // Nasconde lo spinner
+          this.loading = false;   
          });
        } else if (params['filter'] === 'best_sellers') {
-         this.prodottiServ.getBestSellers().subscribe(res => this.products = res
+          this.loading = true;
+          this.spinner.show(); // Mostra lo spinner
+          this.prodottiServ.getBestSellers().subscribe((res) => {this.products = res;
+          this.spinner.hide(); // Nasconde lo spinner
+          this.loading = false;
+         }
          );
        } else if (params['category']) {
-         this.prodottiServ.getProductsByCategory(params['category']).subscribe(res => this.products = res
-          
+         this.loading = true;
+         this.spinner.show(); // Mostra lo spinner
+         this.prodottiServ.getProductsByCategory(params['category']).subscribe((res) => {this.products = res;
+          this.spinner.hide(); // Nasconde lo spinner
+          this.loading = false;
+         }
          );
-       } else {
-        //  this.prodottiServ.getAllProducts().subscribe((res) =>{
-        //    this.products = res;
-        // });
-      //   this.prodottiServ.getProducts(this.currentIndex, this.pageSize).subscribe(newProducts => {
-      //     this.products = newProducts;
-      //     //console.log(this.products)
-      //     this.loadMoreProducts()
-      //  })
-       this.loading = true; // Mostra lo spinner
-      this.spinner.show(); // Per ngx-spinner
+       }else if(params['color']){
+        this.loading = true;
+        this.spinner.show(); // Mostra lo spinner
+        this.prodottiServ.getProductsByColor(params['color']).subscribe((res) => {this.products = res;
+          this.spinner.hide(); // Nasconde lo spinner
+          this.loading = false;
+        })
 
-      this.prodottiServ.getProducts(this.currentIndex, this.pageSize).subscribe(newProducts => {
-        this.products = newProducts;
-        this.loading = false; // Nasconde lo spinner
-         this.spinner.hide(); // Per ngx-spinner
-        this.currentIndex += this.pageSize;
-        if (this.totalProducts === 0 && newProducts.length > 0) {
-          this.totalProducts = 50; // Imposta il totale dei prodotti, esempio statico
-          // Se l'API fornisce il numero totale, puoi impostarlo qui
-        }
-      });
+       }else if(params['categoria']){
+        this.loading = true;
+        this.spinner.show(); // Mostra lo spinner
+        this.prodottiServ.getProductsByCategory(params['categoria']).subscribe((res) => {this.products = res;
+          this.spinner.hide(); // Nasconde lo spinner
+           this.loading = false;
+        })
+
+       }else if(params['price']){
+        this.loading = true;
+        this.spinner.show(); // Mostra lo spinner
+        this.prodottiServ.getProductsByPrice(params['price']).subscribe((res)=>{ this.products = res;
+          this.spinner.hide(); // Nasconde lo spinner
+          this.loading = false;
+        })
+       }
+       else {
+        this.products = [];
+        this.currentIndex = 0;
+
+        this.loading = true;
+        this.spinner.show(); // Mostra lo spinner
+    
+        this.loadMoreProducts(); // Carica i prodotti iniziali
+        
+        this.spinner.hide(); // Nasconde lo spinner
+        this.loading = false;
 
        }
     });
+  }
+
+
+
+  loadMoreProducts(): void {
+    if (!this.loadInfinite || this.loadProd) {
+      return;
+    }
+
+    this.loadProd = true;
+
+    this.prodottiServ.getProducts(this.currentIndex, this.pageSize).subscribe(newProducts => {
+      if (newProducts.length === 0) {
+        this.loadInfinite = false; // Disattiva il caricamento se non ci sono più prodotti
+      } else {
+        this.products = [...this.products, ...newProducts];
+        this.currentIndex += this.pageSize; // Aggiorna l'indice corrente
+      }
+      
+      this.loadProd = false;
+      console.log('Products:', this.products);
+    }, error => {
+      console.error('Error loading products:', error);
+      this.loadProd = false;
+    });
+  }
+
+  onScroll(): void {
+    const container = document.getElementById('scroll-container');
+    if (container) {
+      const { scrollTop, scrollHeight, clientHeight } = container;
+      if(this.router.url === '/products'){
+        if (scrollTop + clientHeight >= scrollHeight - 10 && !this.loadProd) {
+          this.loadMoreProducts();
+          console.log('Scorri per caricare più prodotti');
+        }
+      }
+    }
   }
 
 

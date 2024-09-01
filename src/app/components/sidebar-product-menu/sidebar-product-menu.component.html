@@ -26,17 +26,17 @@
    <div>
       <h2>Acquista Per Prezzo</h2>
       <div class="c-categories">
-         <p (click)="getFilteredByPrice('50')" (click)="passArray()">Inferiore a 50€</p>
-         <p (click)="getFilteredByPrice('50-100')" (click)="passArray()">50€ - 100€</p>
-         <p (click)="getFilteredByPrice('100-150')" (click)="passArray()">100€ - 150€</p>
-         <p (click)="getFilteredByPrice('150')" (click)="passArray()">Superiore a 150€</p>
+         <p (click)="filterPrice('50')">Inferiore a 50€</p>
+         <p (click)="filterPrice('50-100')">50€ - 100€</p>
+         <p (click)="filterPrice('100-150')">100€ - 150€</p>
+         <p (click)="filterPrice('150')">Superiore a 150€</p>
       </div>
    </div>
 
    <div class="c-categories">
       <h2>Colore</h2>
       <div class="color">
-         <div class="c-black-a-p" *ngFor="let color of colors" (click)="getFilterByColor(color.name)" (click)="passArray()">
+         <div class="c-black-a-p" *ngFor="let color of colors" (click)="filterColor(color.name)">
             <div class="round" [ngStyle]="{'background-color': color.color}" [ngClass]="'borderCircle'"></div>
             <p [textContent]="color.name"></p>
          </div>
@@ -46,11 +46,11 @@
    <div>
       <h2>Sports</h2>
       <div class="c-categories">
-         <p (click)="getFilteredByCat('Sneakers')" (click)="passArray()">Sneakers</p>
-         <p (click)="getFilteredByCat('Running')" (click)="passArray()">Running</p>
-         <p (click)="getFilteredByCat('Basket')" (click)="passArray()">Basket</p>
-         <p (click)="getFilteredByCat('Training')" (click)="passArray()">Training</p>
-         <p (click)="getFilteredByCat('Trail Running')" (click)="passArray()">Trail Running</p>
+         <p (click)="filterCat('Sneakers')">Sneakers</p>
+         <p (click)="filterCat('Running')">Running</p>
+         <p (click)="filterCat('Basket')">Basket</p>
+         <p (click)="filterCat('Training')">Training</p>
+         <p (click)="filterCat('Trail Running')">Trail Running</p>
       </div>
    </div>
 

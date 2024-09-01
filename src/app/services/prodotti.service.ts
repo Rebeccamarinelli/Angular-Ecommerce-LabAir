@@ -50,6 +50,31 @@ baseUrl = 'http://localhost:3000/prodotti'
     );
   }
 
+  getProductsByColor(color: string): Observable<any[]> {
+    return this.getAllProducts().pipe(
+      map(products => products.filter(product => product.colori_disponibili.includes(color)))
+    );
+  }
+
+  getProductsByPrice(price:string){
+    return this.getAllProducts().pipe(
+      map((products) =>{
+        switch (price) {
+          case '50':
+            return products.filter(product => product.prezzo < 50);
+          case '50-100':
+            return  products.filter(product => product.prezzo >= 50 && product.prezzo < 100);
+          case '100-150':
+            return  products.filter(product => product.prezzo >= 100 && product.prezzo <= 150);
+          case '150':
+            return  products.filter(product => product.prezzo > 150);
+          default:
+            return  products
+        }
+      } )
+    );
+  }
+
 
 }
 

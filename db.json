@@ -2392,6 +2392,55 @@
       "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_144_v1/f_auto,q_auto:eco/e5525978-9342-4727-a88f-850302deefc7/W+NIKE+REACTX+INFINITY+RUN+4.png",
       "quantity": 1,
       "data": "2024-08-30T17:08:48.108Z"
+    },
+    {
+      "userId": "2",
+      "id": 33,
+      "nome": "Nike Air Force 1 React",
+      "categoria": "Sneakers",
+      "prezzo": 119.99,
+      "taglie_disponibili": [
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ],
+      "colori_disponibili": [
+        "Giallo"
+      ],
+      "colori_immagini": [
+        {
+          "colore": "Giallo",
+          "imm": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/48dcbfe7-3f26-414c-a491-f24c88e35408/NIKE+CORTEZ.png"
+        },
+        {
+          "colore": "-",
+          "imm": "https://static.nike.com/nike-prod-cld/images/t_PDP_144_v1/f_auto,q_auto:eco/static/it_IT-DYO/DYO.png"
+        }
+      ],
+      "immagini_dettaglio": [
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/48dcbfe7-3f26-414c-a491-f24c88e35408/NIKE+CORTEZ.png",
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/427df6d3-0f97-4942-86cc-77f132e18e80/NIKE+CORTEZ.png",
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/65cfd16b-a28f-46fa-9262-b0e9e3eca896/NIKE+CORTEZ.png",
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/e7a72e09-a8cb-4b15-9954-ec7514986863/NIKE+CORTEZ.png",
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/8fdc955b-855b-4a9e-bf54-8787dc027e72/NIKE+CORTEZ.png",
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/bdd8fc30-2888-435a-b1cb-75d2de9442c0/NIKE+CORTEZ.png",
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/95723f69-d5fb-4fa3-ada6-428deaec017e/NIKE+CORTEZ.png",
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/da3cf829-f067-4ce7-976b-b9f0ea2025a4/NIKE+CORTEZ.png"
+      ],
+      "descrizione": "Le Nike Air Force 1 React uniscono il classico stile delle Air Force 1 con la reattività della tecnologia React.",
+      "immagine": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/48dcbfe7-3f26-414c-a491-f24c88e35408/NIKE+CORTEZ.png",
+      "nuovo_arrivi": true,
+      "best_seller": 5,
+      "coloreSelezionato": "Giallo",
+      "tagliaSelezionata": "39",
+      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/48dcbfe7-3f26-414c-a491-f24c88e35408/NIKE+CORTEZ.png",
+      "quantity": 1,
+      "data": "2024-08-31T23:28:34.967Z"
     }
   ]
 }

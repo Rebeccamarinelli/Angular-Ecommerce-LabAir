@@ -13,7 +13,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class ProductsComponent {
 
   products: any[] = [];
- //prodottiArray:any;
+  prodottiArray:any;
   currentIndex: number = 0;
   pageSize: number = 3;
   loadInfinite: boolean = true;
@@ -24,53 +24,13 @@ export class ProductsComponent {
 
 
   constructor(private prodottiServ: ProdottiService, private route:Router){
-    
-    // this.prodottiServ.getAllProducts().subscribe((res:IProdottiRes) => {
-    //   this.prodottiArray = res
-    // 
-    // })
+
   }
 
-  ngOnInit(){
- 
-  }
-
-  
-
-
-  // onScroll(): void {
-  //   if (this.loadInfinite && !this.loading) {
-  //     this.loadMoreProducts();
-  //   }
-  // }
 
   getId(id:number){
-    // console.log(id)
     this.route.navigate(['products', id])
   }
-
-
-
-
-  // onScroll(): void {
-  //   if (!this.loadInfinite) {
-  //     this.loadMoreProducts();
-  //   }
-  // }
-
-
-  // riceviFilterBest(filter:any){
-  //   this.filteredList = filter
-  //   console.log(this.filteredList)
-  // }
-
-  // riceviFilterNew(filter:any){
-  //   this.filteredList = filter
-  //   (this.filteredList)
-  // }
- 
-  
-
 
 
 }

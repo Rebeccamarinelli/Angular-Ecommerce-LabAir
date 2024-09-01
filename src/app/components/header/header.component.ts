@@ -1,6 +1,8 @@
 import { Component, ElementRef, HostListener} from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
+import { filter } from 'rxjs';
+import { NavigationEnd } from '@angular/router';
 
 
 
@@ -21,8 +23,10 @@ export class HeaderComponent {
   private lastScroll: number = 0;
   private body: HTMLElement;
   bannerElement!: ElementRef<HTMLDivElement>;
-  totalItem:number = 0;
+  totalItem:number;
   listItem = []
+
+  hideComponents:boolean = true;
   
   riceviBanner(elementRef: ElementRef<HTMLDivElement>){
     this.bannerElement = elementRef;
@@ -34,8 +38,16 @@ export class HeaderComponent {
       this.listItem = res
         this.totalItem = this.listItem.reduce((sum, item) => sum + item.quantity, 0); 
     })
-
-
+ 
+      this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        // Aggiungi qui le route per cui vuoi nascondere i componenti
+        const routesToShow = ['/home'];
+  
+        // Se la route corrente è inclusa in routesToHide, nascondi i componenti
+        this.hideComponents = !routesToShow.includes(event.urlAfterRedirects);
+      });
    
  }
 

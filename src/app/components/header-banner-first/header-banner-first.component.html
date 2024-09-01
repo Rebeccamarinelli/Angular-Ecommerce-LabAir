@@ -7,7 +7,7 @@
     <ul>
         <li><a href="#">Trova un negozio</a></li>
         <li><a href="#">Aiuto</a></li>
-        <li><a href="#">Unisciti a noi</a></li>
+        <li><a routerLink="/auth/register">Unisciti a noi</a></li>
         <div class="c-ngswitch-ul" [ngSwitch]="isLoggedIn">
             <li *ngSwitchCase="false">
               <a routerLink="/auth/login">Accedi</a>
@@ -16,8 +16,6 @@
               <a routerLink="/dashboard">Benvenuto</a>
             </li>
         </div>
-        <!-- <li *ngIf="!isLoggedIn"><a routerLink="/auth/login">Accedi</a></li>
-        <li *ngIf="isLoggedIn" ><a routerLink="/dashboard">Benvenuto</a></li> -->
     </ul>
 </nav> 
 
