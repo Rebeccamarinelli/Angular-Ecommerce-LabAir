@@ -5,9 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './footer-b.component.html',
   styleUrl: './footer-b.component.scss'
 })
-export class FooterBComponent {
-
-  
-  
-
-}
+export class FooterBComponent {}

@@ -24,7 +24,7 @@ export class CheckoutFormComponent {
   capPattern = /^[0-9]{5}$/;
   phonePattern = /^(?:(?:\+|00)39)?\s?(?:3[1-9]\d{2}|0\d{2,4})\s?\d{6,8}$/;
   addressPattern = /^[a-zA-Z0-9\s,.'-]{10,}$/;
-  nameAndSurnamePattern = /^[a-zA-ZàèéìòùÀÈÉÌÒÙ' -]+$/;
+  nameAndSurnamePattern = /^[a-zA-ZàèéìòùÀÈÉÌÒÙ'-]+$/;
 
   isVisibile: boolean = true
   isHidden: boolean = false

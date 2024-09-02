@@ -4,6 +4,7 @@ import { IProdotti } from '../../models/models';
 import { CartService } from '../../services/cart.service';
 import { OrdersService } from '../../services/orders.service';
 import { AuthService } from '../../services/auth.service';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-check-pay-mode',
@@ -24,19 +25,7 @@ date:any;
  cvvPattern = /^\d{3,4}$/;
 
 constructor(private cartService:CartService, private orderService:OrdersService, private authService:AuthService){
-
   this.date = new Date();
-
-  // // Ottieni il giorno, mese e anno
-  // const year = today.getFullYear();
-  // const month = String(today.getMonth() + 1).padStart(2, '0'); // `getMonth()` ritorna valori da 0 a 11, quindi aggiungi 1
-  // const day = String(today.getDate()).padStart(2, '0'); // `getDate()` ritorna il giorno del mese
-  
-  // // Formatta la data
-  // this.date = `${day}-${month}-${year}`;
-  
-
-
 }
 
 //  ngOnInit(){
@@ -52,14 +41,21 @@ constructor(private cartService:CartService, private orderService:OrdersService,
   e.preventDefault()
    console.log(form);
 
-   this.cartService.getProducts().subscribe((res)=>{
+   this.cartService.getProducts().pipe(take(1)).subscribe((res)=>{
     const userId = this.authService.getUserId(); 
     this.cartProducts = res;
+
     this.cartProducts.forEach((product)=>{
-      this.orderService.postOrders({
-        userId:userId,
-        ...product,
-        data: this.date,
+
+       // Destruttura le proprietà che vuoi escludere
+    const { taglie_disponibili, colori_disponibili, colori_immagini, immagini_dettaglio, descrizione, immagine, nuovo_arrivi, best_seller, ...filteredProduct } = product;
+      
+    this.orderService.postOrders({
+      ...filteredProduct,  // Includi tutte le proprietà che restano
+      id: Date.now(), // ID unico
+      userId: userId,
+      data: this.date
+      
       }).subscribe((res)=>{
         console.log(res)
       })

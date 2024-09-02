@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, EventEmitter, Output, HostListener } from '@angular/core';
+import { Component, ElementRef, ViewChild, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-header-banner-scd',
@@ -9,9 +9,8 @@ export class HeaderBannerScdComponent {
 
   @Output() mandaBanner = new EventEmitter<ElementRef<HTMLDivElement>>
   @ViewChild('banner') bannerHeader!: ElementRef<HTMLDivElement>;
-  showElement: boolean = true;
-
-  ngAfterViewInit(){
+ 
+  ngAfterViewInit(): void{
     this.mandaBanner.emit(this.bannerHeader)
   }
 

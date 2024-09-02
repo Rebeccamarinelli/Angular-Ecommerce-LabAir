@@ -7,8 +7,8 @@ import { IProdotti } from '../models/models';
 })
 export class CartService {
 
-  cartItemList = [];
-  productList = new BehaviorSubject<any>([]);
+  cartItemList:IProdotti[]= [];
+  productList = new BehaviorSubject<IProdotti[]>([]);
   
   total: number = 0
 
@@ -17,18 +17,18 @@ export class CartService {
   private totalPrice = new BehaviorSubject<number>(0);
   totalPrice$ = this.totalPrice.asObservable();  // Osservabile per il prezzo totale
  
-  constructor() { }
+  constructor() {}
 
-  getProducts():Observable<any>{
+  getProducts():Observable<IProdotti[]>{
     return this.productList.asObservable()
   }
 
-  setProduct(product:any){
+  setProduct(product:IProdotti[]): void{
     this.cartItemList.push(...product);
     this.productList.next(product)
   }
 
-  addToCart(product:any){
+  addToCart(product:IProdotti): void{
 
     const productCopy = { ...product };
 
@@ -73,7 +73,7 @@ export class CartService {
     this.totalPrice.next(this.calculateTotalPrice());  // Emesso nuovo stato del prezzo totale
   }
 
-  clearCart():void{
+  clearCart(): void{
     this.cartItemList = [];
     this.updateCart()
   }
@@ -85,7 +85,7 @@ export class CartService {
   }, 0);
   }
 
-  removeCartItem(product:IProdotti){
+  removeCartItem(product:IProdotti): void {
     this.cartItemList.filter((prod, index)=>{
       if(product.id === prod.id && 
       product.coloreSelezionato === prod.coloreSelezionato &&

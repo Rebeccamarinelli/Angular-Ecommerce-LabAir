@@ -4,10 +4,8 @@ footer{
     div{
         padding-top: 1em;
         padding-left: 2%;
-        background-color: #f2f2f2;
+        background-color: #fff;
         color: #111;
-        border-bottom: 1px solid #777575;
-
         &:last-child{
             section{
                 width: 100%;
@@ -25,6 +23,7 @@ footer{
                             color: #111;
                         }
                         li{
+                            cursor: pointer;
                             &:first-child{
                                 font-size: 0.8em;
                                 font-family:"HelveticaNow-Medium", sans serif;
@@ -39,6 +38,7 @@ footer{
         }
         ul{
             li{
+                cursor: pointer;
                 padding-bottom: 1.2em;
                 color: #757575;
                 &:first-child{
@@ -58,6 +58,10 @@ footer{
     display: none;
 }
 
+.line{
+    border-bottom: 1px solid #c2c2c2;
+}
+
  @media  screen and (min-width:800px) {
 
     .mob-visibile{
@@ -69,7 +73,6 @@ footer{
         div{
             padding-top: 1em;
             padding-left: 2%;
-            background-color: #f2f2f2;
             color: #111;
             display: flex;
             justify-content: center;

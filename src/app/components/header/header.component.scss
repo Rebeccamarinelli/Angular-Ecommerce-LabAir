@@ -193,26 +193,12 @@ header{
         justify-content: flex-end;
     }
 
-    // .overlay{
-    //     width: 100%;
-    //     height: 100vh;
-    //     position: fixed;
-    //     top: 120px;
-    //     left:0;
-    //     z-index: 98;
-    //     background-color: rgba(0, 0, 0, 0.5);
-    //     display: none;
-    // }
-
     .ulPlus:hover .menu{
-       // height: 40vh;
        transform: translateY(0);
-       //filter: drop-shadow(0 -10px 20px rgb(170,170,170));
        box-shadow: 0px 8px 9px 0px rgba(170, 170, 170, 0.3);
     }
 
      .ulPlus:hover .menu li{
-         //display: block;
          opacity: 1;
      }
     
