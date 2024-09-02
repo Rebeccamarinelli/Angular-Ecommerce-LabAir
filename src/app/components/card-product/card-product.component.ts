@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProdottiService } from '../../services/prodotti.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { IProdotti } from '../../models/models';
 
 @Component({
   selector: 'app-card-product',
@@ -9,19 +10,17 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrl: './card-product.component.scss'
 })
 export class CardProductComponent {
-//  @Input() products:any;
-  @Output() goIntoDitails: EventEmitter<number> = new EventEmitter
-  filteredList:any
 
- products: any[] = [];
- // prodottiArray:any;
+  @Output() goIntoDitails: EventEmitter<number> = new EventEmitter
+ 
+  products: IProdotti[] = [];
   currentIndex: number = 0;
   pageSize: number = 20;
   loadInfinite: boolean = true;
   totalProducts:number=0;
-  loadProd:boolean=false
+  loadProd:boolean= false
 
-  loading = false; // Variabile per controllare lo stato dello spinner
+  loading:boolean = false; // Variabile per controllare lo stato dello spinner
 
   constructor(
     private activetedRouter: ActivatedRoute, 
@@ -30,87 +29,82 @@ export class CardProductComponent {
     private router:Router){
   }
 
-  getlenght(array:[]){
+  getlenght(array:string[]):number{
     return array.length
   }
 
-  onImageClick(id:number){
+  onImageClick(id:number):void{
       this.goIntoDitails.emit(id)
     }
   
-  riceviFilteredList(arrayFiltrato:any){
-    this.products = arrayFiltrato
+  riceviFilteredList(arrayFiltered:IProdotti[]): void{
+    this.products = arrayFiltered
   }
 
-  ngOnInit() {
+  ngOnInit() :void {
    
     this.activetedRouter.queryParams.subscribe(params => {
       
        if (params['filter'] === 'nuovo_arrivi') {
-          this.loading = true;
-          this.spinner.show(); // Mostra lo spinner
+          this.showSpinner()
           this.prodottiServ.getNewArrivals().subscribe((res) => {
           this.products = res; 
-          this.spinner.hide(); // Nasconde lo spinner
-          this.loading = false;   
+          this.hideSpinner()
          });
        } else if (params['filter'] === 'best_sellers') {
-          this.loading = true;
-          this.spinner.show(); // Mostra lo spinner
+          this.showSpinner()
           this.prodottiServ.getBestSellers().subscribe((res) => {this.products = res;
-          this.spinner.hide(); // Nasconde lo spinner
-          this.loading = false;
+          this.hideSpinner()
          }
          );
        } else if (params['category']) {
-         this.loading = true;
-         this.spinner.show(); // Mostra lo spinner
-         this.prodottiServ.getProductsByCategory(params['category']).subscribe((res) => {this.products = res;
-          this.spinner.hide(); // Nasconde lo spinner
-          this.loading = false;
+          this.showSpinner()
+          this.prodottiServ.getProductsByCategory(params['category']).subscribe((res) => {this.products = res;
+          this.hideSpinner()
          }
          );
        }else if(params['color']){
-        this.loading = true;
-        this.spinner.show(); // Mostra lo spinner
-        this.prodottiServ.getProductsByColor(params['color']).subscribe((res) => {this.products = res;
-          this.spinner.hide(); // Nasconde lo spinner
-          this.loading = false;
+          this.showSpinner()
+          this.prodottiServ.getProductsByColor(params['color']).subscribe((res) => {this.products = res;
+          this.hideSpinner()
         })
 
        }else if(params['categoria']){
-        this.loading = true;
-        this.spinner.show(); // Mostra lo spinner
-        this.prodottiServ.getProductsByCategory(params['categoria']).subscribe((res) => {this.products = res;
-          this.spinner.hide(); // Nasconde lo spinner
-           this.loading = false;
+          this.showSpinner()
+          this.prodottiServ.getProductsByCategory(params['categoria']).subscribe((res) => {this.products = res;
+          this.hideSpinner()
         })
 
        }else if(params['price']){
-        this.loading = true;
-        this.spinner.show(); // Mostra lo spinner
-        this.prodottiServ.getProductsByPrice(params['price']).subscribe((res)=>{ this.products = res;
-          this.spinner.hide(); // Nasconde lo spinner
-          this.loading = false;
+          this.showSpinner()
+          this.prodottiServ.getProductsByPrice(params['price']).subscribe((res)=>{ this.products = res;
+          this.hideSpinner()
         })
        }
        else {
-        this.products = [];
-        this.currentIndex = 0;
+          this.products = [];
+          this.currentIndex = 0;
 
-        this.loading = true;
-        this.spinner.show(); // Mostra lo spinner
-    
-        this.loadMoreProducts(); // Carica i prodotti iniziali
-        
-        this.spinner.hide(); // Nasconde lo spinner
-        this.loading = false;
-
+          this.showSpinner()
+      
+          this.loadMoreProducts(); // Carica i prodotti iniziali
+          this.hideSpinner()
+      
        }
     });
   }
 
+  hideSpinner():void{
+    setTimeout(()=>{
+      this.spinner.hide(); 
+      this.loading = false;
+    },200)
+  }
 
+  showSpinner():void{
+    this.loading = true;
+    this.spinner.show();
+  }
 
   loadMoreProducts(): void {
     if (!this.loadInfinite || this.loadProd) {

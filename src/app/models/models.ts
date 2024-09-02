@@ -34,6 +34,13 @@ export interface ICardsHome {
   titolo: string
 }
 
+
+export interface IColor {
+  name: string
+  color: string
+}
+
+
 export interface ILoginInfo{
   email:string,
   password:string

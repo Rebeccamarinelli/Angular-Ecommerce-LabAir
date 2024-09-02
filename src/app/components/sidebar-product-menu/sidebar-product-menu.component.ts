@@ -2,9 +2,8 @@ import { Component, Input, EventEmitter, Output} from '@angular/core';
 import { colors } from '../../data/data';
 import { ProdottiService } from '../../services/prodotti.service';
 import { FormControl } from '@angular/forms';
-import { IProdotti } from '../../models/models';
+import { IColor, IProdotti } from '../../models/models';
 import { map } from 'rxjs';
-import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
 
 
@@ -16,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class SidebarProductMenuComponent {
 @Input() products:IProdotti[];
-colors:any = colors
+colors:IColor[] = colors
 filteredList:IProdotti[]
 
 
@@ -25,12 +24,14 @@ filteredList:IProdotti[]
 
 filtro:FormControl = new FormControl
 
-constructor( private prodottiService: ProdottiService, private spinner: NgxSpinnerService, private router:Router){
+constructor( 
+  private prodottiService: ProdottiService, 
+  private router:Router){
 
   this.filtro.valueChanges.pipe(
     map((valore:string)=> valore.toLocaleLowerCase())
   )
-  .subscribe((value)=>{
+  .subscribe((value:string)=>{
     this.prodottiService.getAllProducts().subscribe((res)=>{
       this.products = res;
       this.filteredList = this.products.filter(product => product.nome.toLowerCase().includes(value) || product.descrizione.toLowerCase().includes(value))
@@ -41,8 +42,8 @@ constructor( private prodottiService: ProdottiService, private spinner: NgxSpinn
       } else {
         // Altrimenti applica il filtro
         this.filteredList = this.products.filter(product => 
-          product.nome.toLowerCase().includes(value) || 
-          product.descrizione.toLowerCase().includes(value)
+        product.nome.toLowerCase().includes(value) || 
+        product.descrizione.toLowerCase().includes(value)
         );
       }
   
@@ -53,19 +54,19 @@ constructor( private prodottiService: ProdottiService, private spinner: NgxSpinn
 }
 
 
-filterColor(color:string) {
+filterColor(color:string):void {
   this.router.navigate(['/products'], { queryParams: { color: color } });
 }
 
-filterCat(categoria:string) {
+filterCat(categoria:string):void {
   this.router.navigate(['/products'], { queryParams: { categoria: categoria } });
 }
 
-filterPrice(price:string) {
+filterPrice(price:string):void {
   this.router.navigate(['/products'], { queryParams: { price: price } });
 }
 
- passArray(){
+ passArray():void{
    this.passFilter.emit(this.filteredList)
  }
 

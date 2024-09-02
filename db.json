@@ -27,11 +27,11 @@
         },
         {
           "colore": "Nero",
-          "imm": "https://static.nike.com/a/images/t_PDP_144_v1/f_auto,q_auto:eco/ouweg5dax808k3vqipcr/W+AIR+MAX+270.png"
+          "imm": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/csnnsvmzomr1gu7qfcnd/W+AIR+MAX+270.png"
         },
         {
           "colore": "Bianco",
-          "imm": "https://static.nike.com/a/images/t_PDP_144_v1/f_auto,q_auto:eco/feb39c75-3aa3-44a7-9ec2-d298f19f2d27/W+AIR+MAX+270.png"
+          "imm": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/pyyixbczj6u5kiwhpjik/W+AIR+MAX+270.png"
         },
         {
           "colore": "-",
@@ -2119,41 +2119,6 @@
     }
   ],
   "orders": [
-    {
-      "id": 1725281529016,
-      "nome": "Nike Air Zoom Terra Kiger 7",
-      "categoria": "Trail Running",
-      "prezzo": 139.99,
-      "coloreSelezionato": "Blu/Arancione",
-      "tagliaSelezionata": "38",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_144_v1/f_auto,q_auto:eco/94052260-68fc-4c96-9d89-aa7e99a314fd/W+NIKE+REACTX+PEGASUS+TRAIL+5.png",
-      "quantity": 1,
-      "userId": "2",
-      "data": "2024-09-02T12:51:57.180Z"
-    },
-    {
-      "id": 1725281563417,
-      "nome": "Nike Air Zoom Pegasus 38",
-      "categoria": "Running",
-      "prezzo": 119.99,
-      "coloreSelezionato": "Bianco/Arancione",
-      "tagliaSelezionata": "38",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/ae0ac7b1-5a71-4acd-a2f0-830997d42701/W+PEGASUS+EASYON+OLY.png",
-      "quantity": 1,
-      "userId": "2",
-      "data": "2024-09-02T12:52:34.692Z"
-    },
-    {
-      "id": 1725281620003,
-      "nome": "Nike Air Zoom Structure 24",
-      "categoria": "Running",
-      "prezzo": 129.99,
-      "coloreSelezionato": "Bianco/Giallo",
-      "tagliaSelezionata": "39",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_144_v1/f_auto,q_auto:eco/aa1dd21d-2c6e-49cd-a81b-4d83ee826d5f/NIKE+AIR+ZOOM+STRUCTURE+25.png",
-      "quantity": 1,
-      "userId": "2",
-      "data": "2024-09-02T12:53:30.627Z"
-    }
+    
   ]
 }

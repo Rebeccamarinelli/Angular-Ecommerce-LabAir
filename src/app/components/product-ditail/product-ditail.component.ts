@@ -36,8 +36,11 @@ export class ProductDitailComponent {
       this.spinner.show(); // Per ngx-spinner
       this.serviceProduct.getProdById(params.id).subscribe((res)=>{
         this.singleProduct = res;
-        this.loading = true; // Mostra lo spinner
-        this.spinner.hide(); // Per ngx-spinner
+        setTimeout(()=>{
+          this.loading = true; // Mostra lo spinner
+          this.spinner.hide(); // Per ngx-spinner
+        },200)
+        
         this.singleProduct = {
           ...this.singleProduct,
           coloreSelezionato: this.color,

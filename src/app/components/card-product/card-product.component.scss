@@ -46,17 +46,16 @@
         display: flex;
     }
 }
-#scroll-container {
-    height: 100vh;  /* Imposta un'altezza fissa */
-    overflow-y: auto;  /* Abilita lo scrolling verticale */
-    scrollbar-width: 0;
-    
-   // border: 1px solid #ccc;  /* Opzionale: bordi per vedere meglio il contenitore */
-  }
 
-  #scroll-container::-webkit-scrollbar {
-    display: none;
-    scroll-behavior: smooth;
-  }
+#scroll-container {
+    height: 100vh;  
+    overflow-y: auto;  
+    scrollbar-width: 0;
+}
+
+#scroll-container::-webkit-scrollbar {
+display: none;
+scroll-behavior: smooth;
+}
 
  

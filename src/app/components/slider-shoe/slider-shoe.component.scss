@@ -114,11 +114,13 @@ button svg{
     .card-list img:hover{
         transform: scale(1.05);
     }
+
+    .div-hidden{
+        overflow: hidden;
+    }
 }
 
-.div-hidden{
-    overflow: hidden;
-}
+
 
 @media screen and (min-width:1300px) {
     .card{

@@ -12,23 +12,10 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class ProductsComponent {
 
-  products: any[] = [];
-  prodottiArray:any;
-  currentIndex: number = 0;
-  pageSize: number = 3;
-  loadInfinite: boolean = true;
-  totalProducts:number=0;
-  loadProd:boolean=false
-
-  
+  constructor(private route:Router){}
 
 
-  constructor(private prodottiServ: ProdottiService, private route:Router){
-
-  }
-
-
-  getId(id:number){
+  getId(id:number):void{
     this.route.navigate(['products', id])
   }
 
