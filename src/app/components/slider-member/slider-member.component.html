@@ -16,7 +16,7 @@
 
         <div class="card-member" #cardMember *ngFor="let sportImage of memberImages">
             <img [src]="sportImage.immagine" alt="sport-fitness">
-            <button class="button">{{sportImage.titolo}}</button>
+            <button class="button" routerLink="/products">{{sportImage.titolo}}</button >
         </div>
         
     </div>

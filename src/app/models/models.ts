@@ -26,8 +26,13 @@ export interface singleShoe {
     immagine: string
     titolo: string
     categoria: string
-    prezzo: number
+    prezzo: string
   }
+
+export interface ICardsHome {
+  immagine: string
+  titolo: string
+}
 
 export interface ILoginInfo{
   email:string,

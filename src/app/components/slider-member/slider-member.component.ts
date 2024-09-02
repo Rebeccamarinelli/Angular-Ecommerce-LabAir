@@ -1,4 +1,6 @@
-import { Component, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { membership } from '../../data/data';
+import { ICardsHome } from '../../models/models';
 
 @Component({
   selector: 'app-slider-member',
@@ -10,22 +12,22 @@ export class SliderMemberComponent {
 isDisabledPrevMember:boolean;
 isDisabledNextMember:boolean; 
 
-@Input() memberImages:any;
+memberImages:ICardsHome[] = membership
 
-@ViewChild('cardListMember') cardListMember:ElementRef;
-@ViewChild('cardMember') cardMember:ElementRef;
-@ViewChild('btnPrevMember') btnPrevMember:ElementRef;
-@ViewChild('btnNextMember') btnNextMember:ElementRef;
+@ViewChild('cardListMember') cardListMember:ElementRef<HTMLDivElement>;
+@ViewChild('cardMember') cardMember:ElementRef<HTMLDivElement>;
+@ViewChild('btnPrevMember') btnPrevMember:ElementRef<HTMLButtonElement>;
+@ViewChild('btnNextMember') btnNextMember:ElementRef<HTMLButtonElement>;
 
 
-  controlsBtnMember(btn:any){
+  controlsBtnMember(btn:PointerEvent): void{
     const cardW = this.cardMember.nativeElement.clientWidth;
-    const direction = btn.target.id === "prev" ? -1 : 1;
+    const direction = (btn.target as HTMLElement).id === "prev" ? -1 : 1;
     const scrollAmount = cardW * direction;
     this.cardListMember.nativeElement.scrollBy({ left:scrollAmount, behavior:'smooth'});
   }
 
-  handleSlideBtnMember(){
+  handleSlideBtnMember():void{
     const maxScrollLeft = this.cardListMember.nativeElement.scrollWidth - this.cardListMember.nativeElement.clientWidth;
   
      if(this.cardListMember.nativeElement.scrollLeft <=0){

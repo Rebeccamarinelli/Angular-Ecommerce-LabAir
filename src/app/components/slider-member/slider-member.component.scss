@@ -109,6 +109,14 @@ button.button{
         }
     }
 
+    .card-member .button{
+        &:hover{
+            background-color: #111;
+            color: #fff;
+        }
+    }
+    
+
 }
 
 @media screen and (min-width:1300px) {

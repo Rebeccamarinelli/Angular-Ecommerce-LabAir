@@ -1,4 +1,6 @@
-export const shoes:any =[
+import { ICardsHome, singleShoe } from "../models/models";
+
+export const shoes:singleShoe[] =[
     {
         immagine: './assets/imm/shoe-nike-1.webp',
         titolo: 'Nike Air Force 1 Flyknit 2.0',
@@ -61,7 +63,7 @@ export const shoes:any =[
     }
 ]
 
-export const sport = [
+export const sport:ICardsHome[] = [
     {
         immagine:'./assets/imm/sport-1.webp',
         titolo:'Fitness',
@@ -84,7 +86,7 @@ export const sport = [
     }
 ]
 
-export const membership = [
+export const membership:ICardsHome[] = [
     {
         immagine:'./assets/imm/wom.webp',
         titolo:'Donna',

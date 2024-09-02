@@ -1,5 +1,6 @@
-import { Component, Input, ViewChild, ElementRef} from '@angular/core';
+import { Component, ViewChild, ElementRef} from '@angular/core';
 import { singleShoe } from '../../models/models';
+import { shoes } from '../../data/data';
 
 @Component({
   selector: 'app-slider-shoe',
@@ -11,23 +12,21 @@ export class SliderShoeComponent {
   isDisabledPrev:boolean ;
   isDisabledNext:boolean;
 
-  @Input() shoesCard:singleShoe[];
+  shoesCard:singleShoe[] = shoes;
 
-  @ViewChild('cardlist') cardList: ElementRef;
-  @ViewChild('card') card: ElementRef;
-  @ViewChild('btnPrev') btnPrev: ElementRef;
-  @ViewChild('btnNext') btnNext: ElementRef;
+  @ViewChild('cardlist') cardList: ElementRef<HTMLDivElement>;
+  @ViewChild('card') card: ElementRef<HTMLDivElement>;
+  @ViewChild('btnPrev') btnPrev: ElementRef<HTMLButtonElement>;
+  @ViewChild('btnNext') btnNext: ElementRef<HTMLButtonElement>;
 
-  controlsBtn(btn:any){
+  controlsBtn(btn:PointerEvent): void{
     const cardW = this.card.nativeElement.clientWidth;
-    const direction = btn.target.id === "prev" ? -1 : 1;
+    const direction = (btn.target as HTMLElement).id === "prev" ? -1 : 1;
     const scrollAmount = cardW * direction;
     this.cardList.nativeElement.scrollBy({ left:scrollAmount, behavior:'smooth'});
   }
 
-
-  
-  handleSlideBtn(){
+  handleSlideBtn(): void{
     const maxScrollLeft = this.cardList.nativeElement.scrollWidth - this.cardList.nativeElement.clientWidth;
     
      if(this.cardList.nativeElement.scrollLeft <=0){
