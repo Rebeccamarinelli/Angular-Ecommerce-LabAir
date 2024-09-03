@@ -51,6 +51,9 @@
     height: 100vh;  
     overflow-y: auto;  
     scrollbar-width: 0;
+    .card img{
+        cursor: pointer;
+    }
 }
 
 #scroll-container::-webkit-scrollbar {

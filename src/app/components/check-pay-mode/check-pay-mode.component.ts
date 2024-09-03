@@ -45,21 +45,24 @@ constructor(private cartService:CartService, private orderService:OrdersService,
     const userId = this.authService.getUserId(); 
     this.cartProducts = res;
 
-    this.cartProducts.forEach((product)=>{
+    if(localStorage.getItem('token')){
+      this.cartProducts.forEach((product)=>{
+        // Destruttura le proprietà che vuoi escludere
+     const { taglie_disponibili, colori_disponibili, colori_immagini, immagini_dettaglio, descrizione, immagine, nuovo_arrivi, best_seller, ...filteredProduct } = product;
+       
+     this.orderService.postOrders({
+       ...filteredProduct,  // Includi tutte le proprietà che restano
+       id: Date.now(), // ID unico
+       userId: userId,
+       data: this.date
+       
+       }).subscribe((res)=>{
+         console.log(res)
+       })
+     })
+    }
 
-       // Destruttura le proprietà che vuoi escludere
-    const { taglie_disponibili, colori_disponibili, colori_immagini, immagini_dettaglio, descrizione, immagine, nuovo_arrivi, best_seller, ...filteredProduct } = product;
-      
-    this.orderService.postOrders({
-      ...filteredProduct,  // Includi tutte le proprietà che restano
-      id: Date.now(), // ID unico
-      userId: userId,
-      data: this.date
-      
-      }).subscribe((res)=>{
-        console.log(res)
-      })
-    })
+    
    })
 
 

@@ -16,6 +16,7 @@ export class ProductDitailComponent {
   productList = [];
   @ViewChild('errorMessage') errorMessage:ElementRef<HTMLParagraphElement>
   @ViewChild('errorMessageC') errorMessageC:ElementRef<HTMLParagraphElement>
+  @ViewChild('box') box:ElementRef<HTMLDivElement>
   @ViewChild('popUp') popUp:ElementRef<HTMLDivElement>
   displayedImg = 0
   selectedIndex?:number;
@@ -77,29 +78,39 @@ export class ProductDitailComponent {
 
   isSelectedTaglia:boolean = false;
   isSelectedColor:boolean = false;
-
+  errorBox:boolean = false;
 
 
   mustSelect(isSelectedTaglia:boolean, isSelectedColor:boolean, product:IProdotti){
-   if(isSelectedColor && isSelectedTaglia){
-    
+   if(isSelectedColor  && isSelectedTaglia){
+    console.log(this.isSelectedColor, this.isSelectedTaglia, '1')
+     // this.errorBox = false
+     // this.box.nativeElement.classList.remove('error-box')
       this.errorMessage.nativeElement.classList.remove('error')
       this.errorMessageC.nativeElement.classList.remove('error')
       this.addToCart(product)
       this.isSelectedColor = !this.isSelectedColor
       this.isSelectedTaglia = !this.isSelectedTaglia
- 
+     // this.errorBox = !this.errorBox
+
    }else if(isSelectedColor === true && isSelectedTaglia === false){
-   
+    console.log(this.isSelectedColor, this.isSelectedTaglia, '2')
+      this.errorBox = true;
+    //  this.box.nativeElement.classList.add('error-box')
       this.errorMessage.nativeElement.classList.remove('error')
       this.errorMessageC.nativeElement.classList.add('error')
 
    }else if(isSelectedTaglia === true && isSelectedColor === false){
-  
+      this.errorBox = true;
+     console.log(this.isSelectedColor, this.isSelectedTaglia, '3')
+     // this.box.nativeElement.classList.add('error-box')
       this.errorMessage.nativeElement.classList.add('error')
       this.errorMessageC.nativeElement.classList.remove('error')
    }
    else{
+    console.log(this.isSelectedColor, this.isSelectedTaglia, '4')
+      this.errorBox = true;
+     // this.box.nativeElement.classList.add('error-box')
       this.errorMessage.nativeElement.classList.add('error')
       this.errorMessageC.nativeElement.classList.add('error')
    }
@@ -108,7 +119,7 @@ export class ProductDitailComponent {
 
 
  addToCart(product:IProdotti): void{
- // console.log('go')
+  console.log('go')
   this.cartService.addToCart(product)
   this.popUp.nativeElement.style.display='block'
   this.route.events.subscribe((event)=>{
@@ -120,7 +131,6 @@ export class ProductDitailComponent {
     }
   })
   this.disableBodyScroll()
-  //console.log(this.isSelectedColor, this.isSelectedTaglia)
   setTimeout(()=>{
     this.popUp.nativeElement.style.display='none'
     this.enableBodyScroll()
@@ -146,8 +156,14 @@ enableBodyScroll() {
   innerColor(colore:string){
   this.color = colore
   this.singleProduct.coloreSelezionato = colore
+  //this.box.nativeElement.classList.remove('error-box')
   this.errorMessageC.nativeElement.classList.remove('error')
   this.isSelectedColor = true;
+  if(this.isSelectedColor && this.isSelectedTaglia){
+    this.errorBox = false;
+  }
+  //this.errorBox = false;
+  console.log(this.isSelectedColor, this.isSelectedTaglia)
  // console.log(this.isSelectedColor)
   }
 
@@ -160,8 +176,13 @@ enableBodyScroll() {
  innerT(taglia:string){
   this.taglia = taglia
   this.singleProduct.tagliaSelezionata = taglia
+  //this.box.nativeElement.classList.remove('error-box')
   this.errorMessage.nativeElement.classList.remove('error')
   this.isSelectedTaglia = true;
+  if(this.isSelectedColor && this.isSelectedTaglia){
+    this.errorBox = false;
+  }
+  console.log(this.isSelectedColor, this.isSelectedTaglia)
  // console.log(this.isSelectedTaglia)
  }
 

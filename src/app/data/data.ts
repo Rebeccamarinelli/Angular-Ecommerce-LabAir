@@ -140,11 +140,11 @@ export const colors = [
       color:"purple"
     },
     {
-      name:"Oro",
-      color:"#3f3f3f"
+      name:"Celeste",
+      color:"#89cfde"
     },
     {
-      name:"Argento",
+      name:"Rosa",
       color:"pink"
     },
     {

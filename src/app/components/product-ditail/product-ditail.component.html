@@ -68,7 +68,7 @@
                 <p id="error">Seleziona la taglia/misura</p>
                 <p>Guida alle taglie e alle misure</p>
             </div>
-            <div id="boxSize" *ngIf="singleProduct">
+            <div id="boxSize" #box *ngIf="singleProduct" [ngClass]="{'error-box': errorBox}">
                 <button class="taglie" *ngFor="let taglia of singleProduct.taglie_disponibili, let i = index"  
                 (click)="innerT(taglia)" 
                 [ngClass]="{'selected': selectedIndexTaglia === i}" 
@@ -76,7 +76,7 @@
                 >EU {{taglia}}</button>
             </div>         
             <div>
-                <p #errorMessage class="error-message">Devi selezionare una taglia</p>
+                <p  #errorMessage class="error-message">Devi selezionare una taglia</p>
                 <p #errorMessageC class="error-message">Devi selezionare un colore</p>
                 <button class="shop" (click)="mustSelect(isSelectedColor, isSelectedTaglia, singleProduct)">Aggiungi al carrello</button>
                 <button class="prefer">Aggiungi ai preferiti</button>

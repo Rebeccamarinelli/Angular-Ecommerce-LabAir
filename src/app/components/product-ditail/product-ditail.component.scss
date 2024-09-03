@@ -1,19 +1,10 @@
 @import "../../../partial/variabili";
 @import "../../../partial/mixin";
 
-// .container[_ngcontent-ng-c546931023] {
-//     width: 100%;
-//     padding-top: 12em;
-//     /* display: grid; */
-//     grid-template-columns: 0.5fr 2fr 2fr;
-//     gap: 20px;
-// }
-
 
 .container{
     width: 100%;
     padding-top: 12em;
-    //display: grid;
     grid-template-columns: .5fr 2fr 2fr;
     gap: 20px;
     section{
@@ -40,7 +31,6 @@
         width: 100%;
         overflow: hidden;
         div{
-            //background-color: $colorFirst;
             border-radius: 10px;
             position: relative;
             img{
@@ -82,7 +72,6 @@
         }
     }
     &:nth-child(3){
-       // padding-left: 10%;
        padding-left: 3%;
        padding-right: 3%;
         div{
@@ -96,9 +85,6 @@
                     border-radius: 10px;
                     margin-left: 5px;
                     margin-bottom: 0.8em;
-                    // &:first-child{
-                    //     border: 1px solid #111;
-                    // }
                     &:hover{
                         border: 1px solid #111;
                     }
@@ -107,7 +93,6 @@
             &:nth-child(3){
                 display: flex;
                 justify-content: space-between;
-               // padding-right: 30%;
                 padding-right: 3%;
                 p{
                     &:last-child{
@@ -130,9 +115,7 @@
         div{
             padding-bottom: $dimRegular;
             &:nth-child(4){
-               // padding: 1em;
                 padding-top: 1em;
-               // width: 70%;
                  width: 100%;
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr;
@@ -204,6 +187,7 @@
 .hidden{
     display: none;
 }
+
 .descrizione{
     margin-bottom: 0.6em;
 }
@@ -217,14 +201,6 @@
     display: block;
     color: red;
 }
-
-// .color-option.selected {
-//     border: 1px solid #111;
-//   }
-
-//   .ditail.selected {
-//     border: 1px solid #111;
-//   }
 
 .selected {
     border: 1px solid #111;
@@ -344,9 +320,6 @@
     
 }
 
-
-
-
 @media screen and (min-width:500px) {
     .container section:nth-child(3) div:nth-child(2) img {
         width: 80px;
@@ -390,7 +363,6 @@
     }
 }
 
-
 @media screen and (min-width:1000px) {
     
     .pop-up{
@@ -398,7 +370,6 @@
     }
 
 }
-
 
 @media screen and (min-width:1200px) {
     .container{
@@ -465,7 +436,21 @@
 
 }
 
+.error-box{
+    border: 1px solid red;
+    border-radius: 20px;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-bottom: 1em;
+}
 
+.no-error{
+    border:none;
+    border-radius: 0;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 0;
+}
 
 
   
