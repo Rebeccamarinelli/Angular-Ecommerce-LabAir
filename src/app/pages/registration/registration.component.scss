@@ -59,6 +59,26 @@ input.ng-invalid.ng-touched {
     cursor: pointer;
 }
 
+.c-input-password{
+    position: relative;
+    top: 0;
+    left: 0;
+ }
+
+ .eye{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    cursor: pointer;
+    &:hover{
+        fill: #757575;
+    }
+ }
+
+ .invisibile{
+    display: none;
+ }
+
 @media screen and (min-width:600px) {
     main{
         padding: 3em 20%;

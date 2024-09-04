@@ -16,8 +16,12 @@ export class RegistrationComponent {
     private auth:AuthService,
     private route:Router){}
 
-  emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-  passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$/;
+  emailPattern: RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  passwordPattern: RegExp = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$/;
+  isVisible:boolean =  true;
+  isVisibleScd:boolean =  true;
+  password:string = 'password'
+  passwordScd:string = 'password'
 
   registerForm: FormGroup = new FormGroup({
     email: new FormControl<string>('', [Validators.required, Validators.email, Validators.pattern(this.emailPattern)]),
@@ -44,6 +48,22 @@ export class RegistrationComponent {
       })
   }
 
+  showPassword(): void{
+    this.isVisible = !this.isVisible
+    if(this.isVisible){
+      this.password = 'password'
+    }else{
+      this.password = 'text'
+    }
+  }
 
+  showPasswordScd(): void{
+    this.isVisibleScd = !this.isVisibleScd
+    if(this.isVisibleScd){
+      this.passwordScd = 'password'
+    }else{
+      this.passwordScd = 'text'
+    }
+  }
 
 }
