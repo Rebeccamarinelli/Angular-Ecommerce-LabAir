@@ -4,7 +4,7 @@
 
 .container{
     width: 100%;
-    padding-top: 12em;
+    padding-top: 5em;
     grid-template-columns: .5fr 2fr 2fr;
     gap: 20px;
     section{
@@ -147,7 +147,7 @@
                     color: $white;
                     margin-bottom: 0.8em;
                     margin-top: 2em;
-                    font-size:1.15em;
+                    font-size:1em;
                 }
                 .prefer{
                     display: block;
@@ -156,7 +156,7 @@
                     border-radius: 50px;
                     background-color: $white;
                     border: 1px solid #beb7b7;
-                    font-size: 1.15em;
+                    font-size: 1em;
                     margin-bottom: 0.8em;
                 }
                 &:last-child{
@@ -374,7 +374,6 @@
 @media screen and (min-width:1200px) {
     .container{
         display: grid;
-        margin-top: 5em;
         align-items: flex-start;
         padding-left: 10%;
         padding: 10%;
@@ -444,13 +443,6 @@
     margin-bottom: 1em;
 }
 
-.no-error{
-    border:none;
-    border-radius: 0;
-    padding-left: 0;
-    padding-right: 0;
-    margin-bottom: 0;
-}
 
 
   

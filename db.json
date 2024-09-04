@@ -2319,6 +2319,16 @@
       "email": "cinzia@gmail.com",
       "password": "$2a$10$DQGyAx.r0oyoSBGtjSXftuBit9OgkwuSOTV.aUFUpAnwa9CICndFy",
       "id": 3
+    },
+    {
+      "email": "giacomo@gmail.com",
+      "password": "$2a$10$.77Ok8gtzLa05X6cpxGL1eNts5372eURa95gxvNrfAMBFPApJqGI2",
+      "id": 4
+    },
+    {
+      "email": "ciao@gmail.com",
+      "password": "$2a$10$ONfphVlN3Z2ZoWlr2O7O0.CSWG0g72y/lVIaAkEQ3A2H8.5B84OBe",
+      "id": 5
     }
   ],
   "orders": [
@@ -2369,6 +2379,66 @@
       "quantity": 1,
       "userId": "2",
       "data": "2024-09-03T12:26:46.687Z"
+    },
+    {
+      "id": 1725461596003,
+      "nome": "Nike Air Zoom Freak 1",
+      "categoria": "Basket",
+      "prezzo": 119.99,
+      "coloreSelezionato": "Blu",
+      "tagliaSelezionata": "38",
+      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/df7c9aba-ed5f-4007-9c7c-93eb3a478b7f/JA+1+SE+%28GS%29.png",
+      "quantity": 1,
+      "userId": "2",
+      "data": "2024-09-04T14:53:00.461Z"
+    },
+    {
+      "id": 1725461734002,
+      "nome": "Nike Air Force 1",
+      "categoria": "Sneakers",
+      "prezzo": 109.99,
+      "coloreSelezionato": "Verde",
+      "tagliaSelezionata": "38",
+      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/0cdd19d6-e657-4f54-9444-e0fa1e9eb09a/W+AF1+SHADOW.png",
+      "quantity": 1,
+      "userId": "2",
+      "data": "2024-09-04T14:55:23.580Z"
+    },
+    {
+      "id": 1725462117252,
+      "nome": "Nike Air Zoom Freak 1",
+      "categoria": "Basket",
+      "prezzo": 119.99,
+      "coloreSelezionato": "Blu",
+      "tagliaSelezionata": "38",
+      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/df7c9aba-ed5f-4007-9c7c-93eb3a478b7f/JA+1+SE+%28GS%29.png",
+      "quantity": 1,
+      "userId": "2",
+      "data": "2024-09-04T15:01:47.345Z"
+    },
+    {
+      "id": 1725462206396,
+      "nome": "Nike React Infinity Run Flyknit",
+      "categoria": "Running",
+      "prezzo": 159.99,
+      "coloreSelezionato": "Verde",
+      "tagliaSelezionata": "38",
+      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/8eb5e8dd-3f76-4024-946d-434c42c9aa2a/W+NIKE+REACTX+INFINITY+RUN+4.png",
+      "quantity": 1,
+      "userId": "2",
+      "data": "2024-09-04T15:03:20.623Z"
+    },
+    {
+      "id": 1725462788942,
+      "nome": "Nike Air Zoom Alphafly NEXT%",
+      "categoria": "Running",
+      "prezzo": 249.99,
+      "coloreSelezionato": "Giallo",
+      "tagliaSelezionata": "39",
+      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/477abbf8-b37a-4fe6-b516-08e294a8487a/AIR+ZOOM+ALPHAFLY+NEXT%25+3.png",
+      "quantity": 1,
+      "userId": "2",
+      "data": "2024-09-04T15:12:58.417Z"
     }
   ]
 }

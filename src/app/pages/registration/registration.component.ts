@@ -12,15 +12,17 @@ import { ILoginInfo } from '../../models/models';
 })
 export class RegistrationComponent {
   
-   constructor(private auth:AuthService, private route:Router){ }
+   constructor(
+    private auth:AuthService,
+    private route:Router){}
 
   emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$/;
 
   registerForm: FormGroup = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email, Validators.pattern(this.emailPattern)]),
-    password: new FormControl('', [Validators.required, Validators.pattern(this.passwordPattern)]),
-    ripetiPassword: new FormControl('', [Validators.required, Validators.pattern(this.passwordPattern)])
+    email: new FormControl<string>('', [Validators.required, Validators.email, Validators.pattern(this.emailPattern)]),
+    password: new FormControl<string>('', [Validators.required, Validators.pattern(this.passwordPattern)]),
+    ripetiPassword: new FormControl<string>('', [Validators.required, Validators.pattern(this.passwordPattern)])
   },
   {
     validators:[ripetiPassword]
@@ -28,7 +30,7 @@ export class RegistrationComponent {
 
 )
 
-  onRegister(){
+  onRegister(): void{
       console.log(this.registerForm)
     
       const newUser: ILoginInfo = {

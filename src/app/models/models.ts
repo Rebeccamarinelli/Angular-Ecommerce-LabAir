@@ -41,7 +41,21 @@ export interface IColor {
 }
 
 
+
+export interface ILoginRes {
+  accessToken: string
+  user: ILoginInfo
+}
+
+
 export interface ILoginInfo{
   email:string,
   password:string
+}
+
+export interface ITokenPayload {
+  email: string
+  exp: number
+  iat: number
+  sub: string
 }

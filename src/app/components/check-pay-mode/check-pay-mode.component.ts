@@ -44,7 +44,6 @@ constructor(private cartService:CartService, private orderService:OrdersService,
    this.cartService.getProducts().pipe(take(1)).subscribe((res)=>{
     const userId = this.authService.getUserId(); 
     this.cartProducts = res;
-
     if(localStorage.getItem('token')){
       this.cartProducts.forEach((product)=>{
         // Destruttura le proprietà che vuoi escludere
