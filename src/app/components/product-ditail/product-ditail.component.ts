@@ -13,18 +13,22 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class ProductDitailComponent {
 
   singleProduct: IProdotti;
-  productList = [];
+  productList:IProdotti[] =[];
   @ViewChild('errorMessage') errorMessage:ElementRef<HTMLParagraphElement>
   @ViewChild('errorMessageC') errorMessageC:ElementRef<HTMLParagraphElement>
   @ViewChild('box') box:ElementRef<HTMLDivElement>
   @ViewChild('popUp') popUp:ElementRef<HTMLDivElement>
-  displayedImg = 0
+  displayedImg: number = 0
   selectedIndex?:number;
   selectedIndexTaglia?:number;
   totalItemNumber:number;
   loading = false; // Variabile per controllare lo stato dello spinner
   
-  constructor(private activateRoute: ActivatedRoute, private serviceProduct: ProdottiService, private cartService: CartService, private spinner:NgxSpinnerService, private route:Router){
+  constructor(private activateRoute: ActivatedRoute,
+              private serviceProduct: ProdottiService, 
+              private cartService: CartService, 
+              private spinner:NgxSpinnerService, 
+              private route:Router){
     
     this.cartService.getProducts().subscribe((res)=>{
       this.productList = res;
@@ -54,8 +58,8 @@ export class ProductDitailComponent {
     })
   }
 
-  ngOnInit(){
-    this.serviceProduct.getAllProducts().subscribe((res:any[]) =>{ 
+  ngOnInit(): void{
+    this.serviceProduct.getAllProducts().subscribe((res) =>{ 
      this.productList = res;
      
     })
@@ -64,7 +68,6 @@ export class ProductDitailComponent {
   selectItem(index: number): void {
     this.selectedIndex = index; // Aggiorna l'indice dell'elemento selezionato
   }
-
   
   selectItemTaglia(index: number): void {
     this.selectedIndexTaglia = index; // Aggiorna l'indice dell'elemento selezionato
@@ -81,71 +84,63 @@ export class ProductDitailComponent {
   errorBox:boolean = false;
 
 
-  mustSelect(isSelectedTaglia:boolean, isSelectedColor:boolean, product:IProdotti){
+  mustSelect(isSelectedTaglia:boolean, isSelectedColor:boolean, product:IProdotti): void{
+
    if(isSelectedColor  && isSelectedTaglia){
-    console.log(this.isSelectedColor, this.isSelectedTaglia, '1')
-     // this.errorBox = false
-     // this.box.nativeElement.classList.remove('error-box')
+   
       this.errorMessage.nativeElement.classList.remove('error')
       this.errorMessageC.nativeElement.classList.remove('error')
       this.addToCart(product)
       this.isSelectedColor = !this.isSelectedColor
       this.isSelectedTaglia = !this.isSelectedTaglia
-     // this.errorBox = !this.errorBox
 
    }else if(isSelectedColor === true && isSelectedTaglia === false){
-    console.log(this.isSelectedColor, this.isSelectedTaglia, '2')
+   
       this.errorBox = true;
-    //  this.box.nativeElement.classList.add('error-box')
       this.errorMessage.nativeElement.classList.remove('error')
       this.errorMessageC.nativeElement.classList.add('error')
 
    }else if(isSelectedTaglia === true && isSelectedColor === false){
+
       this.errorBox = true;
-     console.log(this.isSelectedColor, this.isSelectedTaglia, '3')
-     // this.box.nativeElement.classList.add('error-box')
       this.errorMessage.nativeElement.classList.add('error')
       this.errorMessageC.nativeElement.classList.remove('error')
    }
    else{
-    console.log(this.isSelectedColor, this.isSelectedTaglia, '4')
       this.errorBox = true;
-     // this.box.nativeElement.classList.add('error-box')
       this.errorMessage.nativeElement.classList.add('error')
       this.errorMessageC.nativeElement.classList.add('error')
    }
   }
 
+  addToCart(product:IProdotti): void{
 
-
- addToCart(product:IProdotti): void{
-  console.log('go')
-  this.cartService.addToCart(product)
-  this.popUp.nativeElement.style.display='block'
-  this.route.events.subscribe((event)=>{
-    if(event instanceof NavigationEnd && (event.url === '/cart' || event.url === '/auth')){
+    this.cartService.addToCart(product)
+    this.popUp.nativeElement.style.display='block'
+    this.route.events.subscribe((event)=>{
+      if(event instanceof NavigationEnd && (event.url === '/cart' || event.url === '/auth')){
+        this.popUp.nativeElement.style.display='none'
+        this.enableBodyScroll()
+        this.selectedIndex = null;
+        this.selectedIndexTaglia = null;
+      }
+    })
+    this.disableBodyScroll()
+    setTimeout(()=>{
       this.popUp.nativeElement.style.display='none'
       this.enableBodyScroll()
       this.selectedIndex = null;
       this.selectedIndexTaglia = null;
-    }
-  })
-  this.disableBodyScroll()
-  setTimeout(()=>{
-    this.popUp.nativeElement.style.display='none'
-    this.enableBodyScroll()
-    this.selectedIndex = null;
-    this.selectedIndexTaglia = null;
-  }, 3000)
- }
+    }, 3000)
+  }
 
- disableBodyScroll() {
-  document.body.style.overflow = 'hidden';
-}
+  disableBodyScroll(): void {
+    document.body.style.overflow = 'hidden';
+  }
 
-enableBodyScroll() {
-  document.body.style.overflow = 'auto'; 
-}
+  enableBodyScroll(): void {
+    document.body.style.overflow = 'auto'; 
+  }
 
 
   image:string;
@@ -153,46 +148,48 @@ enableBodyScroll() {
   taglia:string;
   
 
-  innerColor(colore:string){
+  innerColor(colore:string): void{
   this.color = colore
   this.singleProduct.coloreSelezionato = colore
-  //this.box.nativeElement.classList.remove('error-box')
   this.errorMessageC.nativeElement.classList.remove('error')
   this.isSelectedColor = true;
-  if(this.isSelectedColor && this.isSelectedTaglia){
-    this.errorBox = false;
-  }
-  //this.errorBox = false;
-  console.log(this.isSelectedColor, this.isSelectedTaglia)
- // console.log(this.isSelectedColor)
+    if(this.isSelectedColor && this.isSelectedTaglia){
+      this.errorBox = false;
+    }
   }
 
-  innerImg(img:string){
-  this.image = img
-  this.singleProduct.immagineSelezionata = img
- // console.log(this.isSelectedColor)
- }
-
- innerT(taglia:string){
-  this.taglia = taglia
-  this.singleProduct.tagliaSelezionata = taglia
-  //this.box.nativeElement.classList.remove('error-box')
-  this.errorMessage.nativeElement.classList.remove('error')
-  this.isSelectedTaglia = true;
-  if(this.isSelectedColor && this.isSelectedTaglia){
-    this.errorBox = false;
+  innerImg(img:string): void{
+    this.image = img
+    this.singleProduct.immagineSelezionata = img
   }
-  console.log(this.isSelectedColor, this.isSelectedTaglia)
- // console.log(this.isSelectedTaglia)
- }
 
- closePopUp(){
-   this.popUp.nativeElement.style.display='none';
-   this.selectedIndex = null;
-   this.selectedIndexTaglia = null;
-   this.enableBodyScroll()
- }
+  innerT(taglia:string){
+    this.taglia = taglia
+    this.singleProduct.tagliaSelezionata = taglia
+    this.errorMessage.nativeElement.classList.remove('error')
+    this.isSelectedTaglia = true;
+      if(this.isSelectedColor && this.isSelectedTaglia){
+        this.errorBox = false;
+      }
+  }
 
+  closePopUp():void{
+    this.popUp.nativeElement.style.display='none';
+    this.selectedIndex = null;
+    this.selectedIndexTaglia = null;
+    this.enableBodyScroll()
+  }
+
+  getDynamicRouterLink(): string {
+    const accessToken:string = localStorage.getItem('token');
+    if (accessToken) {
+      this.enableBodyScroll()
+      return '/checkout-form';  // Se il token è presente, va al form 
+    } else {
+      this.enableBodyScroll()
+      return '/auth'; // Se il token non è presente, va alla pagina di login
+    }
+  }
  
   
  }

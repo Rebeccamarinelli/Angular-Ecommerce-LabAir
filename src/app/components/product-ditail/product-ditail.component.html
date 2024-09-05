@@ -20,7 +20,7 @@
             </div>
             <div  class="pop-up_foot">
                 <button><a routerLink="/cart">Visualizza carrello (<span id="product">{{totalItemNumber}}</span>)</a></button>
-                <button routerLink="/auth">Pagamento</button>
+                <button [routerLink]="getDynamicRouterLink()">Pagamento</button>
             </div>
         </div>
     </div>
@@ -61,8 +61,6 @@
                 [ngClass]="{'selected': selectedIndex === i}" 
                 (click)="selectItem(i)"
                >
-               <!-- [ngClass]="{'selected': isSelectedColor(coloreImg.colore)}" -->
-               <!-- [ngClass]="{'selected': isSelectedSize(taglia)}"  -->
             </div>
             <div>
                 <p id="error">Seleziona la taglia/misura</p>

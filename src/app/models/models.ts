@@ -75,10 +75,10 @@ export interface IOrder {
   nome: string
   categoria: string
   prezzo: number
-  coloreSelezionato: string
-  tagliaSelezionata: string
-  immagineSelezionata: string
-  quantity: number
+  coloreSelezionato?: string
+  tagliaSelezionata?: string
+  immagineSelezionata?: string
+  quantity?: number
   userId: string
-  data: string
+  data: Date
 }

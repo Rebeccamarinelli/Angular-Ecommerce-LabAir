@@ -26,8 +26,7 @@ export class CardProductComponent {
     private activetedRouter: ActivatedRoute, 
     private prodottiServ: ProdottiService, 
     private spinner: NgxSpinnerService, 
-    private router:Router){
-  }
+    private router:Router){}
 
   getlenght(array:string[]):number{
     return array.length
