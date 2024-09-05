@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { IProdotti } from '../../models/models';
 import { CartService } from '../../services/cart.service';
 
 @Component({
@@ -9,18 +8,11 @@ import { CartService } from '../../services/cart.service';
 })
 export class CheckThanksComponent {
   
-  cartProduct:IProdotti[];
-  totalItem:number;
-
   constructor(private cartService: CartService){
     
    this.cartService.clearCart()
-     
-   
+      
   }
 
-  // reLoad(){
-  //   window.location.reload()
-  // }
 
 }

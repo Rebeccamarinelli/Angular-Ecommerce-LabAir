@@ -59,3 +59,26 @@ export interface ITokenPayload {
   iat: number
   sub: string
 }
+
+export interface IDataForm{
+    cap: string
+    citta: string
+    cognome: string
+    email: string
+    indirizzo: string
+    nome: string
+    numero: string
+}
+
+export interface IOrder {
+  id: number
+  nome: string
+  categoria: string
+  prezzo: number
+  coloreSelezionato: string
+  tagliaSelezionata: string
+  immagineSelezionata: string
+  quantity: number
+  userId: string
+  data: string
+}

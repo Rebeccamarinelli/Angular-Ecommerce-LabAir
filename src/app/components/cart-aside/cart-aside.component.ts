@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { CartService } from '../../services/cart.service';
-import { IProdotti } from '../../models/models';
+
 
 @Component({
   selector: 'app-cart-aside',
@@ -10,19 +10,10 @@ import { IProdotti } from '../../models/models';
 export class CartAsideComponent {
 
   total:number = 0
-  productList:IProdotti[];
 
-  constructor(private cartService: CartService){
+  constructor(private cartService: CartService){}
 
-  }
-
-   ngOnInit(){
-  
-      this.cartService.getProducts().subscribe((res) =>{
-        this.productList = res;
-      })
-
-
+    ngOnInit():void{
       this.cartService.totalPrice$.subscribe((total)=>{
         this.total = +total.toFixed(2);
       })
@@ -30,9 +21,8 @@ export class CartAsideComponent {
 
      }
 
-
      getDynamicRouterLink(): string {
-      const accessToken = localStorage.getItem('token');
+      const accessToken:string = localStorage.getItem('token');
       if (accessToken) {
         return '/checkout-form';  // Se il token è presente, va al form
       } else {

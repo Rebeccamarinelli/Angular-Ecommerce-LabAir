@@ -14,15 +14,13 @@ export class CheckAsideComponent {
   constructor(private cartService: CartService){}
 
 
-  ngOnInit(){
+  ngOnInit():void{
     this.cartService.getProducts().subscribe((res)=>{
       this.cartProducts = res;
-     // console.log(this.cartProducts)
     })
 
     this.cartService.totalPrice$.subscribe((total) => {
-      this.total = parseFloat(total.toFixed(2));
-      //console.log(total)    
+      this.total = parseFloat(total.toFixed(2));   
     });
 
   }

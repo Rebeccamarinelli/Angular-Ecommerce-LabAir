@@ -13,7 +13,7 @@ export class AppComponent {
   
   constructor(private router: Router) {}
 
-  ngOnInit() {
+  ngOnInit() : void {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         window.scrollTo(0, 0);
@@ -23,10 +23,7 @@ export class AppComponent {
     this.router.events
     .pipe(filter(event => event instanceof NavigationEnd))
     .subscribe((event: NavigationEnd) => {
-      // Aggiungi qui le route per cui vuoi nascondere i componenti
       const routesToHide = ['/checkout-form', '/auth', '/thanks', '/auth/register', '/auth/login'];
-
-      // Se la route corrente è inclusa in routesToHide, nascondi i componenti
       this.hideComponents = routesToHide.includes(event.urlAfterRedirects);
     });
 

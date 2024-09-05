@@ -9,15 +9,10 @@ export class CartService {
 
   cartItemList:IProdotti[]= [];
   productList = new BehaviorSubject<IProdotti[]>([]);
-  
-  total: number = 0
-
-  
-  
+  total: number = 0  
   private totalPrice = new BehaviorSubject<number>(0);
   totalPrice$ = this.totalPrice.asObservable();  // Osservabile per il prezzo totale
  
-  constructor() {}
 
   getProducts():Observable<IProdotti[]>{
     return this.productList.asObservable()
@@ -51,8 +46,6 @@ export class CartService {
     this.updateCart()
     
   }
-
- 
 
   updateItemQuantity(id: number, quantity: number, imm:string): void {
     const item = this.cartItemList.find(i => i.id === id && i.immagineSelezionata === imm);

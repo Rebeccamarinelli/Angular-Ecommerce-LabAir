@@ -11,46 +11,45 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ProdottiService {
 
-products:any;
-filteredList:any;
+products:IProdotti[];
 baseUrl = 'http://localhost:3000/prodotti'
 
 
   constructor(private http: HttpClient) {}
 
   // Metodo per ottenere prodotti con paginazione
-  getProducts(startIndex: number, limit: number): Observable<any> {
-    const url = `${this.baseUrl}?_start=${startIndex}&_limit=${limit}`;
-    return this.http.get<any[]>(url);
+  getProducts(startIndex: number, limit: number): Observable<IProdotti[]> {
+    const url:string = `${this.baseUrl}?_start=${startIndex}&_limit=${limit}`;
+    return this.http.get<IProdotti[]>(url);
   }
     
-  getAllProducts():Observable<any>{
-    return  this.http.get<IProdottiRes>(this.baseUrl)
+  getAllProducts():Observable<IProdotti[]>{
+    return  this.http.get<IProdotti[]>(this.baseUrl)
   }
 
   getProdById(id:number):Observable<IProdotti>{
     return this.http.get<IProdotti>(`${this.baseUrl}/${id}`)
   }
 
-  getNewArrivals(): Observable<any> {
+  getNewArrivals(): Observable<IProdotti[]> {
     return this.getAllProducts().pipe(
       map(products => products.filter(product => product.nuovo_arrivi))
     );
   }
 
-  getBestSellers(): Observable<any[]> {
+  getBestSellers(): Observable<IProdotti[]> {
     return this.getAllProducts().pipe(
       map(products => products.filter(product => product.best_seller >= 4))
     );
   }
 
-  getProductsByCategory(categoria: string): Observable<any[]> {
+  getProductsByCategory(categoria: string): Observable<IProdotti[]> {
     return this.getAllProducts().pipe(
       map(products => products.filter(product => product.categoria === categoria))
     );
   }
 
-  getProductsByColor(color: string): Observable<any[]> {
+  getProductsByColor(color: string): Observable<IProdotti[]> {
     return this.getAllProducts().pipe(
       map(products => products.filter(product => product.colori_disponibili.includes(color)))
     );

@@ -1,4 +1,4 @@
-import { ICardsHome, singleShoe } from "../models/models";
+import { ICardsHome, IColor, singleShoe } from "../models/models";
 
 export const shoes:singleShoe[] =[
     {
@@ -106,7 +106,7 @@ export const membership:ICardsHome[] = [
 ];
 
 
-export const colors = [
+export const colors:IColor[] = [
     {
       name:"Nero",
       color:"#000"

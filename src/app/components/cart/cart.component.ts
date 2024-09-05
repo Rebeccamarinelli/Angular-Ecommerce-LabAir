@@ -12,12 +12,10 @@ export class CartComponent {
 
   products:IProdotti[];
 
-
   constructor(private cartService : CartService){}
 
-  ngOnInit(){
-    this.cartService.getProducts().subscribe((res) =>{ this.products = res}
-
+  ngOnInit():void{
+    this.cartService.getProducts().subscribe((res)=>{ this.products = res}
     )
   }
 

@@ -17,7 +17,7 @@
                 
             </div>
             <div>
-                <p class="color-label" *ngIf="registerForm.controls.password.touched && registerForm.controls.password.errors?.required">email obbligatoria</p>
+                <p class="color-label" *ngIf="registerForm.controls.password.touched && registerForm.controls.password.errors?.required">password obbligatoria</p>
                <div class="c-input-password">
                     <input [type]="password" 
                             id="psw-login"
@@ -29,12 +29,13 @@
     
                </div>
             </div>
-            
+            <div *ngIf="errorMessage" class="error-message">{{errorMessage}}</div>
+            <div *ngIf="errorMessageScd" class="error-message">{{errorMessageScd}}</div>
         </form>
         <div>
             <p class="para">Continuando, accetti le <span>condizioni d'uso</span> di Nike e confermi di aver letto l'<span>informativa sulla privacy</span> di Nike.</p>
         </div>
-        <button (click)="onLogin()" [disabled]="registerForm.invalid"[ngClass]="{'valid': registerForm.valid}">Continua</button>
+        <button *ngIf="!errorMessage" (click)="onLogin()" [disabled]="registerForm.invalid"[ngClass]="{'valid': registerForm.valid}">Continua</button>
     </div>
     
 </main>

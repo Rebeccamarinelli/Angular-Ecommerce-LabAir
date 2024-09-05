@@ -4,9 +4,8 @@
     border-bottom: 1px solid #c0c0c0;
 }
 
-
 .cart_container-card-image_text{
-    width: 60%;
+    width: 100%;
     img{
         max-width: 144px;
         padding-right: 2em;
@@ -18,7 +17,7 @@
     p{
         font-size: 1.15em;
         color: #757575;
-        padding-bottom: 0.4em;
+        padding-bottom: 0.2em;
         &:first-child{
             color: #111;
         }
@@ -29,18 +28,30 @@
     select{
         border: none;
         color: #636363;
-        padding: 0.8em 0;
+      //  padding: 0.8em 0;
     }
     p:first-child{
         color: #757575;
-        padding-right: 0.5em;
+         padding-right: 0.5em;
     }
     
 }
 
 .quantity{
-    padding-left: 0.5em;
+  //  padding-left: 0.5em;
     padding-right: 0.5em;
+}
+
+.c-size{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.c-qty{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .cart_icons{
@@ -88,6 +99,10 @@
             padding:0;
         }
          
+    }
+
+    .c-size{
+        margin-right: 1em;
     }
     
 }

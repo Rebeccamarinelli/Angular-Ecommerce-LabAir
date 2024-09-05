@@ -1,4 +1,4 @@
-<main>
+<main *ngIf="!errorMessage">
     <div>
         <h2>I Miei Ordini</h2>
         <p (click)="logout()">Logout</p>
@@ -7,3 +7,6 @@
             <app-order-item [orderList]="pastOrdersList" class="wrap"></app-order-item>
     </div>
 </main>
+<div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }} <span routerLink="/home">Go Back</span>
+</div>

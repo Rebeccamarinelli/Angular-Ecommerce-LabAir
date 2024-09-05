@@ -1,9 +1,9 @@
 <div class="c-orders" *ngFor="let order of orderList">
     <img [src]="order.immagineSelezionata" [alt]="order.nome">
    <div class="p-item">
-        <p>{{order.nome}}</p>
-        <p>{{order.categoria}}</p>
-        <p>{{order.prezzo | currency : 'EUR'}} - qty: {{order.quantity}}</p>
+        <p class="title">{{order.nome}}</p>
+        <p class="cat">{{order.categoria}}</p>
+        <p class="price">{{order.prezzo | currency : 'EUR'}} - qty: {{order.quantity}}</p>
         <p>{{order.tagliaSelezionata}}</p>
         <p>{{order.coloreSelezionato}}</p>
         <p>Data d'acquisto: {{order.data | datePipe}}</p>

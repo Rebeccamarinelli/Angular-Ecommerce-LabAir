@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component} from '@angular/core';
 import { IProdotti } from '../../models/models';
 import { CartService } from '../../services/cart.service';
 
@@ -9,11 +9,8 @@ import { CartService } from '../../services/cart.service';
 })
 export class CartItemComponent {
 
-  productList:IProdotti[] = []
-  listOfSize = [1, 2, 3, 4, 5]
+  productList:IProdotti[] = [];
 
- 
-  
   constructor(private cartService: CartService){}
 
   ngOnInit(): void{
@@ -25,28 +22,24 @@ export class CartItemComponent {
 
   }
 
-   removeItem(item:IProdotti){
+   removeItem(item:IProdotti):void{
      this.cartService.removeCartItem(item)
      console.log(this.productList)
    }
 
-  
-
-  quantityMultiply(event:any, i:number, selectedImage:string){
-    const qty = +event.target.value;
+  quantityMultiply(event:Event, i:number, selectedImage:string):void{
+    const qty = +(event.target as HTMLInputElement).value;
     if(qty < 1){
-      event.target.value = this.productList[i].quantity;
+     (event.target as HTMLInputElement).value = this.productList[i].quantity.toString();
       return;
     }else{
       if (this.productList[i].immagineSelezionata === selectedImage) {
         // Aggiorna la quantità solo se l'immagine selezionata è uguale a quella desiderata
         this.productList[i].quantity = qty;
         this.cartService.updateItemQuantity(this.productList[i].id, qty, this.productList[i].immagineSelezionata);
-      // this.productList[i].quantity = qty
-      // this.cartService.updateItemQuantity(this.productList[i].id, qty);
     }
   }
  
-}
+  }
 
   }

@@ -2439,6 +2439,30 @@
       "quantity": 1,
       "userId": "2",
       "data": "2024-09-04T15:12:58.417Z"
+    },
+    {
+      "id": 1725541204693,
+      "nome": "Nike Air Jordan 4 Retro",
+      "categoria": "Basket",
+      "prezzo": 199.99,
+      "coloreSelezionato": "Bianco",
+      "tagliaSelezionata": "38",
+      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/7ab3f3be-970f-4518-b8fe-c24c1c500d71/GIANNIS+IMMORTALITY+4.png",
+      "quantity": 1,
+      "userId": "2",
+      "data": "2024-09-05T12:59:57.955Z"
+    },
+    {
+      "id": 1725541282099,
+      "nome": "Nike Air Force 1",
+      "categoria": "Sneakers",
+      "prezzo": 109.99,
+      "coloreSelezionato": "Bianco",
+      "tagliaSelezionata": "39",
+      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/odhlk8ksqmstmdcjjyn0/W+AF1+SHADOW.png",
+      "quantity": 1,
+      "userId": "2",
+      "data": "2024-09-05T13:01:14.303Z"
     }
   ]
 }

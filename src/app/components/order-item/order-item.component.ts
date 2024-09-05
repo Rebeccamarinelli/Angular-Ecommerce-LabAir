@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Input } from '@angular/core';
+import { IOrder} from '../../models/models';
 
 @Component({
   selector: 'app-order-item',
@@ -8,6 +9,6 @@ import { Input } from '@angular/core';
 })
 export class OrderItemComponent {
 
-@Input() orderList:any;
+@Input() orderList:IOrder[];
 
 }

@@ -35,8 +35,6 @@
     
 }
 
-
-
 .wrp-name{ 
     .nome{
         width: 100%;
@@ -47,6 +45,7 @@
        // margin-left: 1%;
     }
 }
+
 .indirizzo{
     width: 100%;
 }
@@ -88,7 +87,6 @@
 .wrp-email{
     display: flex;
     justify-content: space-between;
-   // align-items: center;
     flex-direction: column;
     div{
         width: 100%;
@@ -102,14 +100,12 @@
     }
 }
 
-
 .wrp-text{
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     padding: 1em 0;
     p{
-       // padding-left: 2%;
         font-size: 1em;
     }
 }
@@ -162,7 +158,6 @@
     margin-bottom: 5em;
 }
 
-
 .form-data{
     display: flex;
     justify-content: space-between;
@@ -183,7 +178,6 @@
     font-size: 1em;
 }
 
-
 .btn-rit{
     @include btn-form-data;
     border: 1px solid #c5c5c5;
@@ -191,7 +185,6 @@
     margin-bottom: 1.2em;
     font-size: 1em;
 }
-
 
 
 .payment-wrapper.top{
