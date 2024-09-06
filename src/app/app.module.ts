@@ -38,6 +38,7 @@ import { LogOnComponent } from './pages/log-on/log-on.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { OrderItemComponent } from './components/order-item/order-item.component';
 import { DatePipePipe } from './pipes/date-pipe.pipe';
+import { WrongRouteComponent } from './pages/wrong-route/wrong-route.component';
 
 
 
@@ -74,6 +75,7 @@ import { DatePipePipe } from './pipes/date-pipe.pipe';
     DashboardComponent,
     OrderItemComponent,
     DatePipePipe,
+    WrongRouteComponent,
 
   ],
   imports: [

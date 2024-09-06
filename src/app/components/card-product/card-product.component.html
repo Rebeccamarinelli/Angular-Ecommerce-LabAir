@@ -7,7 +7,7 @@
                 type="ball-clip-rotate-multiple">
                 <p style="color: #111;">loading...</p>
         </ngx-spinner>
-    <app-sidebar-product-menu [products]="products" (passFilter)="riceviFilteredList($event)"></app-sidebar-product-menu>
+    <app-sidebar-product-menu [products]="loadedProducts" (passFilter)="riceviFilteredList($event)"></app-sidebar-product-menu>
     <div class="c-card" id="scroll-container" (scroll)="onScroll()">
         <div class="card" *ngFor="let prodotto of products, let i = index">
             <img [src]="prodotto.immagine" [alt]="prodotto.nome" loading="lazy" (click)="onImageClick(prodotto.id)">

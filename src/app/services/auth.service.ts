@@ -22,9 +22,7 @@ export class AuthService {
   private loggedIn = new BehaviorSubject<boolean>(false);
 
   isLoggedIn():Observable<boolean> {
-    if(localStorage.getItem('token')){
       return this.loggedIn.asObservable();
-    }
   }
 
   login(userInfo:ILoginInfo): Observable<ILoginRes>{

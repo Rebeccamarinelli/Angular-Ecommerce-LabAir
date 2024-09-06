@@ -11,6 +11,7 @@ import { RegistrationComponent } from './pages/registration/registration.compone
 import { LogOnComponent } from './pages/log-on/log-on.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
+import { WrongRouteComponent } from './pages/wrong-route/wrong-route.component';
 
 const routes: Routes = [
 
@@ -29,7 +30,8 @@ const routes: Routes = [
   },
   {path:'checkout-form', component: CheckoutFormComponent},
   {path:'thanks', component: CheckThanksComponent},
-  {path:'dashboard', component: DashboardComponent, canActivate: [AuthGuard]}
+  {path:'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  {path : '**', pathMatch : 'full', component: WrongRouteComponent}
 ];
 
 @NgModule({

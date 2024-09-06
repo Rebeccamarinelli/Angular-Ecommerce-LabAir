@@ -2475,6 +2475,42 @@
       "quantity": 1,
       "userId": "2",
       "data": "2024-09-05T13:37:05.341Z"
+    },
+    {
+      "id": 1725577798456,
+      "nome": "Nike Air Force 1",
+      "categoria": "Sneakers",
+      "prezzo": 109.99,
+      "coloreSelezionato": "Verde",
+      "tagliaSelezionata": "39",
+      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/0cdd19d6-e657-4f54-9444-e0fa1e9eb09a/W+AF1+SHADOW.png",
+      "quantity": 3,
+      "userId": "2",
+      "data": "2024-09-05T23:09:52.407Z"
+    },
+    {
+      "id": 1725635039115,
+      "nome": "Nike React Infinity Run Flyknit",
+      "categoria": "Running",
+      "prezzo": 159.99,
+      "coloreSelezionato": "Verde",
+      "tagliaSelezionata": "38",
+      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/8eb5e8dd-3f76-4024-946d-434c42c9aa2a/W+NIKE+REACTX+INFINITY+RUN+4.png",
+      "quantity": 1,
+      "userId": "2",
+      "data": "2024-09-06T15:03:53.041Z"
+    },
+    {
+      "id": 1725635039116,
+      "nome": "Nike Air Zoom Terra Kiger 7",
+      "categoria": "Trail Running",
+      "prezzo": 139.99,
+      "coloreSelezionato": "Arancione",
+      "tagliaSelezionata": "39",
+      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/046ffc6f-a563-47f3-8585-24afc9a47486/W+NIKE+REACTX+PEGASUS+TRAIL+5.png",
+      "quantity": 1,
+      "userId": "2",
+      "data": "2024-09-06T15:03:53.041Z"
     }
   ]
 }

@@ -12,7 +12,10 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class ProductsComponent {
 
-  constructor(private route:Router){}
+  
+
+  constructor(private route:Router, private prodotti:ProdottiService){
+  }
 
 
   getId(id:number):void{
