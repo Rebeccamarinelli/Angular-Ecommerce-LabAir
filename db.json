@@ -2511,6 +2511,18 @@
       "quantity": 1,
       "userId": "2",
       "data": "2024-09-06T15:03:53.041Z"
+    },
+    {
+      "id": 1725883555923,
+      "nome": "Nike Air Zoom Freak 1",
+      "categoria": "Basket",
+      "prezzo": 119.99,
+      "coloreSelezionato": "Blu",
+      "tagliaSelezionata": "38",
+      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/df7c9aba-ed5f-4007-9c7c-93eb3a478b7f/JA+1+SE+%28GS%29.png",
+      "quantity": 1,
+      "userId": "2",
+      "data": "2024-09-09T12:05:30.891Z"
     }
   ]
 }

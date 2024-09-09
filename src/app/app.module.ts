@@ -20,7 +20,7 @@ import { SliderSportComponent } from './components/slider-sport/slider-sport.com
 import { SliderMemberComponent } from './components/slider-member/slider-member.component';
 import { FooterBComponent } from './components/footer-b/footer-b.component';
 import { ProductsComponent } from './pages/products/products.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SidebarProductMenuComponent } from './components/sidebar-product-menu/sidebar-product-menu.component';
 import { CardProductComponent } from './components/card-product/card-product.component';
 import { ProductDitailComponent } from './components/product-ditail/product-ditail.component';
@@ -39,6 +39,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { OrderItemComponent } from './components/order-item/order-item.component';
 import { DatePipePipe } from './pipes/date-pipe.pipe';
 import { WrongRouteComponent } from './pages/wrong-route/wrong-route.component';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { ErrorHandlerInterceptor } from './interceptor/error.hendler.interceptor';
+import { PopupComponent } from './components/popup/popup.component';
 
 
 
@@ -76,6 +79,8 @@ import { WrongRouteComponent } from './pages/wrong-route/wrong-route.component';
     OrderItemComponent,
     DatePipePipe,
     WrongRouteComponent,
+    PopupComponent,
+
 
   ],
   imports: [
@@ -89,7 +94,15 @@ import { WrongRouteComponent } from './pages/wrong-route/wrong-route.component';
     NoopAnimationsModule,
     ScrollingModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  },
+  { provide: HTTP_INTERCEPTORS,
+    useClass: ErrorHandlerInterceptor,
+    multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

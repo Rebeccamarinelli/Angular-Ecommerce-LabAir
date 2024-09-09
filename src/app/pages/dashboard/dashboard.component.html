@@ -10,3 +10,10 @@
 <div *ngIf="errorMessage" class="error-message">
     {{ errorMessage }} <span routerLink="/home">Go Back</span>
 </div>
+<ngx-spinner
+    bdColor="rgba(255, 255, 255, 0.9)"
+    size="medium"
+    color="#000"
+    type="ball-clip-rotate-multiple">
+    <p style="color: #111;">loading...</p>
+</ngx-spinner>
