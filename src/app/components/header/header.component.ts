@@ -16,7 +16,10 @@ export class HeaderComponent {
 
  constructor(
   private router:Router,
-  private cartService: CartService){}
+  private cartService: CartService){
+
+    window.addEventListener('resize', () => this.onResize());
+  }
 
   private lastScroll: number = 0;
   private body: HTMLElement;
@@ -51,6 +54,11 @@ export class HeaderComponent {
    
  }
 
+ ngOnDestroy() {
+  // Rimuovi l'evento di resize quando il componente è distrutto
+  window.removeEventListener('resize', () => this.onResize());
+}
+
   @HostListener('window:scroll', []) onWindowScroll(): void {
     const currentScroll = window.scrollY || document.documentElement.scrollTop || 0;
 
@@ -84,25 +92,83 @@ export class HeaderComponent {
  
   //da spostare in un file di dati condiviso poiche si può riutilizzare nel side-product
   categories: string[] = ['Basket', 'Running', 'Training', 'Sneakers', 'Trail Running'];
-
+  isOpen:boolean = true;
 
   filterNewArrivals() {
     this.router.navigate(['/products'], { queryParams: { filter: 'nuovo_arrivi' } }); 
+    this.selectingMenu()
+    this.isOpen = !this.isOpen;
                                             // ?filter = nuovo_arrivi
   }
 
   filterBestSellers() {
     this.router.navigate(['/products'], { queryParams: { filter: 'best_sellers' } });
+    this.selectingMenu()
+    this.isOpen = !this.isOpen;
   }
 
   filterByCategory(category: string) {
     this.router.navigate(['/products'], { queryParams: { category } });
+    this.selectingMenu() 
+    this.isOpen = !this.isOpen;
+  }
+
+ selectingMenu():void{
+  const menu = document.querySelector('.menu-mobile');
+  const over = document.querySelector('.overlay');
+  menu.classList.remove('menu-mobile-visibile')
+  over.classList.remove('opacity-overlay')
+  document.body.style.overflow = 'auto';
+  document.querySelector('.first-span').classList.remove('closing')
+  document.querySelector('.mid').classList.remove('close-scd')
+  document.querySelector('.last').classList.remove('close-th')
+ }
+
+  isVisibleMenu(): void{
+    const menu = document.querySelector('.menu-mobile');
+    const over = document.querySelector('.overlay');
+    menu.classList.toggle('menu-mobile-visibile');
+    over.classList.toggle('opacity-overlay')
+    document.querySelector('.first-span').classList.toggle('closing')
+    document.querySelector('.mid').classList.toggle('close-scd')
+    document.querySelector('.last').classList.toggle('close-th')
+    
+   
+    if(this.isOpen  || window.innerWidth < 1000){
+      document.body.style.overflow = 'hidden';
+    }else{
+      document.body.style.overflow = 'auto';
+    }
+    this.isOpen = !this.isOpen;
   }
 
 
+  onResize(): void {
+    // Controlla la larghezza della finestra e gestisci l'overflow
+    if (window.innerWidth > 1000) {
+      // Se la larghezza è maggiore di 1000px, ripristina l'overflow su 'auto'
+      document.body.style.overflow = 'auto';
+      this.isOpen = false; // Assicurati che il menu sia chiuso in modalità desktop
+      const menu = document.querySelector('.menu-mobile');
+      const over = document.querySelector('.overlay');
+      menu.classList.remove('menu-mobile-visibile');
+      over.classList.remove('opacity-overlay')
+      document.querySelector('.first-span').classList.remove('closing')
+      document.querySelector('.mid').classList.remove('close-scd')
+      document.querySelector('.last').classList.remove('close-th')
+    }
+  }
 
+  overlayOn(){
+    const overlay = document.querySelector('.overlay-bg');
+    overlay.classList.add('visibility');
+    document.body.style.overflow = 'hidden';
+  }
 
-
-
+  overlayOff(){
+    const overlay = document.querySelector('.overlay-bg');
+    overlay.classList.remove('visibility')
+    document.body.style.overflow = 'auto';
+  }
 
 }

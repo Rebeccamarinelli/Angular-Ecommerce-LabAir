@@ -42,6 +42,7 @@ import { WrongRouteComponent } from './pages/wrong-route/wrong-route.component';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { ErrorHandlerInterceptor } from './interceptor/error.hendler.interceptor';
 import { PopupComponent } from './components/popup/popup.component';
+import { NavCheckComponent } from './components/nav-check/nav-check.component';
 
 
 
@@ -80,6 +81,7 @@ import { PopupComponent } from './components/popup/popup.component';
     DatePipePipe,
     WrongRouteComponent,
     PopupComponent,
+    NavCheckComponent,
 
 
   ],

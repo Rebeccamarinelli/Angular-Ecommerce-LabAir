@@ -9,7 +9,7 @@
         <!-- logo -- region end -->
 
         <!-- menu che si mostra all'hover - nav principale -- region start -->
-        <div class="ulPlus">
+        <div class="ulPlus" (mouseenter)="overlayOn()" (mouseleave)="overlayOff()">
             <ul>
                 <li><a>Novità e in evidenza</a></li>
                 <li><a>Uomo</a></li>
@@ -59,7 +59,6 @@
             </div>
         </div>
         <!-- menu che si mostra all'hover - nav principale -- region end -->   
-
         <!-- side con login e icone -- region start -->
         <div class="side-container">
             <div class="icon">
@@ -71,16 +70,33 @@
                 </a>
             </div>
 
-            <div class="burger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="burger" (click)="isVisibleMenu()">
+                <span class="first-span"></span>
+                <span class="mid"></span>
+                <span class="last"></span>
             </div>
 
         </div>
          <!-- side con login e icone -- region end -->
     
     </nav>
+    <div class="overlay"></div>
+        <div class=" menu-mobile">
+            <div>
+                <a (click)="filterBestSellers()">Best Seller</a>
+                <a (click)="filterNewArrivals()">Nuovi arrivi</a>
+                <a (click)="filterByCategory('Basket')">Basket</a>
+                <a (click)="filterByCategory('Running')">Running</a>
+                <a (click)="filterByCategory('Sneakers')">Sneakers</a>
+                <a (click)="filterByCategory('Trail Running')">Trail Running</a>
+                <a (click)="filterByCategory('Training')">Training</a>
+            </div>
+            <div class="log">
+                <a href="/auth/login">Accedi</a>
+                <a href="/auth/register">Unisciti a noi</a>
+            </div>
+        </div>
     <app-header-banner-scd (mandaBanner)="riceviBanner($event)" [ngStyle]="{'display': hideComponents ? 'none' : 'block'}"></app-header-banner-scd>
 </header>
 
+<div class="overlay-bg"></div>

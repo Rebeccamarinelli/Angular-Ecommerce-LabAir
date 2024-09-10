@@ -10,15 +10,6 @@ import { NgForm } from '@angular/forms';
 })
 export class CheckoutFormComponent {
 
-  cartProduct:IProdotti[];
-  totalItem:number;
-
-  constructor(private cartService: CartService){
-    this.cartService.getProducts().subscribe((res)=>{
-      this.cartProduct = res;
-      this.totalItem = this.cartProduct.reduce((sum, item) => sum + item.quantity, 0); 
-    })
-  }
 
   emailPattern:RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   capPattern: RegExp = /^[0-9]{5}$/;

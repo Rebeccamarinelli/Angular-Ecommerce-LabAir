@@ -2329,11 +2329,16 @@
       "email": "ciao@gmail.com",
       "password": "$2a$10$ONfphVlN3Z2ZoWlr2O7O0.CSWG0g72y/lVIaAkEQ3A2H8.5B84OBe",
       "id": 5
+    },
+    {
+      "email": "Simone@gmail.com",
+      "password": "$2a$10$N0K.hFHPC7PXbTDbjwCLO.zgXSCy4kdb8al1iSqPYWbbKhOPpMNKe",
+      "id": 6
     }
   ],
   "orders": [
     {
-      "id": 1725366333765,
+      "id": 1725965656532,
       "nome": "Nike Air Zoom Alphafly",
       "categoria": "Running",
       "prezzo": 179.99,
@@ -2341,188 +2346,32 @@
       "tagliaSelezionata": "38",
       "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/626e3be8-7998-4f72-a7e1-cdf4ac5f713f/AIR+ZOOM+ALPHAFLY+NEXT%25+3.png",
       "quantity": 1,
-      "userId": "2",
-      "data": "2024-09-03T12:25:26.825Z"
+      "userId": "6",
+      "data": "2024-09-10T10:54:08.309Z"
     },
     {
-      "id": 1725366362113,
-      "nome": "Nike React Infinity Run Flyknit",
-      "categoria": "Running",
-      "prezzo": 159.99,
-      "coloreSelezionato": "Verde",
-      "tagliaSelezionata": "43",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/8eb5e8dd-3f76-4024-946d-434c42c9aa2a/W+NIKE+REACTX+INFINITY+RUN+4.png",
-      "quantity": 2,
-      "userId": "2",
-      "data": "2024-09-03T12:25:56.264Z"
-    },
-    {
-      "id": 1725366413585,
-      "nome": "Nike Air Force 1",
-      "categoria": "Sneakers",
-      "prezzo": 109.99,
-      "coloreSelezionato": "Verde",
-      "tagliaSelezionata": "38",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/0cdd19d6-e657-4f54-9444-e0fa1e9eb09a/W+AF1+SHADOW.png",
-      "quantity": 1,
-      "userId": "2",
-      "data": "2024-09-03T12:26:46.687Z"
-    },
-    {
-      "id": 1725366413586,
-      "nome": "Nike Giannis Immortality 3",
-      "categoria": "Basket",
-      "prezzo": 129.99,
-      "coloreSelezionato": "Blu",
-      "tagliaSelezionata": "39",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3d96eab7-925e-4ecf-8819-2d6f4e8ac65d/GIANNIS+IMMORTALITY+3.png",
-      "quantity": 1,
-      "userId": "2",
-      "data": "2024-09-03T12:26:46.687Z"
-    },
-    {
-      "id": 1725461596003,
-      "nome": "Nike Air Zoom Freak 1",
-      "categoria": "Basket",
-      "prezzo": 119.99,
-      "coloreSelezionato": "Blu",
-      "tagliaSelezionata": "38",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/df7c9aba-ed5f-4007-9c7c-93eb3a478b7f/JA+1+SE+%28GS%29.png",
-      "quantity": 1,
-      "userId": "2",
-      "data": "2024-09-04T14:53:00.461Z"
-    },
-    {
-      "id": 1725461734002,
-      "nome": "Nike Air Force 1",
-      "categoria": "Sneakers",
-      "prezzo": 109.99,
-      "coloreSelezionato": "Verde",
-      "tagliaSelezionata": "38",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/0cdd19d6-e657-4f54-9444-e0fa1e9eb09a/W+AF1+SHADOW.png",
-      "quantity": 1,
-      "userId": "2",
-      "data": "2024-09-04T14:55:23.580Z"
-    },
-    {
-      "id": 1725462117252,
-      "nome": "Nike Air Zoom Freak 1",
-      "categoria": "Basket",
-      "prezzo": 119.99,
-      "coloreSelezionato": "Blu",
-      "tagliaSelezionata": "38",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/df7c9aba-ed5f-4007-9c7c-93eb3a478b7f/JA+1+SE+%28GS%29.png",
-      "quantity": 1,
-      "userId": "2",
-      "data": "2024-09-04T15:01:47.345Z"
-    },
-    {
-      "id": 1725462206396,
-      "nome": "Nike React Infinity Run Flyknit",
-      "categoria": "Running",
-      "prezzo": 159.99,
-      "coloreSelezionato": "Verde",
-      "tagliaSelezionata": "38",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/8eb5e8dd-3f76-4024-946d-434c42c9aa2a/W+NIKE+REACTX+INFINITY+RUN+4.png",
-      "quantity": 1,
-      "userId": "2",
-      "data": "2024-09-04T15:03:20.623Z"
-    },
-    {
-      "id": 1725462788942,
-      "nome": "Nike Air Zoom Alphafly NEXT%",
-      "categoria": "Running",
-      "prezzo": 249.99,
-      "coloreSelezionato": "Giallo",
-      "tagliaSelezionata": "39",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/477abbf8-b37a-4fe6-b516-08e294a8487a/AIR+ZOOM+ALPHAFLY+NEXT%25+3.png",
-      "quantity": 1,
-      "userId": "2",
-      "data": "2024-09-04T15:12:58.417Z"
-    },
-    {
-      "id": 1725541204693,
-      "nome": "Nike Air Jordan 4 Retro",
-      "categoria": "Basket",
-      "prezzo": 199.99,
-      "coloreSelezionato": "Bianco",
-      "tagliaSelezionata": "38",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/7ab3f3be-970f-4518-b8fe-c24c1c500d71/GIANNIS+IMMORTALITY+4.png",
-      "quantity": 1,
-      "userId": "2",
-      "data": "2024-09-05T12:59:57.955Z"
-    },
-    {
-      "id": 1725541282099,
-      "nome": "Nike Air Force 1",
-      "categoria": "Sneakers",
-      "prezzo": 109.99,
-      "coloreSelezionato": "Bianco",
-      "tagliaSelezionata": "39",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/odhlk8ksqmstmdcjjyn0/W+AF1+SHADOW.png",
-      "quantity": 1,
-      "userId": "2",
-      "data": "2024-09-05T13:01:14.303Z"
-    },
-    {
-      "id": 1725543431683,
-      "nome": "Nike Air Zoom Vomero 16",
-      "categoria": "Running",
-      "prezzo": 149.99,
-      "coloreSelezionato": "Blu",
-      "tagliaSelezionata": "42",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c6655793-9db2-41f3-9402-c0f9cea9f0da/NIKE+VOMERO+17.png",
-      "quantity": 1,
-      "userId": "2",
-      "data": "2024-09-05T13:37:05.341Z"
-    },
-    {
-      "id": 1725577798456,
-      "nome": "Nike Air Force 1",
-      "categoria": "Sneakers",
-      "prezzo": 109.99,
-      "coloreSelezionato": "Verde",
-      "tagliaSelezionata": "39",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/0cdd19d6-e657-4f54-9444-e0fa1e9eb09a/W+AF1+SHADOW.png",
-      "quantity": 3,
-      "userId": "2",
-      "data": "2024-09-05T23:09:52.407Z"
-    },
-    {
-      "id": 1725635039115,
-      "nome": "Nike React Infinity Run Flyknit",
-      "categoria": "Running",
-      "prezzo": 159.99,
-      "coloreSelezionato": "Verde",
-      "tagliaSelezionata": "38",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/8eb5e8dd-3f76-4024-946d-434c42c9aa2a/W+NIKE+REACTX+INFINITY+RUN+4.png",
-      "quantity": 1,
-      "userId": "2",
-      "data": "2024-09-06T15:03:53.041Z"
-    },
-    {
-      "id": 1725635039116,
+      "id": 1725965656533,
       "nome": "Nike Air Zoom Terra Kiger 7",
       "categoria": "Trail Running",
       "prezzo": 139.99,
       "coloreSelezionato": "Arancione",
-      "tagliaSelezionata": "39",
+      "tagliaSelezionata": "41",
       "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/046ffc6f-a563-47f3-8585-24afc9a47486/W+NIKE+REACTX+PEGASUS+TRAIL+5.png",
       "quantity": 1,
-      "userId": "2",
-      "data": "2024-09-06T15:03:53.041Z"
+      "userId": "6",
+      "data": "2024-09-10T10:54:08.309Z"
     },
     {
-      "id": 1725883555923,
-      "nome": "Nike Air Zoom Freak 1",
-      "categoria": "Basket",
-      "prezzo": 119.99,
-      "coloreSelezionato": "Blu",
-      "tagliaSelezionata": "38",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/df7c9aba-ed5f-4007-9c7c-93eb3a478b7f/JA+1+SE+%28GS%29.png",
+      "id": 1725965703123,
+      "nome": "Nike React Infinity Run Flyknit",
+      "categoria": "Running",
+      "prezzo": 159.99,
+      "coloreSelezionato": "Verde",
+      "tagliaSelezionata": "45",
+      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/8eb5e8dd-3f76-4024-946d-434c42c9aa2a/W+NIKE+REACTX+INFINITY+RUN+4.png",
       "quantity": 1,
-      "userId": "2",
-      "data": "2024-09-09T12:05:30.891Z"
+      "userId": "6",
+      "data": "2024-09-10T10:54:53.827Z"
     }
   ]
 }
