@@ -2372,6 +2372,30 @@
       "quantity": 1,
       "userId": "6",
       "data": "2024-09-10T10:54:53.827Z"
+    },
+    {
+      "id": 1725966096262,
+      "nome": "Nike Zoom Freak 2",
+      "categoria": "Running",
+      "prezzo": 129.99,
+      "coloreSelezionato": "Viola",
+      "tagliaSelezionata": "38",
+      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/7c2d678c-7f10-40df-ba7d-0872137761c6/WMNS+ZOOM+FLY+5.png",
+      "quantity": 1,
+      "userId": "2",
+      "data": "2024-09-10T11:01:29.190Z"
+    },
+    {
+      "id": 1725966244602,
+      "nome": "Nike Air Zoom SuperRep",
+      "categoria": "Training",
+      "prezzo": 129.99,
+      "coloreSelezionato": "Blu",
+      "tagliaSelezionata": "39",
+      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/8d87db41-23ff-46f5-91de-e51956975482/NIKE+REACTX+PEGASUS+TRAIL+5.png",
+      "quantity": 1,
+      "userId": "2",
+      "data": "2024-09-10T11:03:58.043Z"
     }
   ]
 }
