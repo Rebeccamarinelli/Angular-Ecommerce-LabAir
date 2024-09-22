@@ -25,7 +25,7 @@ export class HeaderComponent {
   private body: HTMLElement;
   bannerElement!: ElementRef<HTMLDivElement>;
   totalItem:number;
-  listItem:IProdotti[] = [] //----------bisogna tipizzare getproducts in cart services per definirlo dice object
+  listItem:IProdotti[] = [] 
 
   hideComponents:boolean = true;
   
@@ -92,7 +92,7 @@ export class HeaderComponent {
  
   //da spostare in un file di dati condiviso poiche si può riutilizzare nel side-product
   categories: string[] = ['Basket', 'Running', 'Training', 'Sneakers', 'Trail Running'];
-  isOpen:boolean = true;
+  isOpen:boolean = false;
 
   filterNewArrivals() {
     this.router.navigate(['/products'], { queryParams: { filter: 'nuovo_arrivi' } }); 
@@ -125,7 +125,7 @@ export class HeaderComponent {
  }
 
   isVisibleMenu(): void{
-   
+    this.isOpen = !this.isOpen;
     const menu = document.querySelector('.menu-mobile');
     const over = document.querySelector('.overlay');
     menu.classList.toggle('menu-mobile-visibile');
@@ -136,21 +136,24 @@ export class HeaderComponent {
     document.querySelector('.last').classList.toggle('close-th')
     
    
-    if(this.isOpen && window.innerWidth < 1000){
+    if(this.isOpen){
       document.body.style.overflow = 'hidden';
     }else{
       document.body.style.overflow = 'auto';
     }
-    this.isOpen = !this.isOpen;
+
+    
+    console.log(this.isOpen)
+    
   }
 
 
   onResize(): void {
-    // Controlla la larghezza della finestra e gestisci l'overflow
+    
     if (window.innerWidth > 1000) {
-      // Se la larghezza è maggiore di 1000px, ripristina l'overflow su 'auto'
+      
       document.body.style.overflow = 'auto';
-      this.isOpen = false; // Assicurati che il menu sia chiuso in modalità desktop
+      this.isOpen = false;
       const menu = document.querySelector('.menu-mobile');
       const over = document.querySelector('.overlay');
       menu.classList.remove('menu-mobile-visibile');
