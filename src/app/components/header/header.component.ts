@@ -125,16 +125,18 @@ export class HeaderComponent {
  }
 
   isVisibleMenu(): void{
+   
     const menu = document.querySelector('.menu-mobile');
     const over = document.querySelector('.overlay');
     menu.classList.toggle('menu-mobile-visibile');
     over.classList.toggle('opacity-overlay')
+    this.body.classList.toggle('hiddenBody')
     document.querySelector('.first-span').classList.toggle('closing')
     document.querySelector('.mid').classList.toggle('close-scd')
     document.querySelector('.last').classList.toggle('close-th')
     
    
-    if(this.isOpen  || window.innerWidth < 1000){
+    if(this.isOpen && window.innerWidth < 1000){
       document.body.style.overflow = 'hidden';
     }else{
       document.body.style.overflow = 'auto';

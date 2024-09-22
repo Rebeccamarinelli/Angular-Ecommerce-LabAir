@@ -2396,6 +2396,18 @@
       "quantity": 1,
       "userId": "2",
       "data": "2024-09-10T11:03:58.043Z"
+    },
+    {
+      "id": 1726836425289,
+      "nome": "Nike Air Max 270",
+      "categoria": "Sneakers",
+      "prezzo": 129.99,
+      "coloreSelezionato": "Rosso",
+      "tagliaSelezionata": "38",
+      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/610ab405-6908-4832-b6b4-176bf2e30267/W+AIR+MAX+270.png",
+      "quantity": 1,
+      "userId": "2",
+      "data": "2024-09-20T12:46:57.696Z"
     }
   ]
 }
