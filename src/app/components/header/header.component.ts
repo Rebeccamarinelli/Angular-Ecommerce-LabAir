@@ -12,7 +12,7 @@ import { IProdotti } from '../../models/models';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent { 
 
  constructor(
   private router:Router,
