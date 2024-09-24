@@ -2350,6 +2350,18 @@
       "quantity": 1,
       "userId": "2",
       "data": "2024-09-24T09:19:37.902Z"
+    },
+    {
+      "id": 1727193442991,
+      "nome": "Nike Air Jordan 1 Mid",
+      "categoria": "Basket",
+      "prezzo": 149.99,
+      "coloreSelezionato": "Bianco",
+      "tagliaSelezionata": "38",
+      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/7cbbc064-e8a4-4cc6-848c-489d70ad3920/AIR+FORCE+1+%2707+LV8.png",
+      "quantity": 3,
+      "userId": "2",
+      "data": "2024-09-24T15:57:17.130Z"
     }
   ]
 }
