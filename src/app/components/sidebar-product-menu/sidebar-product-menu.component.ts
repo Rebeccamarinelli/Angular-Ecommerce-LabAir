@@ -29,7 +29,7 @@ constructor(
 
     this.filtro.valueChanges.subscribe((value)=>{
       this.getProd()
-      console.log(value)
+     // console.log(value)
       if(value.trim()=== ''){
         this.router.navigate(['products'])
         this.passArray()

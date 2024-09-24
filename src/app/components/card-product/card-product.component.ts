@@ -42,7 +42,7 @@ export class CardProductComponent {
    
 
   riceviFilteredList(data: { filteredList: IProdotti[], searchValue: string }): void{
-    console.log(data)
+   // console.log(data)
     if (data.filteredList && data.filteredList.length === 50 && data.searchValue === '') {
         this.prodottiServ.getAllProducts().subscribe((res) => {
          this.products = res;
@@ -57,7 +57,6 @@ export class CardProductComponent {
    
     this.activetedRouter.queryParams.subscribe(params => {
 
-      //this.loadProducts()
       
        if (params['filter'] === 'nuovo_arrivi') {
           this.spinner.showSpinner()
@@ -109,6 +108,7 @@ export class CardProductComponent {
 
 
   loadMoreProducts(): void {
+
     if (!this.loadInfinite || this.loadProd) {
       return;
     }
@@ -131,7 +131,7 @@ export class CardProductComponent {
       }
       
       this.loadProd = false;
-      console.log('Products:', this.products);
+     // console.log('Prodotti caricati:', this.products);
     }
     );
   }
@@ -143,15 +143,9 @@ export class CardProductComponent {
       if(this.router.url === '/products'){
         if (scrollTop + clientHeight >= scrollHeight - 10 && !this.loadProd) {
           this.loadMoreProducts();
-         // console.log('Scorri per caricare più prodotti');
         }
       }
     }
-  }
-
-  loadProducts(): void {
-    // Carica tutti i prodotti iniziali
-    this.loadMoreProducts()
   }
 
 

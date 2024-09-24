@@ -31,7 +31,7 @@ constructor(private cartService:CartService,
 
  dataPaySend(e:Event, form:NgForm): void{
     e.preventDefault()
-    console.log(form);
+    //console.log(form);
 
     this.cartService.getProducts().pipe(take(1)).subscribe((res)=>{
     const userId = this.authService.getUserId(); 

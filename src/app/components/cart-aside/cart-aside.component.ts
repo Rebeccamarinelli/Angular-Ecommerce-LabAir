@@ -14,7 +14,7 @@ export class CartAsideComponent {
   constructor(private cartService: CartService){}
 
     ngOnInit():void{
-      this.cartService.totalPrice$.subscribe((total)=>{
+      this.cartService.totalPrice.subscribe((total)=>{
         this.total = +total.toFixed(2);
       })
      

@@ -14,165 +14,166 @@ import { IProdotti } from '../../models/models';
 })
 export class HeaderComponent { 
 
- constructor(
-  private router:Router,
-  private cartService: CartService){
+constructor(
+private router:Router,
+private cartService: CartService){
 
-  window.addEventListener('resize', () => this.onResize());
-  }
-
-  private lastScroll: number = 0;
-  private body: HTMLElement;
-  bannerElement!: ElementRef<HTMLDivElement>;
-  totalItem:number;
-  listItem:IProdotti[] = [] 
-
-  hideComponents:boolean = true;
-  
-  riceviBanner(elementRef: ElementRef<HTMLDivElement>):void{
-    this.bannerElement = elementRef;
-  }
-
-  ngOnInit(): void {
-    this.body = document.body;
-    this.cartService.getProducts().subscribe((res:IProdotti[]) => {
-        //logica che gestisce i prodotti inseriti nel carrello e tramite reduce permette di sommare il numero (comprese qty) dei prodotti nel carrello
-        this.listItem = res
-        this.totalItem = this.listItem.reduce((sum:number, item:IProdotti) => sum + item.quantity, 0); 
-    })
- 
-    this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe((event: NavigationEnd) => {
-
-        // Aggiungo le rotte in cui voglio nascondere i componenti
-        const routesToShow:string[] = ['/home'];
-  
-        // Se la route corrente è inclusa in routesToHide, nascondo i componenti
-        this.hideComponents = !routesToShow.includes(event.urlAfterRedirects);
-      });
-   
- }
-
- ngOnDestroy() : void{
-  window.removeEventListener('resize', () => this.onResize());
+window.addEventListener('resize', () => this.onResize());
 }
 
-  @HostListener('window:scroll', []) onWindowScroll(): void {
-    const currentScroll = window.scrollY || document.documentElement.scrollTop || 0;
+private lastScroll: number = 0;
+private body: HTMLElement;
+bannerElement!: ElementRef<HTMLDivElement>;
+totalItem:number;
+listItem:IProdotti[] = [] 
 
-    if (currentScroll <= 0) {
+hideComponents:boolean = true;
+
+riceviBanner(elementRef: ElementRef<HTMLDivElement>):void{
+  this.bannerElement = elementRef;
+}
+
+ngOnInit(): void {
+  this.body = document.body;
+  this.cartService.getProducts().subscribe((res:IProdotti[]) => {
+      //logica che gestisce i prodotti inseriti nel carrello e tramite reduce permette di sommare il numero (comprese qty) dei prodotti nel carrello
+      this.listItem = res
+      this.totalItem = this.listItem.reduce((sum:number, item:IProdotti) => sum + item.quantity, 0); 
+  })
+
+  this.router.events
+    .pipe(filter(event => event instanceof NavigationEnd))
+    .subscribe((event: NavigationEnd) => {
+
+      // Aggiungo le rotte in cui voglio nascondere i componenti
+      const routesToShow:string[] = ['/home'];
+
+      // Se la route corrente è inclusa in routesToHide, nascondo i componenti
+      this.hideComponents = !routesToShow.includes(event.urlAfterRedirects);
+    });
+  
+}
+
+ngOnDestroy() : void{
+window.removeEventListener('resize', () => this.onResize());
+}
+
+@HostListener('window:scroll', []) onWindowScroll(): void {
+  const currentScroll = window.scrollY || document.documentElement.scrollTop || 0;
+
+  if (currentScroll <= 0) {
+    this.body.classList.remove('scroll-up');
+    this.body.classList.remove('scroll-down');
+    this.bannerElement.nativeElement.style.display='block'
+  } 
+  else if (currentScroll > this.lastScroll) {
+    // Scroll down
+    if (!this.body.classList.contains('scroll-down')) {
       this.body.classList.remove('scroll-up');
-      this.body.classList.remove('scroll-down');
-      this.bannerElement.nativeElement.style.display='block'
-    } 
-    else if (currentScroll > this.lastScroll) {
-      // Scroll down
-      if (!this.body.classList.contains('scroll-down')) {
-        this.body.classList.remove('scroll-up');
-        this.body.classList.add('scroll-down');
-        if(currentScroll >= 3){
-          this.bannerElement.nativeElement.style.display='none'
-        }
-      }
-    } 
-    else if (currentScroll < this.lastScroll) {
-      // Scroll up
-      if (!this.body.classList.contains('scroll-up')) {
-        this.body.classList.remove('scroll-down');
-        this.body.classList.add('scroll-up');
-         this.bannerElement.nativeElement.style.display='none'
+      this.body.classList.add('scroll-down');
+      if(currentScroll >= 3){
+        this.bannerElement.nativeElement.style.display='none'
       }
     }
-
-    this.lastScroll = currentScroll;
+  } 
+  else if (currentScroll < this.lastScroll) {
+    // Scroll up
+    if (!this.body.classList.contains('scroll-up')) {
+      this.body.classList.remove('scroll-down');
+      this.body.classList.add('scroll-up');
+        this.bannerElement.nativeElement.style.display='none'
+    }
   }
 
- 
-  //da spostare in un file di dati condiviso poiche si può riutilizzare nel side-product
-  categories: string[] = ['Basket', 'Running', 'Training', 'Sneakers', 'Trail Running'];
-  isOpen:boolean = false;
+  this.lastScroll = currentScroll;
+}
 
-  filterNewArrivals(): void {
-    this.router.navigate(['/products'], { queryParams: { filter: 'nuovo_arrivi' } }); 
-    this.selectingMenu()
-    this.isOpen = !this.isOpen;
-                                            // ?filter = nuovo_arrivi
-  }
+categories: string[] = ['Basket', 'Running', 'Training', 'Sneakers', 'Trail Running'];
+isOpen:boolean = false;
+routerHome:string = '';
 
-  filterBestSellers(): void {
-    this.router.navigate(['/products'], { queryParams: { filter: 'best_sellers' } });
-    this.selectingMenu()
-    this.isOpen = !this.isOpen;
-  }
+filterNewArrivals(): void {
+  this.router.navigate(['/products'], { queryParams: { filter: 'nuovo_arrivi' } }); 
+  this.selectingMenu()
+  this.isOpen = !this.isOpen;
+                                          // ?filter = nuovo_arrivi
+  this.routerHome = '/home';
+}
 
-  filterByCategory(category: string) : void{
-    this.router.navigate(['/products'], { queryParams: { category } });
-    this.selectingMenu() 
-    this.isOpen = !this.isOpen;
-  }
+filterBestSellers(): void {
+  this.router.navigate(['/products'], { queryParams: { filter: 'best_sellers' } });
+  this.selectingMenu()
+  this.isOpen = !this.isOpen;
+  this.routerHome = '/home';
+}
 
- selectingMenu():void{
+filterByCategory(category: string) : void{
+  this.router.navigate(['/products'], { queryParams: { category } });
+  this.selectingMenu() 
+  this.isOpen = !this.isOpen;
+  this.routerHome = '/home';
+}
+
+selectingMenu():void{
+const menu = document.querySelector('.menu-mobile');
+const over = document.querySelector('.overlay');
+menu.classList.remove('menu-mobile-visibile')
+over.classList.remove('opacity-overlay')
+document.body.style.overflow = 'auto';
+document.querySelector('.first-span').classList.remove('closing')
+document.querySelector('.mid').classList.remove('close-scd')
+document.querySelector('.last').classList.remove('close-th')
+}
+
+isVisibleMenu(): void{
+  this.isOpen = !this.isOpen;
   const menu = document.querySelector('.menu-mobile');
   const over = document.querySelector('.overlay');
-  menu.classList.remove('menu-mobile-visibile')
-  over.classList.remove('opacity-overlay')
-  document.body.style.overflow = 'auto';
-  document.querySelector('.first-span').classList.remove('closing')
-  document.querySelector('.mid').classList.remove('close-scd')
-  document.querySelector('.last').classList.remove('close-th')
- }
+  menu.classList.toggle('menu-mobile-visibile');
+  over.classList.toggle('opacity-overlay')
+  this.body.classList.toggle('hiddenBody')
+  document.querySelector('.first-span').classList.toggle('closing')
+  document.querySelector('.mid').classList.toggle('close-scd')
+  document.querySelector('.last').classList.toggle('close-th')
+  
+  
+  if(this.isOpen){
+    document.body.style.overflow = 'hidden';
+    this.routerHome = null;
+  }else{
+    document.body.style.overflow = 'auto';
+    this.routerHome = '/home';
+  }
+  
+}
 
-  isVisibleMenu(): void{
-    this.isOpen = !this.isOpen;
+
+onResize(): void {
+  
+  if (window.innerWidth > 1000) {
+    
+    document.body.style.overflow = 'auto';
+    this.isOpen = false;
     const menu = document.querySelector('.menu-mobile');
     const over = document.querySelector('.overlay');
-    menu.classList.toggle('menu-mobile-visibile');
-    over.classList.toggle('opacity-overlay')
-    this.body.classList.toggle('hiddenBody')
-    document.querySelector('.first-span').classList.toggle('closing')
-    document.querySelector('.mid').classList.toggle('close-scd')
-    document.querySelector('.last').classList.toggle('close-th')
-    
-   
-    if(this.isOpen){
-      document.body.style.overflow = 'hidden';
-    }else{
-      document.body.style.overflow = 'auto';
-    }
-
-    
-    console.log(this.isOpen)
-    
+    menu.classList.remove('menu-mobile-visibile');
+    over.classList.remove('opacity-overlay')
+    document.querySelector('.first-span').classList.remove('closing')
+    document.querySelector('.mid').classList.remove('close-scd')
+    document.querySelector('.last').classList.remove('close-th')
   }
+}
 
+overlayOn(): void{
+  const overlay = document.querySelector('.overlay-bg');
+  overlay.classList.add('visibility');
+  document.body.style.overflow = 'hidden';
+}
 
-  onResize(): void {
-    
-    if (window.innerWidth > 1000) {
-      
-      document.body.style.overflow = 'auto';
-      this.isOpen = false;
-      const menu = document.querySelector('.menu-mobile');
-      const over = document.querySelector('.overlay');
-      menu.classList.remove('menu-mobile-visibile');
-      over.classList.remove('opacity-overlay')
-      document.querySelector('.first-span').classList.remove('closing')
-      document.querySelector('.mid').classList.remove('close-scd')
-      document.querySelector('.last').classList.remove('close-th')
-    }
-  }
-
-  overlayOn(): void{
-    const overlay = document.querySelector('.overlay-bg');
-    overlay.classList.add('visibility');
-    document.body.style.overflow = 'hidden';
-  }
-
-  overlayOff(): void{
-    const overlay = document.querySelector('.overlay-bg');
-    overlay.classList.remove('visibility')
-    document.body.style.overflow = 'auto';
-  }
+overlayOff(): void{
+  const overlay = document.querySelector('.overlay-bg');
+  overlay.classList.remove('visibility')
+  document.body.style.overflow = 'auto';
+}
 
 }
