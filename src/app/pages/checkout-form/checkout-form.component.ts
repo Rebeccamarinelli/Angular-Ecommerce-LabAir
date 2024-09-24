@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { CartService } from '../../services/cart.service';
-import { IDataForm, IProdotti } from '../../models/models';
+import { IDataForm} from '../../models/models';
 import { NgForm } from '@angular/forms';
 
 @Component({

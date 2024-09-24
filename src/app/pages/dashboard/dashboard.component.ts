@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { OrdersService } from '../../services/orders.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { IOrder } from '../../models/models';
 
 
 @Component({
@@ -11,8 +12,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class DashboardComponent {
 
-  pastOrdersList:any=[]
-  errorMessage: string = '';
+  pastOrdersList:IOrder[]=[]
+
   
 
 constructor(private ordersService:OrdersService,
@@ -21,18 +22,8 @@ constructor(private ordersService:OrdersService,
 
 
   this.ordersService.getAllOrders().subscribe((res)=>{
-    console.log(res)
+    //console.log(res)
     this.pastOrdersList = res;
-  },
-  (error) => {
-    console.log(error)
-    if(error.status === 401){
-      this.route.navigate(['auth', 'login']);
-    }else if(error.status === 0 || error.status === 400){
-      this.errorMessage = 'Errore 400 qualcosa è andato storto nel caricamento dei prodotti'
-    }else if(error.status === 500){
-      this.errorMessage = 'Errore 500 Internal Server Error'
-    }
   })
   
 }

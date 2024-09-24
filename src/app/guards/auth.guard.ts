@@ -12,7 +12,7 @@ constructor(private route:Router){}
     state: RouterStateSnapshot): MaybeAsync<GuardResult> {
 
       const token: string | null = localStorage.getItem('token');
-      console.log('sono nella guard')
+     // console.log('sono nella guard')
       if(token !== null){
         return true;
       }else{

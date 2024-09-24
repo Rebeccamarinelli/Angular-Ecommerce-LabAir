@@ -15,12 +15,12 @@ export class HomeHeroComponent {
     // Controlla se l'animazione è già stata eseguita
     const animationPlayed = sessionStorage.getItem('heroAnimationPlayed');
 
-    // Esegui l'animazione solo se non è già stata eseguita
+    
     if (!animationPlayed) {
-      // Blocca lo scroll
+     
       document.body.style.overflow = 'hidden';
 
-      // Applica l'animazione GSAP sull'immagine della hero
+      
       gsap.from(this.heroImage.nativeElement, { 
         duration: 2,      // Durata dell'animazione
         opacity: 0,       // Partenza con opacità 0
@@ -32,12 +32,11 @@ export class HomeHeroComponent {
           // Sblocca lo scroll alla fine dell'animazione
           document.body.style.overflow = 'auto';
 
-          // Salva lo stato dell'animazione in localStorage
+         
           sessionStorage.setItem('heroAnimationPlayed', 'true');
         }
       });
     } else {
-      // Sblocca lo scroll immediatamente se l'animazione è già stata eseguita
       document.body.style.overflow = 'auto';
     }
   }

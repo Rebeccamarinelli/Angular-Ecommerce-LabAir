@@ -46,14 +46,11 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
           this.router.navigate(['/home'])
         }
 
-        console.error(errorMessage);
 
-        // Ritorna un errore che può essere gestito dal chiamante
         return throwError(() => new Error(errorMessage));
         
       }),
       finalize(() => {
-        // Nascondi lo spinner quando la richiesta è terminata (successo o errore)
         this.spinner.hideSpinner();
       })
       

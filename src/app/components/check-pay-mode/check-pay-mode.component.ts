@@ -39,7 +39,7 @@ constructor(private cartService:CartService,
 
     if(localStorage.getItem('token')){
       this.cartProducts.forEach((product)=>{
-        // Destruttura le proprietà che vuoi escludere
+        // Destruttura le proprietà da escludere
      const { taglie_disponibili, colori_disponibili, colori_immagini, immagini_dettaglio, descrizione, immagine, nuovo_arrivi, best_seller, ...filteredProduct } = product;
        
      this.orderService.postOrders({

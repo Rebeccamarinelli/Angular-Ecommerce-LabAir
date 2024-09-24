@@ -18,7 +18,7 @@ export class HeaderComponent {
   private router:Router,
   private cartService: CartService){
 
-    window.addEventListener('resize', () => this.onResize());
+  window.addEventListener('resize', () => this.onResize());
   }
 
   private lastScroll: number = 0;
@@ -54,8 +54,7 @@ export class HeaderComponent {
    
  }
 
- ngOnDestroy() {
-  // Rimuovi l'evento di resize quando il componente è distrutto
+ ngOnDestroy() : void{
   window.removeEventListener('resize', () => this.onResize());
 }
 
@@ -94,20 +93,20 @@ export class HeaderComponent {
   categories: string[] = ['Basket', 'Running', 'Training', 'Sneakers', 'Trail Running'];
   isOpen:boolean = false;
 
-  filterNewArrivals() {
+  filterNewArrivals(): void {
     this.router.navigate(['/products'], { queryParams: { filter: 'nuovo_arrivi' } }); 
     this.selectingMenu()
     this.isOpen = !this.isOpen;
                                             // ?filter = nuovo_arrivi
   }
 
-  filterBestSellers() {
+  filterBestSellers(): void {
     this.router.navigate(['/products'], { queryParams: { filter: 'best_sellers' } });
     this.selectingMenu()
     this.isOpen = !this.isOpen;
   }
 
-  filterByCategory(category: string) {
+  filterByCategory(category: string) : void{
     this.router.navigate(['/products'], { queryParams: { category } });
     this.selectingMenu() 
     this.isOpen = !this.isOpen;
@@ -164,13 +163,13 @@ export class HeaderComponent {
     }
   }
 
-  overlayOn(){
+  overlayOn(): void{
     const overlay = document.querySelector('.overlay-bg');
     overlay.classList.add('visibility');
     document.body.style.overflow = 'hidden';
   }
 
-  overlayOff(){
+  overlayOff(): void{
     const overlay = document.querySelector('.overlay-bg');
     overlay.classList.remove('visibility')
     document.body.style.overflow = 'auto';

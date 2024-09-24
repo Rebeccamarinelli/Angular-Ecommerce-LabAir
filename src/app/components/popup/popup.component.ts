@@ -19,7 +19,7 @@ export class PopupComponent {
     });
   }
 
-  closePopup() {
+  closePopup():void {
     this.isVisible = false;
     this.popupService.closePopup();
   }

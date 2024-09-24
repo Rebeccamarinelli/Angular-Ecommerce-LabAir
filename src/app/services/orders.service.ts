@@ -10,8 +10,8 @@ export class OrdersService {
 
   constructor(private http:HttpClient) { }
 
-  getAllOrders():Observable<IProdottiRes>{
-    return this.http.get<IProdottiRes>('http://localhost:3000/orders')
+  getAllOrders():Observable<IOrder[]>{
+    return this.http.get<IOrder[]>('http://localhost:3000/orders')
   }
 
  

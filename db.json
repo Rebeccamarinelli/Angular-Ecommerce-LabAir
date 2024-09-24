@@ -2316,98 +2316,40 @@
       "id": 2
     },
     {
-      "email": "cinzia@gmail.com",
-      "password": "$2a$10$DQGyAx.r0oyoSBGtjSXftuBit9OgkwuSOTV.aUFUpAnwa9CICndFy",
-      "id": 3
-    },
-    {
       "email": "giacomo@gmail.com",
       "password": "$2a$10$.77Ok8gtzLa05X6cpxGL1eNts5372eURa95gxvNrfAMBFPApJqGI2",
       "id": 4
     },
     {
       "email": "ciao@gmail.com",
-      "password": "$2a$10$ONfphVlN3Z2ZoWlr2O7O0.CSWG0g72y/lVIaAkEQ3A2H8.5B84OBe",
-      "id": 5
-    },
-    {
-      "email": "Simone@gmail.com",
-      "password": "$2a$10$N0K.hFHPC7PXbTDbjwCLO.zgXSCy4kdb8al1iSqPYWbbKhOPpMNKe",
-      "id": 6
+      "password": "$2a$10$Zr5pd6kUIcZvxTlaQGEJvex8JWunICgiRjZJ8pWlAYneeux9TjFEK",
+      "id": 7
     }
   ],
   "orders": [
     {
-      "id": 1725965656532,
-      "nome": "Nike Air Zoom Alphafly",
-      "categoria": "Running",
-      "prezzo": 179.99,
-      "coloreSelezionato": "Viola",
-      "tagliaSelezionata": "38",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/626e3be8-7998-4f72-a7e1-cdf4ac5f713f/AIR+ZOOM+ALPHAFLY+NEXT%25+3.png",
-      "quantity": 1,
-      "userId": "6",
-      "data": "2024-09-10T10:54:08.309Z"
-    },
-    {
-      "id": 1725965656533,
-      "nome": "Nike Air Zoom Terra Kiger 7",
-      "categoria": "Trail Running",
-      "prezzo": 139.99,
-      "coloreSelezionato": "Arancione",
-      "tagliaSelezionata": "41",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/046ffc6f-a563-47f3-8585-24afc9a47486/W+NIKE+REACTX+PEGASUS+TRAIL+5.png",
-      "quantity": 1,
-      "userId": "6",
-      "data": "2024-09-10T10:54:08.309Z"
-    },
-    {
-      "id": 1725965703123,
-      "nome": "Nike React Infinity Run Flyknit",
-      "categoria": "Running",
-      "prezzo": 159.99,
-      "coloreSelezionato": "Verde",
-      "tagliaSelezionata": "45",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/8eb5e8dd-3f76-4024-946d-434c42c9aa2a/W+NIKE+REACTX+INFINITY+RUN+4.png",
-      "quantity": 1,
-      "userId": "6",
-      "data": "2024-09-10T10:54:53.827Z"
-    },
-    {
-      "id": 1725966096262,
-      "nome": "Nike Zoom Freak 2",
-      "categoria": "Running",
-      "prezzo": 129.99,
-      "coloreSelezionato": "Viola",
-      "tagliaSelezionata": "38",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/7c2d678c-7f10-40df-ba7d-0872137761c6/WMNS+ZOOM+FLY+5.png",
-      "quantity": 1,
-      "userId": "2",
-      "data": "2024-09-10T11:01:29.190Z"
-    },
-    {
-      "id": 1725966244602,
-      "nome": "Nike Air Zoom SuperRep",
-      "categoria": "Training",
-      "prezzo": 129.99,
-      "coloreSelezionato": "Blu",
+      "id": 1727169359682,
+      "nome": "Nike Air Jordan 1 Mid",
+      "categoria": "Basket",
+      "prezzo": 149.99,
+      "coloreSelezionato": "Bianco",
       "tagliaSelezionata": "39",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/8d87db41-23ff-46f5-91de-e51956975482/NIKE+REACTX+PEGASUS+TRAIL+5.png",
+      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/7cbbc064-e8a4-4cc6-848c-489d70ad3920/AIR+FORCE+1+%2707+LV8.png",
       "quantity": 1,
       "userId": "2",
-      "data": "2024-09-10T11:03:58.043Z"
+      "data": "2024-09-24T09:15:51.399Z"
     },
     {
-      "id": 1726836425289,
-      "nome": "Nike Air Max 270",
-      "categoria": "Sneakers",
-      "prezzo": 129.99,
-      "coloreSelezionato": "Rosso",
+      "id": 1727169584601,
+      "nome": "Nike Air Zoom Freak 2",
+      "categoria": "Basket",
+      "prezzo": 119.99,
+      "coloreSelezionato": "Nero",
       "tagliaSelezionata": "38",
-      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/610ab405-6908-4832-b6b4-176bf2e30267/W+AIR+MAX+270.png",
+      "immagineSelezionata": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/0d3e413c-6861-4aff-9c57-5fd61bf9315b/ZOOM+FREAK+5.png",
       "quantity": 1,
       "userId": "2",
-      "data": "2024-09-20T12:46:57.696Z"
+      "data": "2024-09-24T09:19:37.902Z"
     }
   ]
 }

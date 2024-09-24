@@ -35,7 +35,7 @@ export class RegistrationComponent {
 )
 
   onRegister(): void{
-      console.log(this.registerForm)
+     // console.log(this.registerForm)
     
       const newUser: ILoginInfo = {
         email: this.registerForm.get('email').value,
@@ -43,7 +43,7 @@ export class RegistrationComponent {
       }
 
       this.auth.registration(newUser).subscribe((res)=>{
-        console.log(res)
+        //console.log(res)
         this.route.navigate(['auth', 'login'])
       })
   }
