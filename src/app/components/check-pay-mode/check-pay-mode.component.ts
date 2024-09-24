@@ -43,8 +43,8 @@ constructor(private cartService:CartService,
      const { taglie_disponibili, colori_disponibili, colori_immagini, immagini_dettaglio, descrizione, immagine, nuovo_arrivi, best_seller, ...filteredProduct } = product;
        
      this.orderService.postOrders({
-       ...filteredProduct,  // Includi tutte le proprietà che restano
-       id: Date.now(), // ID unico
+       ...filteredProduct,  // Include tutte le proprietà che restano
+       id: Date.now(), // ID unico timeStamp
        userId: userId,
        data: this.date
        

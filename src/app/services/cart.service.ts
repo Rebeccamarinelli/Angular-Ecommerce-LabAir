@@ -11,7 +11,7 @@ export class CartService {
   productList = new BehaviorSubject<IProdotti[]>([]);
   total: number = 0  
   totalPrice = new BehaviorSubject<number>(0);
-  // totalPrice$ = this.totalPrice.asObservable();  // Osservabile per il prezzo totale
+  
  
 
   getProducts():Observable<IProdotti[]>{
