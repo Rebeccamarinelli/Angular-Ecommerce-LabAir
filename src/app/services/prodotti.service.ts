@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IProdottiRes, IProdotti } from '../models/models';
+import { IProdotti } from '../models/models';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs';
-import { FormControl } from '@angular/forms';
-import { BehaviorSubject } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +16,6 @@ baseUrl = 'http://localhost:3000/prodotti'
 
   constructor(private http: HttpClient) {}
 
-  // Metodo per ottenere prodotti con paginazione
   getProducts(startIndex: number, limit: number): Observable<IProdotti[]> {
     const url:string = `${this.baseUrl}?_start=${startIndex}&_limit=${limit}`;
     return this.http.get<IProdotti[]>(url);

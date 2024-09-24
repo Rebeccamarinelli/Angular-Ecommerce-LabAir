@@ -10,8 +10,8 @@ export class CartService {
   cartItemList:IProdotti[]= [];
   productList = new BehaviorSubject<IProdotti[]>([]);
   total: number = 0  
-  private totalPrice = new BehaviorSubject<number>(0);
-  totalPrice$ = this.totalPrice.asObservable();  // Osservabile per il prezzo totale
+  totalPrice = new BehaviorSubject<number>(0);
+  // totalPrice$ = this.totalPrice.asObservable();  // Osservabile per il prezzo totale
  
 
   getProducts():Observable<IProdotti[]>{

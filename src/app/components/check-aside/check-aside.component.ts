@@ -19,7 +19,7 @@ export class CheckAsideComponent {
       this.cartProducts = res;
     })
 
-    this.cartService.totalPrice$.subscribe((total) => {
+    this.cartService.totalPrice.subscribe((total) => {
       this.total = parseFloat(total.toFixed(2));   
     });
 
